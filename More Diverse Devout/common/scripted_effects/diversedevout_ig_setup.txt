@@ -1,0 +1,298 @@
+﻿effect_set_devout_ideologies_by_religion = {
+	effect_remove_devout_ideologies_all = yes
+	if = {
+		limit = {
+			this.religion = rel:protestant
+		}
+		effect_set_devout_ideology_protestant = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:catholic }
+		effect_set_devout_ideology_catholic = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:anglican }
+		effect_set_devout_ideology_anglican = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:orthodox }
+		effect_set_devout_ideology_orthodox = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:oriental_orthodox }
+		effect_set_devout_ideology_oriental_orthodox = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:shiite }
+		effect_set_devout_ideology_shia = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:sunni }
+		effect_set_devout_ideology_sunni = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:sikh }
+		effect_set_devout_ideology_sikh = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:hindu }
+		effect_set_devout_ideology_hindu = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:theravada }
+		effect_set_devout_ideology_theravada = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:mahayana }
+		effect_set_devout_ideology_mahayana = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:gelugpa }
+		effect_set_devout_ideology_gelugpa = yes
+	}
+	else_if = {
+		limit = { this.religion = rel:confucianism }
+		effect_set_devout_ideology_confusionism = yes
+	}
+	else_if = {
+		limit = {  this.religion = rel:shinto }
+		#todo
+	}
+	else_if = {
+		limit = {  this.religion = rel:jewish }
+		#todo
+	}
+	else = {
+		effect_set_devout_ideology_vanilla = yes
+	}
+}
+
+effect_remove_devout_ideologies_all = {
+	ig:ig_devout = {
+		remove_ideology = ideology_pious
+		remove_ideology = ideology_moralist
+		remove_ideology = ideology_patriarchal
+		remove_ideology = ideology_confucian
+		remove_ideology = ideology_shinto_moralist
+		remove_ideology = ideology_buddhist_moralist
+		remove_ideology = ideology_hindu_moralist
+		remove_ideology = ideology_sikh_moralist
+		remove_ideology = ideology_oriental_orthodox_patriarch
+		remove_ideology = ideology_heavenly_kingdom_theocratic
+		remove_ideology = ideology_russian_patriarch
+	}	
+}
+
+effect_set_devout_ideology_vanilla = {
+	ig:ig_devout = {
+		add_ideology = ideology_pious
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_moralist
+	}
+}
+
+#For names: owner.capital.region should get strategic region of the capital of an IG's country & should allow setting specific names
+
+effect_set_devout_ideology_protestant = {
+	ig:ig_devout = {
+		set_interest_group_name = ig_protestant_church
+		if = {
+			limit = { owner = { has_variable = protestant_liberal }}
+			add_ideology = ideology_pious
+			add_ideology = ideology_patriarchal_personal
+			add_ideology = ideology_two_kingdoms
+			set_interest_group_name = ig_protestant_church_liberal
+		}
+		else = {
+			add_ideology = ideology_pious
+			add_ideology = ideology_patriarchal
+			add_ideology = ideology_state_church
+			if = {
+				limit = {
+					OR = {
+						owner = c:NET
+						owner = { country_has_primary_culture = cu:boer }
+						owner = { country_has_primary_culture = cu:dutch }
+						owner = {
+							any_overlord_or_above = { this = c:NET }
+						}
+					}
+				}
+				set_interest_group_name = ig_dutch_reformed_church
+			}
+			else_if = {
+				limit = {
+					OR = {
+						owner.capital.region = sr:region_north_germany
+						owner.capital.region = sr:region_south_germany
+						owner.capital.region = sr:region_poland
+						owner.capital.region = sr:region_rhine
+						owner.capital.region = sr:region_baltic
+					}
+				}
+				set_interest_group_name = ig_lutheran_church
+			}
+			else_if = {
+				limit = {
+					owner = { country_in_europe = yes }
+				}
+				set_interest_group_name = ig_reformed_church
+			}
+		}		
+	}
+}
+
+effect_set_devout_ideology_anglican = {
+	ig:ig_devout = { 
+		set_interest_group_name = ig_anglican_church
+		add_ideology = ideology_pious
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_state_church_anglican
+		add_ideology = ideology_church_lands
+	}
+}
+
+effect_set_devout_ideology_catholic = {
+	ig:ig_devout = { 
+		set_interest_group_name = ig_catholic_church
+		add_ideology = ideology_missionary_catholic
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_state_church
+		add_ideology = ideology_church_lands
+	}
+}
+
+effect_set_devout_ideology_orthodox = {
+	ig:ig_devout = { 
+		set_interest_group_name = ig_orthodox_church
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_state_church
+		add_ideology = ideology_church_lands
+	}
+}
+
+effect_set_devout_ideology_oriental_orthodox = {
+	ig:ig_devout = { 
+		set_interest_group_name = ig_oriental_orthodox_church
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_state_church
+		add_ideology = ideology_church_lands
+		if = {
+			limit = {
+				OR = {
+					owner = { country_is_in_middle_east = yes }
+					owner.capital.region = sr:region_nile_basin
+					owner.capital.region = sr:region_north_africa
+					owner.capital.region = sr:region_niger
+					owner.capital.region = sr:region_senegal
+				}
+			}
+			set_interest_group_name = ig_coptic_church
+		}
+		else_if = {
+			limit = {
+				owner = { country_is_in_africa = yes }
+			}
+			set_interest_group_name = ig_ethiopian_orthodox_church
+		}
+	}
+}
+
+effect_set_devout_ideology_jewish = {
+	#TBD
+}
+
+effect_set_devout_ideology_shia = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_shia_madrasahs
+		 add_ideology = ideology_maktab
+		 add_ideology = ideology_fiqh_shia
+		 add_ideology = ideology_patriarchal
+		 #waqf?
+	}
+}
+
+effect_set_devout_ideology_sunni = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_sunni_madrasahs
+		 add_ideology = ideology_maktab
+		 add_ideology = ideology_fiqh_sunni
+		 add_ideology = ideology_patriarchal
+		 #waqf?
+	}
+}
+
+effect_set_devout_ideology_sikh = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_sikh_priesthood
+		 add_ideology = ideology_seva_sikh
+		 add_ideology = ideology_khalsa
+		 add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_devout_ideology_hindu = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_hindu_priesthood
+		 add_ideology = ideology_seva_hindu
+		 add_ideology = ideology_dharma_varna
+		 add_ideology = ideology_patriarchal_extreme
+	}
+}
+
+effect_set_devout_ideology_theravada = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_theravada_monks
+		 add_ideology = ideology_making_merit
+		 add_ideology = ideology_royal_patronage
+		 add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_devout_ideology_mahayana = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_mahayana_monks
+		 add_ideology = ideology_making_merit
+		 add_ideology = ideology_royal_patronage
+		 add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_devout_ideology_gelugpa = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_vajrayana_monks
+		 add_ideology = ideology_making_merit
+		 add_ideology = ideology_tulku
+		 add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_devout_ideology_confusionism = {
+	ig:ig_devout = {
+		 set_interest_group_name = ig_scholar_officials
+		 add_ideology = ideology_imperial_exams
+		 add_ideology = ideology_li
+		 add_ideology = ideology_patriarchal
+	}
+}
+
+effect_set_devout_ideology_shinto = {
+	#TBD
+}
+
+
+effect_set_minority_faith = {
+	#Sadly this is non-functional
+	set_local_variable = {
+		name = highest_percent
+		value = 0
+	}
+	#set_local_variable = current_highest_percent_religion
+	#this is the part that isn't working. can't get the value back from religion_percent_country to find the largest minority faith
+	set_local_variable = {
+		name = anglican_percent
+		value = "religion_percent_country(rel:anglican)"
+	}
+}

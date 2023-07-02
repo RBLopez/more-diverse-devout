@@ -1,0 +1,35 @@
+﻿ORG = {
+	color = { 138  80 126 }
+	
+	country_type = colonial
+	
+	tier = principality
+	
+	cultures = { yankee anglo_canadian }
+	religion = anglican
+	capital = STATE_OREGON
+}
+
+MKT = {
+	color = hsv{ 0.5  0.6  0.6 }
+	
+	country_type = unrecognized
+	
+	tier = principality
+	
+	cultures = { miskito afro_caribbean }
+	religion = anglican
+	capital = STATE_NICARAGUA
+}
+
+CHI = {
+	color = { 252 185 61 }
+	
+	country_type = unrecognized
+	
+	tier = empire
+	
+	cultures = { manchu han }
+	religion = confucianism
+	capital = STATE_BEIJING
+}

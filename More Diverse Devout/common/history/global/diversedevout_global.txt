@@ -1,0 +1,164 @@
+﻿# This is executed last among all history
+GLOBAL = {
+
+
+	# set_global_variable = global_protestant_liberal
+
+	every_country = {
+		limit = {
+			this = c:USA
+		}
+		set_variable = protestant_liberal
+	}
+
+	#special setup for China/Qing (& Korea?), Japan, Russia (for serfdom)
+	#landowners get scholar-gentlemen trait (& name?) devout is scholar officials with better localization
+	#also setup literati (intelligencia) to be a bit more generic, but still remove anti-clerical (and different liberal trait?)
+	
+	every_country = {
+		limit = { this.religion = rel:protestant }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_protestant = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:catholic }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_catholic = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:anglican }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_anglican = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:orthodox }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_orthodox = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:oriental_orthodox }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_oriental_orthodox = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:shiite }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_shia = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_local_police
+			}
+			activate_law = law_type:law_religious_jurisprudence
+		}
+		if = {
+			limit = {
+				this.has_law = law_type:law_hereditary_bureaucrats
+			}
+			activate_law = law_type:law_religious_administration
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:sunni }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_sunni = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_local_police
+			}
+			activate_law = law_type:law_religious_jurisprudence
+		}
+		if = {
+			limit = {
+				this.has_law = law_type:law_hereditary_bureaucrats
+			}
+			activate_law = law_type:law_religious_administration
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:sikh }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_sikh = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:hindu }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_hindu = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_state_religion
+			}
+			activate_law = law_type:law_freedom_of_conscience
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:theravada }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_theravada = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_state_religion
+			}
+			activate_law = law_type:law_freedom_of_conscience
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:mahayana }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_mahayana = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_state_religion
+			}
+			activate_law = law_type:law_freedom_of_conscience
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:gelugpa }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_gelugpa = yes
+	}
+
+	every_country = {
+		limit = { this.religion = rel:confucianism }
+		effect_remove_devout_ideologies_all = yes
+		effect_set_devout_ideology_confusionism = yes
+		if = {
+			limit = {
+				this.has_law = law_type:law_state_religion
+			}
+			activate_law = law_type:law_freedom_of_conscience
+		}
+	}
+
+	every_country = {
+		limit = {
+			this = c:JAP
+		}
+		ig:ig_devout = {
+			add_ideology = ideology_terauke
+		}
+		activate_law = law_type:law_religious_administration
+	}
+
+	every_country = {
+		limit ={
+			this = c:RUS
+		}
+		ig:ig_devout = {
+			remove_ideology = ideology_church_lands
+			add_ideology = ideology_church_lands_russia
+		}
+	}
+
+}

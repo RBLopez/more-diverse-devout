@@ -1,0 +1,298 @@
+﻿ig_minority_faiths = {
+	color = hsv{ 0.50 0.30 0.67 }
+	texture = "gfx/interface/icons/ig_icons/devout.dds"
+	layer = "revolution_dynamic_devout"
+	index = 8
+	
+	ideologies = {
+		ideology_religious_minority
+	}
+	
+	enable = {
+		owner = {
+			NOT = {
+				has_law = law_type:law_state_religion
+			}
+		}
+		#minority devout visible if not state religion
+	} 
+	
+	traits = {
+		ig_trait_safe_haven
+		ig_trait_coexistence
+		ig_trait_underground_worship
+	}	
+	
+	on_enable = {
+		recalculate_pop_ig_support = yes
+	}
+
+	on_disable = {
+		recalculate_pop_ig_support = yes
+	}
+
+	on_character_ig_membership = {
+		
+	}
+		
+	
+	pop_potential = {
+		has_state_religion = no
+		OR = {
+			religion_accepted = yes
+			custom_description = {
+				text = tt_opposing_state_atheism
+				owner = {
+					has_law = law_type:law_state_atheism
+				}
+			}
+			
+		}
+		
+	}
+	
+	pop_weight = {
+		value = 25	
+
+		add = {
+			desc = "RURAL_POP"
+			if = {
+				limit = { 
+					OR = {
+						pop_employment_building_group = bg_agriculture
+						pop_employment_building_group = bg_ranching
+						pop_employment_building_group = bg_plantations				
+					}
+				}
+				value = 25
+			}
+		}
+
+		add = {
+			desc = "POP_CLERGYMEN"
+			if = {
+				limit = { 
+					is_pop_type = clergymen
+				}
+				value = 200
+			}
+		}
+
+		add = {
+			desc = "POP_PEASANTS"
+			if = {
+				limit = { 
+					is_pop_type = peasants
+				}
+				value = 100
+			}
+		}
+
+		add = {
+			desc = "Hates state atheism"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_state_atheism
+					}
+				}
+				value = 200
+			}
+		}
+		
+		
+		multiply = {
+			desc = "LEADER_POPULARITY"
+			scope:interest_group = {
+				leader = {
+					value = popularity
+					multiply = 0.005
+					add = 1
+					min = 0.75
+				}
+			}
+		}
+
+		multiply = {
+			desc = "IG_IS_MARGINALIZED"
+			value = 1.0
+			
+			scope:interest_group = {
+				if = {
+					limit = {
+						is_marginal = yes
+					}
+					value = 0.5
+				}
+			}
+		}					
+	}
+	
+	#nearly impossible
+	monarch_weight = {
+		value = 0.01
+		# Monarch is not likely to adopt a marginal IG
+		if = {
+			limit = {
+				is_marginal = yes
+			}
+			multiply = {
+				value = 0.1
+			}
+		}
+		# Monarch is more likely to adopt a Powerful IG
+		if = {
+			limit = {
+				is_powerful = yes
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		# Impossible with State Religion
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_state_religion
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+		# Basically impossible with State Atheism
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_state_atheism
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+
+	agitator_weight = {
+		value = 1.0
+		# Agitators will never be part of a marginalized IG
+		if = {
+			limit = {
+				owner.ig:ig_minority_faiths = {
+					is_marginal = yes
+				}
+			}
+			multiply = {
+				value = 0
+			}
+		}
+	}
+	
+	commander_weight = {
+		value = 1.0
+	}	
+	
+	noble_chance = {
+		value = 0.5
+	}
+	
+	female_commander_chance = {	
+		value = 0.0
+	}
+	
+	female_politician_chance = {
+		value = 0.0
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_own_property
+				}
+				
+			}
+			add = {
+				value = 0.05
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_in_the_workplace
+				}
+				
+			}
+			add = {
+				value = 0.05
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_womens_suffrage
+				}
+				
+			}
+			add = {
+				value = 0.05
+			}
+		}
+	}
+
+	female_agitator_chance = {
+		value = 0.01
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_own_property
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}	
+		
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_women_in_the_workplace
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}
+
+		if = {
+			limit = {
+				owner = {
+					has_law = law_type:law_womens_suffrage
+				}
+
+			}
+			add = {
+				value = 0.01
+			}
+		}		
+	}
+	
+	# The chance that a commander belonging to this IG takes over leadership when it changes
+	# scope:character is the most popular commander in the IG
+	commander_leader_chance = {
+		value = 0.25
+		if = {
+			limit = {
+				exists = scope:character
+			}
+			multiply = {
+				value = 1
+				add = scope:character.popularity
+				min = 0
+			}
+		}
+	}
+}
