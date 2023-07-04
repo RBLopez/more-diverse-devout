@@ -24,6 +24,11 @@
 	}	
 	
 	on_enable = {
+		ig:ig_minority_faiths = {
+			set_ig_trait = ig_trait:ig_trait_safe_haven
+			set_ig_trait = ig_trait:ig_trait_coexistence
+			set_ig_trait = ig_trait:ig_trait_underground_worship
+		}
 		recalculate_pop_ig_support = yes
 	}
 
@@ -40,7 +45,7 @@
 		has_state_religion = no
 		OR = {
 			religion_accepted = yes
-			custom_description = {
+			custom_tooltip = {
 				text = tt_opposing_state_atheism
 				owner = {
 					has_law = law_type:law_state_atheism
@@ -89,7 +94,7 @@
 		}
 
 		add = {
-			desc = "Hates state atheism"
+			desc = "law_state_atheism"
 			if = {
 				limit = {
 					owner = {

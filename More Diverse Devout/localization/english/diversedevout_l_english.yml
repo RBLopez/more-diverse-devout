@@ -1,5 +1,19 @@
 ﻿l_english:
 
+############# Tooltips and UI ###############
+ tt_opposing_state_atheism:0 "Suppressed under $STATE_ATHEISM_LAW$"
+
+ RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under [GetLawType('law_religious_jurisprudence').GetName]"
+ RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under [GetLawType('law_religious_administration').GetName]"
+ RELIGOUS_MINORITY_CULTURE:0 "Minority culture accepted by [concept_state_religion]"
+ RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [concept_state_religion]"
+ RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [concept_state_religion]"
+ IG_IS_MARGINALIZED:0 "Marginalized Interest Group"
+
+
+
+
+
 ############## Religions and Religious Traits ################
 
  #atheist:0 "Humanism" #relabeled
@@ -20,7 +34,7 @@
 
  ig_minority_faiths:0 "Minority Faiths"
  ig_minority_faiths_only_icon:0 "@devout!"
- ig_minority_faiths_desc:0 "Religious communities that are not the state religion."
+ ig_minority_faiths_desc:0 "Religious communities that are not the [concept_state_religion]."
 
 # ig_catholic_church:0 "Catholic Church"
 # ig_catholic_church_desc:0 "Catholicism is the largest sect of Christianity. Believers hold that the Archbishop of Rome, the Pope, is the uninterrupted successor to the authority of Jesus Christ via Saint Peter. Other important beliefs include veneration of the saints and of the Virgin Mary."
@@ -34,7 +48,7 @@
  ig_coptic_church:0 "Coptic Church"
  ig_coptic_church_desc:0 "One of the largest and most prominent Oriental Orthodox Churches, the Coptic Church is believed to be founded by Mark the Evangelist in 42 CE and is based in Alexandria."
  ig_ethiopian_orthodox_church:0 "Orthodox Tewahedo Church"
- ig_ethiopian_orthodox_church:0 "Established in the 4th century in Ethiopia, the Orthodox Tewahedo Church has a long history in Ethiopia and historical ties to the Coptic Church in Egypt."
+ ig_ethiopian_orthodox_church_desc:0 "Established in the 4th century in Ethiopia, the Orthodox Tewahedo Church has a long history in Ethiopia and historical ties to the Coptic Church in Egypt."
 
 # ig_anglican_church:0 "Church of England"
 # ig_anglican_church_desc:0 "The Church of England (or the Anglican Church) was created by King Henry VIII during the Protestant Reformation and the British monarch serves as the official head of the Church. While officially protestant, the Anglican Church retained more of the heirarchy and character of the Roman Catholic Church than most other protestant churches and is often presented as a middle way or via media between Protestantism and Catholicism."

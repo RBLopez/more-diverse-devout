@@ -134,7 +134,7 @@ effect_set_devout_ideology_protestant = {
 			}
 			else_if = {
 				limit = {
-					owner = { country_in_europe = yes }
+					owner = { country_is_in_europe = yes }
 				}
 				set_interest_group_name = ig_reformed_church
 			}
@@ -285,14 +285,14 @@ effect_set_devout_ideology_shinto = {
 
 effect_set_minority_faith = {
 	#Sadly this is non-functional
-	set_local_variable = {
-		name = highest_percent
-		value = 0
-	}
+#	set_local_variable = {
+#		name = highest_percent
+#		value = 0
+#	}
 	#set_local_variable = current_highest_percent_religion
 	#this is the part that isn't working. can't get the value back from religion_percent_country to find the largest minority faith
-	set_local_variable = {
-		name = anglican_percent
-		value = "religion_percent_country(rel:anglican)"
-	}
+#	set_local_variable = {
+#		name = anglican_percent
+#		value = "religion_percent_country(rel:anglican)"
+#	}
 }

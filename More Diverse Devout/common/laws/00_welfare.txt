@@ -84,10 +84,12 @@ law_religious_charity = {
 	}
 
 	ai_will_do = {
-		scope:law = { law_approved_by = ig_devout}
-		#law_type:law_religious_charity = {
-		#	law_approved_by = ig_devout
-		#}
+		owner.ig:ig_devout = {
+			law_stance = {
+				law = law_type:law_religious_charity
+				value > neutral
+			}
+		}
 		exists = ruler
 		ruler = {
 			OR = {

@@ -26,6 +26,11 @@
 	}	
 	
 	on_enable = {
+		ig:ig_devout = {
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_divine_right
+			set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+		}
 		effect_set_devout_ideologies_by_religion = yes
 		recalculate_pop_ig_support = yes
 	}
@@ -81,7 +86,7 @@
 		}
 
 		add = {
-			desc = "Law and order!"
+			desc = "RELIGIOUS_SHOPKEEPERS"
 			if = {
 				limit = {
 					AND = {
@@ -96,7 +101,7 @@
 		}
 
 		add = {
-			desc = "work buddies"
+			desc = "RELIGIOUS_BUREAUCRATS"
 			if ={
 				limit = {
 					AND = {
@@ -111,7 +116,7 @@
 		}
 
 		add = {
-			desc = "minority cultures"
+			desc = "RELIGOUS_MINORITY_CULTURE"
 			if = {
 				limit = {
 					AND = {
@@ -130,7 +135,7 @@
 		}
 
 		add = {
-			desc = "ethnic minority cultures"
+			desc = "RELIGIOUS_ETHNIC_MINORITY"
 			if = {
 				limit = {
 					AND = {
@@ -151,7 +156,7 @@
 		}
 		
 		add = {
-			desc = "foreign cultures"
+			desc = "RELIGIOUS_FOREIGN_CULTURE"
 			if = {
 				limit = {
 					AND = {

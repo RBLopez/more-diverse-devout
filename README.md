@@ -7,8 +7,8 @@ This mod aims to add diversity of gameplay related to different world religions 
 Anglicanism and Confucianism have been added to the game, and the Atheist religion has been relabelled as 'Humanism'. Religious traits have also been reconfigured for all in-game religions.
 
 ## New Laws
-A new law in the Church and State group (Religious Tolerance) accepts all religions with any trait in common with the State Religion. Freedom of Conscience is reworked to only accept religions with a similar heritage trait (eg. Christian, Muslim, Buddhist)
-New religious law options for policing and bureaucracy that pit landowner and religious interests against each other.
+- A new law in the Church and State group (Religious Tolerance) accepts all religions with any trait in common with the State Religion. Freedom of Conscience is reworked to only accept religions with a similar heritage trait (eg. Christian, Muslim, Buddhist)
+- New religious law options for policing and bureaucracy that pit landowner and religious interests against each other.
 A new religious welfare law supported by Sikh and Hindu religions.
 
 ## Reworked State Atheism mechanics

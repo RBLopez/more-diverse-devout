@@ -95,7 +95,7 @@ law_religious_administration = {
 		ruler = {
 			OR = {
 				has_ideology = ideology:ideology_theocrat
-				this.interest_group = ig_devout
+				this.interest_group = ig:ig_devout
 			}
 		}
 	}
