@@ -1,0 +1,251 @@
+﻿religion_percent_anglican = {
+	value = 0
+	if = {
+		limit = {
+			religion_percent_country = {
+				target = rel:anglican
+				value < 0.5
+			}
+		}
+		if = {
+			limit = {
+				religion_percent_country = {
+					target = rel:anglican
+					value < 0.25
+				}
+			}
+			if = {
+				limit = {
+					religion_percent_country = {
+						target = rel:anglican
+						value < 0.10
+					}
+				}
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.05
+						}
+					}
+					#under 5%, might as well be zero
+				}
+				else = {
+					add = 5
+				}
+			}
+			else = {
+				# <25, >= 10
+				add = 10
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.15
+						}
+					}
+				}
+				else = {
+					# <25, >=10, >=15
+					add = 5
+					if = {
+						limit = {
+							religion_percent_country = {
+								target = rel:anglican
+								value < 0.20
+							}
+						}
+					}
+					else = {
+						# <25, >=10, >=15, >=20
+						add = 5
+					}
+				}
+			}
+		}
+		else = {
+			# <50, >= 25
+			add = 25
+			if = {
+				limit = {
+					religion_percent_country = {
+						target = rel:anglican
+						value < 0.35
+					}
+				}
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.30
+						}
+					}
+					#>=25, < 30. Total 25
+				}
+				else = {
+					#>=25, >=30, < 40
+					add = 5
+					if = {
+						limit = {
+							religion_percent_country = {
+								target = rel:anglican
+								value < 0.35
+							}
+						}
+						#>=25, >=30, < 35. Total 30
+					}
+					else = {
+						#>=25, >=30, >=35, < 40. Total 35
+						add = 5
+					}
+				}
+			}
+			else = {
+				# <50, >= 25, >= 35
+				add = 10
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.4
+						}
+					}
+					# <50, >= 25, >= 35, < 40. Total 35
+				}
+				else = {
+					# <50, >= 25, >= 35, >=40
+					add = 5
+					if = {
+						limit = {
+							religion_percent_country = {
+								target = rel:anglican
+								value < 0.45
+							}
+						}
+						# >= 40, < 45. Total 45
+					}
+					else = {
+						# <50, >= 25, >= 35, >=40, >=45. Total 45
+						add = 5
+					}
+				}
+			}
+		}
+	}
+	else = {
+		# >=50
+		add = 50
+		if = {
+			limit = {
+				religion_percent_country = {
+					target = rel:anglican
+					value < 0.75
+				}
+			}
+			if = {
+				limit = {
+					religion_percent_country = {
+						target = rel:anglican
+						value < 0.60
+					}
+				}
+				# >=50, < 60
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.55
+						}
+					}
+				}
+				else = {
+					# >=50, >= 55, < 60. Total 55
+					add = 5
+				}
+			}
+			else = {
+				# >=50, >=60, <75
+				add = 10
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.65
+						}
+					}
+				}
+				else = {
+					# >=50, >=60, >=65, <75
+					add = 5
+					if = {
+						limit = {
+							religion_percent_country = {
+								target = rel:anglican
+								value < 0.70
+							}
+						}
+					}
+					else = {
+						# >=50, >=60, >=65, >=70, <75 Total 70
+						add = 5
+					}
+				}
+			}
+		}
+		else = {
+			# >=50, >=75
+			add = 25
+			if = {
+				limit = {
+					religion_percent_country = {
+						target = rel:anglican
+						value < 0.85
+					}
+				}
+			}
+			else = {
+				# >=50, >=75, >=85
+				add = 10
+				if = {
+					limit = {
+						religion_percent_country = {
+							target = rel:anglican
+							value < 0.90
+						}
+					}
+				}
+				else = {
+					# >=50, >=75, >=85, >=90
+					if = {
+						limit = {
+							religion_percent_country = {
+								target = rel:anglican
+								value < 0.95
+							}
+						}
+					}
+					else = {
+						# >=50, >=75, >=85, >=90, >=95
+						add = 5
+					}
+				}
+			}
+		}
+	}
+}
+
+#animist
+#atheist
+#catholic
+#confucian
+#hindu
+#jewish
+#mahayana
+#oriental_orthodox
+#orthodox
+#protestant
+#shiite
+#shinto
+#sikh
+#sunni
+#theravada

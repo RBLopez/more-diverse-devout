@@ -18,6 +18,12 @@ law_state_religion = {
 			}
 			set_state_religion = country_definition.religion
 		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -70,6 +76,12 @@ law_freedom_of_conscience = {
 				country_has_state_religion = rel:atheist
 			}
 			set_state_religion = country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
 		}
 	}
 	
@@ -166,6 +178,12 @@ law_religious_tolerance = {
 			}
 			set_state_religion = country_definition.religion
 		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -250,6 +268,18 @@ law_total_separation = {
 	
 	on_enact = {
 		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				country_has_state_religion = rel:atheist
+			}
+			set_state_religion = country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
 	}
 	
 	religious_acceptance_rule = {
@@ -340,6 +370,7 @@ law_state_atheism = {
 			add_modifier = {
 				name = antireligious_policies
 				months = long_modifier_time
+				is_decaying = yes
 			}
 			custom_tooltip = {
 				text = state_atheism_conversion_tt
@@ -390,7 +421,5 @@ law_state_atheism = {
 			}
 		}
 	}
-
-
 
 }

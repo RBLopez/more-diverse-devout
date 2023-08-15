@@ -183,6 +183,34 @@ ideology_patriarchal_personal = {
 
 }
 
+ideology_halakha = {
+
+	lawgroup_bureaucracy = {
+		law_hereditary_bureaucrats = disapprove
+		law_religious_administration = approve
+		law_appointed_bureaucrats = neutral
+		law_elected_bureaucrats = neutral
+	}
+
+	lawgroup_policing = {
+		law_no_police = disapprove
+		law_religious_jurisprudence = strongly_approve
+		law_local_police = disapprove
+	}
+
+}
+
+ideology_cheder_tzedakah = {
+
+	lawgroup_education_system = {
+		law_religious_schools = strongly_approve
+	}
+
+	lawgroup_welfare = {
+		law_religious_charity = approve
+	}
+}
+
 ideology_fiqh_sunni = {
 	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 	
@@ -490,6 +518,44 @@ ideology_imperial_exams = {
 		law_religious_schools = strongly_approve
 		law_private_schools = neutral
 		law_public_schools = strongly_disapprove
+	}
+}
+
+ideology_saisei_itchi = {
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = disapprove
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_autocracy = strongly_approve
+		law_oligarchy = approve
+		law_census_voting = disapprove
+		law_universal_suffrage = disapprove
+		law_anarchy = disapprove
+	}
+
+}
+
+ideology_haibutsu_kishaku = {
+
+	lawgroup_citizenship = {
+		law_ethnostate = approve
+		law_national_supremacy = approve
+		law_racial_segregation = neutral
+		law_cultural_exclusion = disapprove
+		law_multicultural = strongly_disapprove
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_approve
+		law_freedom_of_conscience = disapprove
+		law_religious_tolerance = strongly_disapprove
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
 	}
 }
 

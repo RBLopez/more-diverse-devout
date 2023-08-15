@@ -10,10 +10,6 @@
  RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [concept_state_religion]"
  IG_IS_MARGINALIZED:0 "Marginalized Interest Group"
 
-
-
-
-
 ############## Religions and Religious Traits ################
 
  #atheist:0 "Humanism" #relabeled
@@ -33,7 +29,7 @@
 ######### Interest Groups #############
 
  ig_minority_faiths:0 "Minority Faiths"
- ig_minority_faiths_only_icon:0 "@devout!"
+ ig_minority_faiths_only_icon:0 "@minority_faiths!"
  ig_minority_faiths_desc:0 "Religious communities that are not the [concept_state_religion]."
 
 # ig_catholic_church:0 "Catholic Church"
@@ -100,6 +96,8 @@
 
 # ig_shinto_monks:0 "Shinto Kannushi"
 # ig_shinto_monks_desc:0 "Shintoism is a native Japanese faith that primarily revolves around worship and placation of kami, the spirits of nature and dead ancestors."
+ ig_shinto_state:0 "Ministry of Divinities"
+ ig_shinto_state:0 "State organized and directed Shinto organization."
 
   # Chinese IGs
 # ig_scholar_officials:0 "Scholar-Officials"

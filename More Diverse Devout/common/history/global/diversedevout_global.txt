@@ -17,38 +17,51 @@ GLOBAL = {
 	
 	every_country = {
 		limit = { this.religion = rel:protestant }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_protestant = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_protestant = yes
+		}
+		
 	}
 
 	every_country = {
 		limit = { this.religion = rel:catholic }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_catholic = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_catholic = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:anglican }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_anglican = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_anglican = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:orthodox }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_orthodox = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_orthodox = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:oriental_orthodox }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_oriental_orthodox = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_oriental_orthodox =  = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:shiite }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_shia = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_shia = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_local_police
@@ -65,8 +78,10 @@ GLOBAL = {
 
 	every_country = {
 		limit = { this.religion = rel:sunni }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_sunni = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_sunni = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_local_police
@@ -83,14 +98,18 @@ GLOBAL = {
 
 	every_country = {
 		limit = { this.religion = rel:sikh }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_sikh = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_sikh = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:hindu }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_hindu = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_hindu = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_state_religion
@@ -101,8 +120,10 @@ GLOBAL = {
 
 	every_country = {
 		limit = { this.religion = rel:theravada }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_theravada = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_theravada = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_state_religion
@@ -113,8 +134,10 @@ GLOBAL = {
 
 	every_country = {
 		limit = { this.religion = rel:mahayana }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_mahayana = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_mahayana = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_state_religion
@@ -125,14 +148,18 @@ GLOBAL = {
 
 	every_country = {
 		limit = { this.religion = rel:gelugpa }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_gelugpa = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_gelugpa = yes
+		}
 	}
 
 	every_country = {
 		limit = { this.religion = rel:confucianism }
-		effect_remove_devout_ideologies_all = yes
-		effect_set_devout_ideology_confusionism = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_confusionism = yes
+		}
 		if = {
 			limit = {
 				this.has_law = law_type:law_state_religion

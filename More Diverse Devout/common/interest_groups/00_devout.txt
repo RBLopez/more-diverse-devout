@@ -31,7 +31,10 @@
 			set_ig_trait = ig_trait:ig_trait_divine_right
 			set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 		}
-		effect_set_devout_ideologies_by_religion = yes
+		owner = {
+			effect_set_devout_ideologies_by_religion = yes
+		}
+		
 		recalculate_pop_ig_support = yes
 	}
 

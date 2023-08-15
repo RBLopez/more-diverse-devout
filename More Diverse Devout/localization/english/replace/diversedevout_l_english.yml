@@ -8,9 +8,9 @@
 
 ######### Interest Groups #############
 
- ig_minority_faiths:0 "Minority Faiths"
- ig_minority_faiths_only_icon:0 "@devout!"
- ig_minority_faiths_desc:0 "Religious communities that are not the state religion."
+# ig_minority_faiths:0 "Minority Faiths"
+# ig_minority_faiths_only_icon:0 "@devout!"
+# ig_minority_faiths_desc:0 "Religious communities that are not the state religion."
 
 # ig_catholic_church:0 "Catholic Church"
 # ig_catholic_church_desc:0 "Catholicism is the largest sect of Christianity. Believers hold that the Archbishop of Rome, the Pope, is the uninterrupted successor to the authority of Jesus Christ via Saint Peter. Other important beliefs include veneration of the saints and of the Virgin Mary."

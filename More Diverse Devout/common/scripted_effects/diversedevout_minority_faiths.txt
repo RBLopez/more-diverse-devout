@@ -1,0 +1,17 @@
+﻿#var:minority_religion = {
+#has_discrimination_trait = christian
+#}
+
+# this works after the effect
+# set_variable {
+#	name = minority_religion
+#	value = rel:catholic
+#}
+
+#scripted effect that runs in country scope:
+# removes var:minority_faith from minority_faiths IG
+# local variables: current_highest_val = 0, current_highest_religion
+# one for each state religion, so that 'ties' can go to the usual/more interesting suspects (check those first)
+# if religion is not state religion and religion_percent_{religionname} > current_highest
+# -- set current_highest_val and current_highest_religion
+# -- then at the end, if current_highest_val > 10. set var:minority_faith on the minority_faiths IG and run the set_ideologies effect on that IG

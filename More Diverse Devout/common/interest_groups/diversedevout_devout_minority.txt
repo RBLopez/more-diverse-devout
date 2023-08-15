@@ -1,6 +1,6 @@
 ﻿ig_minority_faiths = {
 	color = hsv{ 0.50 0.30 0.67 }
-	texture = "gfx/interface/icons/ig_icons/devout.dds"
+	texture = "gfx/interface/icons/ig_icons/minority_faiths.dds"
 	layer = "revolution_dynamic_devout"
 	index = 8
 	
@@ -37,7 +37,7 @@
 	}
 
 	on_character_ig_membership = {
-		
+		#change_character_religion = scope:interest_group.var.minority_faith
 	}
 		
 	
