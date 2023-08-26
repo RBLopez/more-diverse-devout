@@ -5,7 +5,7 @@
 	index = 8
 	
 	ideologies = {
-		ideology_religious_minority
+		ideology_minority_faith
 	}
 	
 	enable = {
@@ -30,6 +30,7 @@
 			set_ig_trait = ig_trait:ig_trait_underground_worship
 		}
 		recalculate_pop_ig_support = yes
+		effect_set_minority_faith_ideologies_by_religion = yes
 	}
 
 	on_disable = {
@@ -37,23 +38,42 @@
 	}
 
 	on_character_ig_membership = {
-		#change_character_religion = scope:interest_group.var.minority_faith
+		if = {
+			limit = {
+				owner = {
+					exists = var:minority_faith
+				}
+			}
+			owner = {
+				var:minority_faith = { save_temporary_scope_as = min_religion	}
+			}
+			change_character_religion = scope:min_religion
+		}
 	}
 		
-	
 	pop_potential = {
-		has_state_religion = no
+		hidden_trigger = {
+			has_state_religion = no
+		}
 		OR = {
-			religion_accepted = yes
+			custom_tooltip = {
+				text = tt_minority_faith
+				trigger_if = {
+					limit = {
+						owner = {
+							exists = var:minority_faith
+						}
+					}
+					has_minority_faith = yes
+				}
+			}
 			custom_tooltip = {
 				text = tt_opposing_state_atheism
 				owner = {
 					has_law = law_type:law_state_atheism
 				}
 			}
-			
 		}
-		
 	}
 	
 	pop_weight = {
@@ -127,10 +147,11 @@
 					limit = {
 						is_marginal = yes
 					}
-					value = 0.5
+					value = 0.75
 				}
 			}
-		}					
+		}
+		
 	}
 	
 	#nearly impossible

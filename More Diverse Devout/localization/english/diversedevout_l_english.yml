@@ -2,10 +2,12 @@
 
 ############# Tooltips and UI ###############
  tt_opposing_state_atheism:0 "Suppressed under $STATE_ATHEISM_LAW$"
+ tt_minority_faith:0 "Pop follows [InterestGroup.GetName]"
+#try [your_scope_string.MakeScope.Var('your_variable').GetValue] idea to follow for getting variable info, could maybe follow with .getName to show the name of the minority religion
 
  RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under [GetLawType('law_religious_jurisprudence').GetName]"
  RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under [GetLawType('law_religious_administration').GetName]"
- RELIGOUS_MINORITY_CULTURE:0 "Minority culture accepted by [concept_state_religion]"
+ RELIGOUS_MINORITY_CULTURE:0 "Minority [concept_culture] accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [concept_state_religion]"
  RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [concept_state_religion]"
  IG_IS_MARGINALIZED:0 "Marginalized Interest Group"
@@ -30,7 +32,9 @@
 
  ig_minority_faiths:0 "Minority Faiths"
  ig_minority_faiths_only_icon:0 "@minority_faiths!"
- ig_minority_faiths_desc:0 "Religious communities that are not the [concept_state_religion]."
+ ig_minority_faiths_desc:0 "Religious communities that are not the [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]."
+
+ ig_minority_animist:0 "Indigenous Faiths"
 
 # ig_catholic_church:0 "Catholic Church"
 # ig_catholic_church_desc:0 "Catholicism is the largest sect of Christianity. Believers hold that the Archbishop of Rome, the Pope, is the uninterrupted successor to the authority of Jesus Christ via Saint Peter. Other important beliefs include veneration of the saints and of the Virgin Mary."
@@ -97,7 +101,7 @@
 # ig_shinto_monks:0 "Shinto Kannushi"
 # ig_shinto_monks_desc:0 "Shintoism is a native Japanese faith that primarily revolves around worship and placation of kami, the spirits of nature and dead ancestors."
  ig_shinto_state:0 "Ministry of Divinities"
- ig_shinto_state:0 "State organized and directed Shinto organization."
+ ig_shinto_state_desc:0 "State organized and directed Shinto organization."
 
   # Chinese IGs
 # ig_scholar_officials:0 "Scholar-Officials"
@@ -116,8 +120,8 @@
 
 ############################################## Ideologies ##############################################
 
-# ideology_pious:0 "Pietist"
-# ideology_pious_desc:0 "#lore Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity.#!"
+ ideology_pietist:0 "Pietist"
+ ideology_pietist_desc:0 "#lore Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity.#!"
 
  ideology_church_lands:0 "Church Lands"
  ideology_church_lands_desc:0 "#lore The Church has extensive land holdings throughout the country that provide it wealth and influence.#!"

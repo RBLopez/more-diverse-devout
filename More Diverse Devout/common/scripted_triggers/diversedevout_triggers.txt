@@ -1,0 +1,73 @@
+﻿#assumes pop scope
+has_minority_faith = {
+	OR = {
+		AND = {
+			owner = { var:minority_faith ?= rel:catholic }
+			religion = rel:catholic
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:protestant }
+			religion = rel:protestant
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:orthodox }
+			religion = rel:orthodox
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:oriental_orthodox }
+			religion = rel:oriental_orthodox
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:sunni }
+			religion = rel:sunni
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:shiite }
+			religion = rel:shiite
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:jewish }
+			religion = rel:jewish
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:mahayana }
+			religion = rel:mahayana
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:gelugpa }
+			religion = rel:gelugpa
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:theravada }
+			religion = rel:theravada
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:hindu }
+			religion = rel:hindu
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:shinto }
+			religion = rel:shinto
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:sikh }
+			religion = rel:sikh
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:animist }
+			religion = rel:animist
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:atheist }
+			religion = rel:atheist
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:anglican }
+			religion = rel:atheist
+		}
+		AND = {
+			owner = { var:minority_faith ?= rel:confucianism }
+			religion = rel:atheist
+		}
+	}
+}

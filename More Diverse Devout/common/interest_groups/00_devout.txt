@@ -224,7 +224,7 @@
 					limit = {
 						is_marginal = yes
 					}
-					value = 0.5
+					value = 0.75
 				}
 			}
 		}					

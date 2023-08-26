@@ -58,11 +58,11 @@ effect_set_devout_ideologies_by_religion = {
 		}
 		else_if = {
 			limit = {  owner.religion = rel:shinto }
-			#todo
+			effect_set_religious_ideology_shinto = yes
 		}
 		else_if = {
 			limit = {  owner.religion = rel:jewish }
-			#todo
+			effect_set_religious_ideology_jewish = yes
 		}
 		else = {
 			effect_set_religious_ideology_vanilla = yes
@@ -70,227 +70,485 @@ effect_set_devout_ideologies_by_religion = {
 	}
 }
 
-#####################
-#	THESE EFFECTS ASSUME AN INTEREST GROUP SCOPE. CALL FROM WITHIN THE INTEREST GROUP YOU WANT TO MODIFY (either devout or minority faiths)
-#####################
-effect_remove_religious_ideologies_all = {
-	remove_ideology = ideology_pious
-	remove_ideology = ideology_moralist
-	remove_ideology = ideology_patriarchal
-	remove_ideology = ideology_confucian
-	remove_ideology = ideology_shinto_moralist
-	remove_ideology = ideology_buddhist_moralist
-	remove_ideology = ideology_hindu_moralist
-	remove_ideology = ideology_sikh_moralist
-	remove_ideology = ideology_oriental_orthodox_patriarch
-	remove_ideology = ideology_heavenly_kingdom_theocratic
-	remove_ideology = ideology_russian_patriarch
-	remove_ideology = ideology_state_church
-	remove_ideology = ideology_two_kingdoms
-	remove_ideology = ideology_patriarchal_personal
-	remove_ideology = ideology_patriarchal_extreme
-}
-
-effect_set_religious_ideology_vanilla = {
-		add_ideology = ideology_pious
-		add_ideology = ideology_patriarchal
-		add_ideology = ideology_moralist
-}
-
-
-effect_set_religious_ideology_protestant = {
-	
-	if = {
-		limit = {
-			owner = { has_variable = protestant_liberal }
-		}
-		add_ideology = ideology_pious
-		add_ideology = ideology_patriarchal_personal
-		add_ideology = ideology_two_kingdoms
-		set_interest_group_name = ig_protestant_church_liberal
-	}
-	else = {
-		add_ideology = ideology_pious
-		add_ideology = ideology_patriarchal
-		add_ideology = ideology_state_church
+#this effect assumes country scope
+effect_set_minority_faith_ideologies_by_religion = {
+	ig:ig_minority_faiths = {
+		effect_remove_religious_ideologies_all = yes
 		if = {
 			limit = {
-				OR = {
-					owner = c:NET
-					owner = { country_has_primary_culture = cu:boer }
-					owner = { country_has_primary_culture = cu:dutch }
-					owner = {
-						any_overlord_or_above = { this = c:NET }
-					}
-				}
+				owner = { exists = var:minority_faith }
 			}
-			set_interest_group_name = ig_dutch_reformed_church
+			if = {
+				limit = {
+					owner = { var:minority_faith = {
+						shares_heritage_trait_with_state_religion = prev
+						} }
+				}
+				add_ideology = ideology_minority_doctrine
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith = {
+						shares_trait_with_state_religion = prev
+						} }
+				}
+				add_ideology = ideology_minority_religion
+			}
+			else = {
+				add_ideology = ideology_foreign_religion
+			}
+		}
+
+		if = {
+			limit = {
+				owner = { var:minority_faith ?= rel:protestant }
+			}
+			this.leader = { change_character_religion = rel:protestant }
+			effect_set_religious_ideology_protestant = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:catholic }
+			}
+			this.leader = { change_character_religion = rel:catholic }
+			effect_set_religious_ideology_catholic = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:anglican }
+			}
+			this.leader = { change_character_religion = rel:anglican }
+			effect_set_religious_ideology_anglican = yes
 		}
 		else_if = {
 			limit = {
-				OR = {
-					owner.capital.region = sr:region_north_germany
-					owner.capital.region = sr:region_south_germany
-					owner.capital.region = sr:region_poland
-					owner.capital.region = sr:region_rhine
-					owner.capital.region = sr:region_baltic
-				}
+				owner = { var:minority_faith ?= rel:orthodox }
 			}
-			set_interest_group_name = ig_lutheran_church
+			this.leader = { change_character_religion = rel:orthodox }
+			effect_set_religious_ideology_orthodox = yes
 		}
 		else_if = {
 			limit = {
-				owner = { country_is_in_europe = yes }
+				owner = { var:minority_faith ?= rel:oriental_orthodox }
 			}
-			set_interest_group_name = ig_reformed_church
+			this.leader = { change_character_religion = rel:oriental_orthodox }
+			effect_set_religious_ideology_oriental_orthodox = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:shiite }
+			}
+			this.leader = { change_character_religion = rel:shiite }
+			effect_set_religious_ideology_shia = yes
+		}
+		else_if = {
+			limit = {
+				owner = { var:minority_faith ?= rel:sunni }
+			}
+			this.leader = { change_character_religion = rel:sunni }
+			effect_set_religious_ideology_sunni = yes
+		}
+		else_if = {
+			limit = {
+				owner = { var:minority_faith ?= rel:sikh }
+			}
+			this.leader = { change_character_religion = rel:sikh }
+			effect_set_religious_ideology_sikh = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:hindu }
+			}
+			this.leader = { change_character_religion = rel:hindu }
+			effect_set_religious_ideology_hindu = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:theravada }
+			}
+			this.leader = { change_character_religion = rel:theravada }
+			effect_set_religious_ideology_theravada = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:mahayana }
+			}
+			this.leader = { change_character_religion = rel:mahayana }
+			effect_set_religious_ideology_mahayana = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:gelugpa }
+			}
+			this.leader = { change_character_religion = rel:gelugpa }
+			effect_set_religious_ideology_gelugpa = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:confucianism }
+			}
+			this.leader = { change_character_religion = rel:confucianism }
+			effect_set_religious_ideology_confusionism = yes
+		}
+		else_if = {
+			limit = { 
+				owner = { var:minority_faith ?= rel:shinto }
+			}
+			this.leader = { change_character_religion = rel:shinto }
+			effect_set_religious_ideology_shinto = yes
+		}
+		else_if = {
+			limit = {
+				owner = { var:minority_faith ?= rel:jewish }
+			}
+			this.leader = { change_character_religion = rel:jewish }
+			effect_set_religious_ideology_jewish = yes
+		}
+		else_if = {
+			limit = {
+				owner = { var:minority_faith ?= rel:animist }
+			}
+			this.leader = { change_character_religion = rel:animist }
+			set_interest_group_name = ig_minority_animist
 		}
 		else = {
-			set_interest_group_name = ig_protestant_church
+			set_interest_group_name = ig_minority_faiths
+			add_ideology = ideology_minority_faith
 		}
-	}		
+		
+
+	}
+
 }
 
-effect_set_religious_ideology_anglican = {
-	set_interest_group_name = ig_anglican_church
-	add_ideology = ideology_pious
-	add_ideology = ideology_patriarchal
-	add_ideology = ideology_state_church_anglican
-	add_ideology = ideology_church_lands
-}
-
-effect_set_religious_ideology_catholic = {
-	set_interest_group_name = ig_catholic_church
-	add_ideology = ideology_missionary_catholic
-	add_ideology = ideology_patriarchal
-	add_ideology = ideology_state_church
-	add_ideology = ideology_church_lands
-}
-
-effect_set_religious_ideology_orthodox = {
-	set_interest_group_name = ig_orthodox_church
-	add_ideology = ideology_missionary_orthodox
-	add_ideology = ideology_patriarchal
-	add_ideology = ideology_state_church
-	add_ideology = ideology_church_lands
-}
-
-effect_set_religious_ideology_oriental_orthodox = { 
-	set_interest_group_name = ig_oriental_orthodox_church
-	add_ideology = ideology_missionary_orthodox
-	add_ideology = ideology_patriarchal
-	add_ideology = ideology_state_church
-	add_ideology = ideology_church_lands
+#this effect assumes country scope
+effect_set_minority_faith_country_var = {
+	remove_variable = minority_faith
+	set_local_variable = {
+		name = top_minority_faith_percent
+		value = 0
+	}
+	#check anglican
 	if = {
 		limit = {
-			OR = {
-				owner = { country_is_in_middle_east = yes }
-				owner.capital.region = sr:region_nile_basin
-				owner.capital.region = sr:region_north_africa
-				owner.capital.region = sr:region_niger
-				owner.capital.region = sr:region_senegal
+			rel:anglican = {
+				NOT = {
+					is_state_religion = prev
+				}
 			}
+			religion_percent_anglican > local_var:top_minority_faith_percent
 		}
-		set_interest_group_name = ig_coptic_church
-	}
-	else_if = {
-		limit = {
-			owner = { country_is_in_africa = yes }
+		set_variable = {
+			name = minority_faith
+			value = rel:anglican
 		}
-		set_interest_group_name = ig_ethiopian_orthodox_church
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_anglican
+		}
 	}
-}
-
-effect_set_religious_ideology_jewish = {
-	set_interest_group_name = ig_rabbinical_council
-	add_ideology = ideology_halakha
-	add_ideology = ideology_cheder_tzedakah
-	add_ideology = ideology_patriarchal_personal
-}
-
-effect_set_religious_ideology_shia = {
-	set_interest_group_name = ig_shia_madrasahs
-	add_ideology = ideology_maktab
-	add_ideology = ideology_fiqh_shia
-	add_ideology = ideology_patriarchal
-}
-
-effect_set_religious_ideology_sunni = {
-	set_interest_group_name = ig_sunni_madrasahs
-	add_ideology = ideology_maktab
-	add_ideology = ideology_fiqh_sunni
-	add_ideology = ideology_patriarchal
-}
-
-effect_set_religious_ideology_sikh = {
-	set_interest_group_name = ig_sikh_priesthood
-	add_ideology = ideology_seva_sikh
-	add_ideology = ideology_khalsa
-	add_ideology = ideology_patriarchal_personal
-}
-
-effect_set_religious_ideology_hindu = {
-	set_interest_group_name = ig_hindu_priesthood
-	add_ideology = ideology_seva_hindu
-	add_ideology = ideology_dharma_varna
-	add_ideology = ideology_patriarchal_extreme
-}
-
-effect_set_religious_ideology_theravada = {
-	ig:ig_devout = {
-		 set_interest_group_name = ig_theravada_monks
-		 add_ideology = ideology_making_merit
-		 add_ideology = ideology_royal_patronage
-		 add_ideology = ideology_patriarchal_personal
-	}
-}
-
-effect_set_religious_ideology_mahayana = {
-	set_interest_group_name = ig_mahayana_monks
-	add_ideology = ideology_making_merit
-	add_ideology = ideology_royal_patronage
-	add_ideology = ideology_patriarchal_personal
-}
-
-effect_set_religious_ideology_gelugpa = {
-	set_interest_group_name = ig_vajrayana_monks
-	add_ideology = ideology_making_merit
-	add_ideology = ideology_tulku
-	add_ideology = ideology_patriarchal_personal
-}
-
-effect_set_religious_ideology_confusionism = {
-	set_interest_group_name = ig_scholar_officials
-	add_ideology = ideology_imperial_exams
-	add_ideology = ideology_li
-	add_ideology = ideology_patriarchal
-}
-
-effect_set_religious_ideology_shinto = {
+	#check animist
 	if = {
 		limit = {
-			owner = c:JPN
+			rel:animist = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_animist > local_var:top_minority_faith_percent
 		}
-		set_interest_group_name = ig_shinto_state
+		set_variable = {
+			name = minority_faith
+			value = rel:animist
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_animist
+		}
 	}
-	else = {
-		set_interest_group_name = ig_shinto_monks
+	#check atheist
+	if = {
+		limit = {
+			rel:atheist = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_atheist > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:atheist
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_atheist
+		}
 	}
-	add_ideology = ideology_saisei_itchi
-	add_ideology = ideology_haibutsu_kishaku
-	add_ideology = ideology_patriarchal
-}
-
-
-effect_set_minority_faith = {
-	#Sadly this is non-functional
-#	set_local_variable = {
-#		name = highest_percent
-#		value = 0
-#	}
-	#set_local_variable = current_highest_percent_religion
-	#this is the part that isn't working. can't get the value back from religion_percent_country to find the largest minority faith
-#	set_local_variable = {
-#		name = anglican_percent
-#		value = "religion_percent_country(rel:anglican)"
-#	}
+	#check catholic
+	if = {
+		limit = {
+			rel:catholic = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_catholic > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:catholic
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_catholic
+		}
+	}
+	#check confucian
+	if = {
+		limit = {
+			rel:confucianism = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_confucian > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:confucianism
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_confucian
+		}
+	}
+	#check gelugpa
+	if = {
+		limit = {
+			rel:gelugpa = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_gelugpa > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:gelugpa
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_gelugpa
+		}
+	}
+	#check hindu
+	if = {
+		limit = {
+			rel:hindu = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_hindu > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:hindu
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_hindu
+		}
+	}
+	#check jewish
+	if = {
+		limit = {
+			rel:jewish = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_jewish > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:jewish
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_jewish
+		}
+	}
+	#check mahayana
+	if = {
+		limit = {
+			rel:mahayana = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_mahayana > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:mahayana
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_mahayana
+		}
+	}
+	#check oriental_orthodox
+	if = {
+		limit = {
+			rel:oriental_orthodox = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_oriental_orthodox > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:oriental_orthodox
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_oriental_orthodox
+		}
+	}
+	#check orthodox
+	if = {
+		limit = {
+			rel:orthodox = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_orthodox > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:orthodox
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_orthodox
+		}
+	}
+	#check protestant
+	if = {
+		limit = {
+			rel:protestant = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_protestant > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:protestant
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_protestant
+		}
+	}
+	#check shiite
+	if = {
+		limit = {
+			rel:shiite = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_shiite > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:shiite
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_shiite
+		}
+	}
+	#check shinto
+	if = {
+		limit = {
+			rel:shinto = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_shinto > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:shinto
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_shinto
+		}
+	}
+	#check sikh
+	if = {
+		limit = {
+			rel:sikh = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_sikh > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:sikh
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_sikh
+		}
+	}
+	#check sunni
+	if = {
+		limit = {
+			rel:sunni = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_sunni > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:sunni
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_sunni
+		}
+	}
+	#check theravada
+	if = {
+		limit = {
+			rel:theravada = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_theravada > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:theravada
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_theravada
+		}
+	}
 }

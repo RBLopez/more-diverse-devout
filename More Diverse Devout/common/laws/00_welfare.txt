@@ -94,7 +94,7 @@ law_religious_charity = {
 		ruler = {
 			OR = {
 				has_ideology = ideology:ideology_theocrat
-				interest_group = ig:ig_devout
+				interest_group = owner.ig:ig_devout
 			}
 		}
 	}
