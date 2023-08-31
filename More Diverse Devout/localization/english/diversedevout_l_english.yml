@@ -123,6 +123,8 @@
  ideology_pietist:0 "Pietist"
  ideology_pietist_desc:0 "#lore Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity.#!"
 
+ ideology_pietist_minority:0 "Pietist"
+
  ideology_church_lands:0 "Church Lands"
  ideology_church_lands_desc:0 "#lore The Church has extensive land holdings throughout the country that provide it wealth and influence.#!"
 
@@ -130,6 +132,8 @@
  ideology_church_lands_russia_desc:0 "#lore The Orthodox Patriarchy has extensive land holdings throughout the country that provide it wealth and influence, and is heavily invested in the tradition of serfdom.#!"
 
  ideology_missionary_catholic:0 "Missionaries"
+
+ ideology_missionary_catholic_minority:0 "Missionaries"
 
  ideology_missionary_orthodox:0 "Missionaries"
 
@@ -141,19 +145,31 @@
 
  ideology_two_kingdoms:0 "Two Kingdoms"
 
+ ideology_two_kingdoms_minority:0 "Two Kingdoms"
+
  ideology_patriarchal_personal:0 "Patriarchal"
+
+ ideology_halakha:0 "Halakha"
+
+ ideology_cheder_tzedakah:0 "Jewish Moralist"
 
  ideology_fiqh_sunni:0 "Sunni Fiqh"
 
  ideology_fiqh_shia:0 "Shia Fiqh"
 
+ ideology_fiqh_minority:0 "Fiqh"
+
  ideology_patriarchal_extreme:0 "Patriarchal"
+
+ ideology_patriarchal_extreme_personal:0 "Patriarchal"
 
  ideology_maktab:0 "Maktab"
 
  ideology_seva_sikh:0 "Seva"
 
  ideology_seva_hindu:0 "Seva"
+
+ ideology_seva_minority:0 "Seva"
 
  ideology_khalsa:0 "Khalsa"
 
@@ -163,15 +179,32 @@
 
  ideology_making_merit:0 "Making Merit"
 
+ ideology_making_merit_minority:0 "Making Merit"
+
  ideology_terauke:0 "Terauke"
 
  ideology_tulku:0 "Tulku"
 
  ideology_li:0 "Li"
 
+ ideology_li_minority:0 "Li"
+
  ideology_imperial_exams:0 "Imperial Exams"
 
- ideology_religious_minority:0 "Religious Minority"
+ ideology_saisei_itchi:0 "Saisei Itchi"
+
+ ideology_haibutsu_kishaku:0 "Haibutsu Kishaku"
+
+ ideology_minority_faith:0 "Minority Faith"
+
+ ideology_minority_doctrine:0 "Minority Doctrine"
+ ideology_minority_doctrine_desc:0 "This religion is a different doctrine or school of the dominant [concept_state_religion]"
+
+ ideology_minority_religion:0 "Minority Religion"
+ ideology_minority_religion_desc:0 "This religion is a part of the same family of religious traditions as the [concept_state_religion]"
+
+ ideology_foreign_religion:0 "Foreign Religion"
+ ideology_foreign_religion_desc:0 "This religion is completely different than the [concept_state_religion]"
 
 
 

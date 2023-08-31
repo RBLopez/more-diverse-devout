@@ -72,151 +72,154 @@ effect_set_devout_ideologies_by_religion = {
 
 #this effect assumes country scope
 effect_set_minority_faith_ideologies_by_religion = {
-	ig:ig_minority_faiths = {
-		effect_remove_religious_ideologies_all = yes
-		if = {
-			limit = {
-				owner = { exists = var:minority_faith }
-			}
+	if = {
+		limit = {
+			exists = ig:ig_minority_faiths
+		}
+		ig:ig_minority_faiths = {
+			effect_remove_religious_ideologies_all = yes
 			if = {
 				limit = {
-					owner = { var:minority_faith = {
-						shares_heritage_trait_with_state_religion = prev
-						} }
+					owner = { exists = var:minority_faith }
 				}
-				add_ideology = ideology_minority_doctrine
+				if = {
+					limit = {
+						owner = { var:minority_faith = {
+							shares_heritage_trait_with_state_religion = prev
+							} }
+					}
+					add_ideology = ideology_minority_doctrine
+				}
+				else_if = {
+					limit = {
+						owner = { var:minority_faith = {
+							shares_trait_with_state_religion = prev
+							} }
+					}
+					add_ideology = ideology_minority_religion
+				}
+				else = {
+					add_ideology = ideology_foreign_religion
+				}
+			}
+	
+			if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:protestant }
+				}
+				this.leader = { change_character_religion = rel:protestant }
+				effect_set_religious_ideology_protestant = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:catholic }
+				}
+				this.leader = { change_character_religion = rel:catholic }
+				effect_set_religious_ideology_catholic = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:anglican }
+				}
+				this.leader = { change_character_religion = rel:anglican }
+				effect_set_religious_ideology_anglican = yes
 			}
 			else_if = {
 				limit = {
-					owner = { var:minority_faith = {
-						shares_trait_with_state_religion = prev
-						} }
+					owner = { var:minority_faith ?= rel:orthodox }
 				}
-				add_ideology = ideology_minority_religion
+				this.leader = { change_character_religion = rel:orthodox }
+				effect_set_religious_ideology_orthodox = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:oriental_orthodox }
+				}
+				this.leader = { change_character_religion = rel:oriental_orthodox }
+				effect_set_religious_ideology_oriental_orthodox = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:shiite }
+				}
+				this.leader = { change_character_religion = rel:shiite }
+				effect_set_religious_ideology_shia = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:sunni }
+				}
+				this.leader = { change_character_religion = rel:sunni }
+				effect_set_religious_ideology_sunni = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:sikh }
+				}
+				this.leader = { change_character_religion = rel:sikh }
+				effect_set_religious_ideology_sikh = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:hindu }
+				}
+				this.leader = { change_character_religion = rel:hindu }
+				effect_set_religious_ideology_hindu = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:theravada }
+				}
+				this.leader = { change_character_religion = rel:theravada }
+				effect_set_religious_ideology_theravada = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:mahayana }
+				}
+				this.leader = { change_character_religion = rel:mahayana }
+				effect_set_religious_ideology_mahayana = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:gelugpa }
+				}
+				this.leader = { change_character_religion = rel:gelugpa }
+				effect_set_religious_ideology_gelugpa = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:confucianism }
+				}
+				this.leader = { change_character_religion = rel:confucianism }
+				effect_set_religious_ideology_confusionism = yes
+			}
+			else_if = {
+				limit = { 
+					owner = { var:minority_faith ?= rel:shinto }
+				}
+				this.leader = { change_character_religion = rel:shinto }
+				effect_set_religious_ideology_shinto = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:jewish }
+				}
+				this.leader = { change_character_religion = rel:jewish }
+				effect_set_religious_ideology_jewish = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:animist }
+				}
+				this.leader = { change_character_religion = rel:animist }
+				set_interest_group_name = ig_minority_animist
 			}
 			else = {
-				add_ideology = ideology_foreign_religion
+				set_interest_group_name = ig_minority_faiths
+				add_ideology = ideology_minority_faith
 			}
 		}
-
-		if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:protestant }
-			}
-			this.leader = { change_character_religion = rel:protestant }
-			effect_set_religious_ideology_protestant = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:catholic }
-			}
-			this.leader = { change_character_religion = rel:catholic }
-			effect_set_religious_ideology_catholic = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:anglican }
-			}
-			this.leader = { change_character_religion = rel:anglican }
-			effect_set_religious_ideology_anglican = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:orthodox }
-			}
-			this.leader = { change_character_religion = rel:orthodox }
-			effect_set_religious_ideology_orthodox = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:oriental_orthodox }
-			}
-			this.leader = { change_character_religion = rel:oriental_orthodox }
-			effect_set_religious_ideology_oriental_orthodox = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:shiite }
-			}
-			this.leader = { change_character_religion = rel:shiite }
-			effect_set_religious_ideology_shia = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:sunni }
-			}
-			this.leader = { change_character_religion = rel:sunni }
-			effect_set_religious_ideology_sunni = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:sikh }
-			}
-			this.leader = { change_character_religion = rel:sikh }
-			effect_set_religious_ideology_sikh = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:hindu }
-			}
-			this.leader = { change_character_religion = rel:hindu }
-			effect_set_religious_ideology_hindu = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:theravada }
-			}
-			this.leader = { change_character_religion = rel:theravada }
-			effect_set_religious_ideology_theravada = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:mahayana }
-			}
-			this.leader = { change_character_religion = rel:mahayana }
-			effect_set_religious_ideology_mahayana = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:gelugpa }
-			}
-			this.leader = { change_character_religion = rel:gelugpa }
-			effect_set_religious_ideology_gelugpa = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:confucianism }
-			}
-			this.leader = { change_character_religion = rel:confucianism }
-			effect_set_religious_ideology_confusionism = yes
-		}
-		else_if = {
-			limit = { 
-				owner = { var:minority_faith ?= rel:shinto }
-			}
-			this.leader = { change_character_religion = rel:shinto }
-			effect_set_religious_ideology_shinto = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:jewish }
-			}
-			this.leader = { change_character_religion = rel:jewish }
-			effect_set_religious_ideology_jewish = yes
-		}
-		else_if = {
-			limit = {
-				owner = { var:minority_faith ?= rel:animist }
-			}
-			this.leader = { change_character_religion = rel:animist }
-			set_interest_group_name = ig_minority_animist
-		}
-		else = {
-			set_interest_group_name = ig_minority_faiths
-			add_ideology = ideology_minority_faith
-		}
-		
-
 	}
 
 }

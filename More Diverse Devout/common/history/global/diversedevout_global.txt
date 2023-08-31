@@ -53,7 +53,7 @@ GLOBAL = {
 		effect_set_minority_faith_country_var = yes
 		ig:ig_devout = {
 			effect_remove_religious_ideologies_all = yes
-			effect_set_religious_ideology_oriental_orthodox =  = yes
+			effect_set_religious_ideology_oriental_orthodox = yes
 		}
 	}
 

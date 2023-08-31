@@ -23,7 +23,7 @@ ideology_church_lands_russia = {
 }
 
 ideology_missionary_catholic = {
-	#icon = "gfx/interface/icons/ideology_icons/pious.dds"
+	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
 
 	lawgroup_citizenship = {
 		law_ethnostate = neutral
@@ -46,6 +46,33 @@ ideology_missionary_catholic = {
 		law_public_schools = strongly_disapprove
 		law_private_schools = disapprove		
 	}	
+}
+
+ideology_missionary_catholic_minority = {
+	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
+
+	lawgroup_citizenship = {
+		law_ethnostate = neutral
+		law_national_supremacy = disapprove
+		law_racial_segregation = approve
+		law_cultural_exclusion = approve
+		law_multicultural = disapprove	
+	}
+
+	lawgroup_health_system = {
+		law_charitable_health_system = neutral
+		law_public_health_insurance = neutral
+		law_no_health_system = neutral
+		law_private_health_insurance = approve
+	}
+	
+	lawgroup_education_system = {
+		law_religious_schools = strongly_disapprove
+		law_no_schools = disapprove
+		law_public_schools = strongly_disapprove
+		law_private_schools = strongly_approve		
+	}
+
 }
 
 ideology_missionary_orthodox = {
@@ -154,6 +181,24 @@ ideology_pietist = {
 	}	
 }
 
+ideology_pietist_minority = {
+	icon = "gfx/interface/icons/ideology_icons/pious.dds"
+
+	lawgroup_health_system = {
+		law_charitable_health_system = neutral
+		law_public_health_insurance = neutral
+		law_no_health_system = disapprove
+		law_private_health_insurance = approve
+	}
+	
+	lawgroup_education_system = {
+		law_religious_schools = disapprove
+		law_no_schools = neutral
+		law_public_schools = neutral
+		law_private_schools = approve		
+	}
+}
+
 ideology_two_kingdoms = {
 	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 	
@@ -187,6 +232,27 @@ ideology_two_kingdoms = {
 		law_right_of_assembly = neutral
 		law_protected_speech = disapprove
 	}
+}
+
+ideology_two_kingdoms_minority = {
+	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	
+	lawgroup_governance_principles = {
+		law_monarchy = neutral
+		law_theocracy = neutral	
+		law_presidential_republic = approve
+		law_parliamentary_republic = approve
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_citizenship = {
+		law_ethnostate = neutral
+		law_national_supremacy = disapprove
+		law_racial_segregation = approve
+		law_cultural_exclusion = neutral
+		law_multicultural = disapprove	
+	}
+
 }
 
 ideology_patriarchal_personal = {
@@ -311,6 +377,23 @@ ideology_fiqh_shia = {
 	}
 }
 
+ideology_fiqh_minority = {
+	lawgroup_citizenship = {
+		law_ethnostate = neutral
+		law_national_supremacy = neutral
+		law_racial_segregation = approve
+		law_cultural_exclusion = approve
+		law_multicultural = disapprove	
+	}
+
+	lawgroup_education_system = {
+		law_religious_schools = disapprove
+		law_no_schools = neutral
+		law_public_schools = disapprove
+		law_private_schools = approve		
+	}
+}
+
 ideology_patriarchal_extreme = {
 	icon = "gfx/interface/icons/ideology_icons/patriarchal.dds"
 	
@@ -327,6 +410,18 @@ ideology_patriarchal_extreme = {
 		law_right_of_assembly = neutral
 		law_protected_speech = disapprove
 	}
+}
+
+ideology_patriarchal_extreme_personal = {
+	icon = "gfx/interface/icons/ideology_icons/patriarchal.dds"
+	
+	lawgroup_rights_of_women = {
+		law_no_womens_rights = strongly_approve
+		law_women_own_property = strongly_disapprove
+		law_women_in_the_workplace = strongly_disapprove
+		law_womens_suffrage = strongly_disapprove
+	}
+
 }
 
 ideology_maktab = {
@@ -362,6 +457,18 @@ ideology_seva_hindu = {
 	}	
 }
 
+ideology_seva_minority = {
+	icon = "gfx/interface/icons/ideology_icons/hindu_moralist.dds"
+
+	lawgroup_health_system = {
+		law_no_health_system = disapprove
+	}
+	
+	lawgroup_welfare = {
+		law_no_social_security = disapprove
+	}
+}
+
 ideology_khalsa = {
 	icon = "gfx/interface/icons/ideology_icons/sikh_moralist.dds"
 
@@ -390,7 +497,7 @@ ideology_dharma_varna = {
 	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 
 	lawgroup_distribution_of_power = {
-		law_autocracy = strongly_approve
+		law_autocracy = approve
 		law_oligarchy = approve
 		law_landed_voting = neutral
 		law_census_voting = disapprove
@@ -453,6 +560,19 @@ ideology_making_merit = {
 	}	
 }
 
+ideology_making_merit_minority = {
+	icon = "gfx/interface/icons/ideology_icons/buddhist_moralist.dds"
+
+	lawgroup_health_system = {
+		law_no_health_system = disapprove
+	}
+	
+	lawgroup_education_system = {
+		law_no_schools = disapprove
+	}
+
+}
+
 ideology_terauke = {
 	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 
@@ -494,15 +614,15 @@ ideology_li = {
 		law_oligarchy = approve
 		law_census_voting = disapprove
 		law_universal_suffrage = disapprove
-		law_anarchy = disapprove
+		law_anarchy = strongly_disapprove
 	}
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_approve
 		law_freedom_of_conscience = approve
 		law_religious_tolerance = neutral
-		law_total_separation = strongly_disapprove
-		law_state_atheism = disapprove
+		law_total_separation = disapprove
+		law_state_atheism = strongly_disapprove
 	}
 
 	lawgroup_land_reform = {
@@ -511,6 +631,31 @@ ideology_li = {
 		law_commercialized_agriculture = disapprove
 		law_homesteading = strongly_disapprove
 		law_collectivized_agriculture = strongly_disapprove
+	}
+}
+
+ideology_li_minority = {
+	icon = "gfx/interface/icons/ideology_icons/confucian.dds"
+	
+	lawgroup_distribution_of_power = {
+		law_census_voting = disapprove
+		law_universal_suffrage = disapprove
+		law_anarchy = strongly_disapprove
+	}
+
+	lawgroup_land_reform = {
+		law_serfdom = strongly_approve
+		law_tenant_farmers = approve
+		law_commercialized_agriculture = disapprove
+		law_homesteading = strongly_disapprove
+		law_collectivized_agriculture = strongly_disapprove
+	}
+
+	lawgroup_education_system = {
+		law_no_schools = disapprove
+		law_religious_schools = strongly_disapprove
+		law_private_schools = strongly_approve
+		law_public_schools = neutral
 	}
 }
 
@@ -535,7 +680,7 @@ ideology_imperial_exams = {
 		law_no_schools = disapprove
 		law_religious_schools = strongly_approve
 		law_private_schools = neutral
-		law_public_schools = strongly_disapprove
+		law_public_schools = disapprove
 	}
 }
 
@@ -595,6 +740,10 @@ ideology_minority_faith = {
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove
 	}
+
+	lawgroup_free_speech = {
+		law_outlawed_dissent = disapprove
+	}
 }
 
 ideology_minority_doctrine = {
@@ -615,6 +764,10 @@ ideology_minority_doctrine = {
 
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove
+	}
+
+	lawgroup_free_speech = {
+		law_outlawed_dissent = disapprove
 	}
 }
 
@@ -637,6 +790,10 @@ ideology_minority_religion = {
 
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove
+	}
+
+	lawgroup_free_speech = {
+		law_outlawed_dissent = disapprove
 	}
 }
 
@@ -661,68 +818,12 @@ ideology_foreign_religion = {
 	lawgroup_governance_principles = {
 		law_theocracy = strongly_disapprove
 	}
+
+	lawgroup_free_speech = {
+		law_outlawed_dissent = disapprove
+	}
 }
 
 ideology_minority_catholic = {
 	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
-}
-
-ideology_minority_protestant = {
-
-}
-
-ideology_minority_orthodox = {
-
-}
-
-ideology_minority_oriental_orthodox = {
-
-}
-
-ideology_minority_sunni = {
-
-}
-
-ideology_minority_jewish = {
-
-}
-
-ideology_minority_mahayana = {
-
-}
-
-ideology_minority_gelugpa ={
-
-}
-
-ideology_minority_theravada = {
-
-}
-
-ideology_minority_hindu ={
-
-}
-
-ideology_minority_shinto = {
-
-}
-
-ideology_minority_sikh = {
-
-}
-
-ideology_minority_animist = {
-
-}
-
-ideology_minority_atheist = {
-
-}
-
-ideology_minority_anglican = {
-
-}
-
-ideology_minority_confucian = {
-
 }

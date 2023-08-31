@@ -312,7 +312,7 @@ ideology_atheist = {
 		if = {
 			limit = {
 				owner = {
-					ig:ig_devout = {
+					ig:ig_devout ?= {
 						is_powerful = yes
 					}
 				}

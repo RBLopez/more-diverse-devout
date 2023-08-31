@@ -1,0 +1,45 @@
+﻿on_five_year_pulse_country = {
+	on_actions = {
+		reset_minority_religion
+	}
+}
+
+reset_minority_religion = {
+	effect = {
+		#honestly not sure what's going on here errors-wise. probably need some debugging
+		ROOT = {
+			effect_set_minority_faith_country_var = yes
+			#and an if to check for minority_faiths existing?
+			effect_set_minority_faith_ideologies_by_religion = yes
+		}
+		
+	}
+}
+
+on_country_released_as_independent = {
+	on_actions = {
+		set_minority_religion_new_country
+	}
+}
+
+on_country_released_as_own_subject = {
+	on_actions = {
+		set_minority_religion_new_country
+	}
+}
+
+on_country_released_as_overlord_subject = {
+	on_actions = {
+		set_minority_religion_new_country
+	}
+}
+
+set_minority_religion_new_country = {
+	effect = {
+		scope:target = {
+			effect_set_minority_faith_country_var = yes
+			effect_set_minority_faith_ideologies_by_religion = yes
+		}
+		
+	}
+}
