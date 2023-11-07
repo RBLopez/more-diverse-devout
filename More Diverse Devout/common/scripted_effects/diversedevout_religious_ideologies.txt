@@ -371,7 +371,6 @@ effect_set_religious_ideology_mahayana = {
 }
 
 effect_set_religious_ideology_gelugpa = {
-	set_interest_group_name = ig_vajrayana_monks
 	if = {
 		limit = {
 			owner = { ig:ig_devout ?= prev }
@@ -386,6 +385,16 @@ effect_set_religious_ideology_gelugpa = {
 		add_ideology = ideology_making_merit_minority
 	}
 	add_ideology = ideology_patriarchal_personal
+	##Naming localization
+	if = {
+		limit = {
+			owner.capital.region = sr:region_himalayas
+		}
+		set_interest_group_name = ig_yellow_hat
+	}
+	else = {
+		set_interest_group_name = ig_vajrayana_monks
+	}
 }
 
 effect_set_religious_ideology_confusionism = {

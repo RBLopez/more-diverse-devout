@@ -2,14 +2,13 @@
 
 ############# Tooltips and UI ###############
  tt_opposing_state_atheism:0 "Suppressed under $STATE_ATHEISM_LAW$"
- tt_minority_faith:0 "Pop follows [InterestGroup.GetName]"
-#try [your_scope_string.MakeScope.Var('your_variable').GetValue] idea to follow for getting variable info, could maybe follow with .getName to show the name of the minority religion
+ tt_minority_faith:0 "Pop is [InterestGroup.AccessCountry.MakeScope.Var('minority_faith').GetReligion.GetName]" 
 
  RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under [GetLawType('law_religious_jurisprudence').GetName]"
  RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under [GetLawType('law_religious_administration').GetName]"
  RELIGOUS_MINORITY_CULTURE:0 "Minority [concept_culture] accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
- RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [concept_state_religion]"
- RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [concept_state_religion]"
+ RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
+ RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  IG_IS_MARGINALIZED:0 "Marginalized Interest Group"
 
 ############## Religions and Religious Traits ################
@@ -35,6 +34,7 @@
  ig_minority_faiths_desc:0 "Religious communities that are not the [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]."
 
  ig_minority_animist:0 "Indigenous Faiths"
+ ig_minority_animist_desc:0 "Indigenous animist faiths native to this region."
 
 # ig_catholic_church:0 "Catholic Church"
 # ig_catholic_church_desc:0 "Catholicism is the largest sect of Christianity. Believers hold that the Archbishop of Rome, the Pope, is the uninterrupted successor to the authority of Jesus Christ via Saint Peter. Other important beliefs include veneration of the saints and of the Virgin Mary."
@@ -56,10 +56,11 @@
  ig_protestant_church:0 "Protestant Churches"
  ig_protestant_church_desc:0 "A collection of christian churches that separated from the Catholic Church during the Protestant Reformation in the 16th century. Protestants reject the Pope and see the Catholic veneration of the saints as bordering on idolatry."
  ig_lutheran_church:0 "Lutheran Churches"
- ig_lutheran_church_desc:0 "Shaped in large part by the theology of Martin Luther, Lutheran or evangelisch churches are prominent in Northern Europe. They are charactirized by belief in the 'five solae' and rejection of papal authority and emphasize the supremacy of the bible."
+ ig_lutheran_church_desc:0 "Shaped in large part by the theology of Martin Luther, Lutheran or evangelisch churches are prominent in Northern Europe. They are charactirized by belief in the 'five solae' and rejection of papal authority with emphasis on the supremacy of the bible."
  ig_reformed_church:0 "Reformed Churches"
  ig_reformed_church_desc:0 "Shaped in large part by the theology of John Calvin, Reformed or Calvinist churches have a long history in Western Europe. Their belief in predestination distinguishes them from other Protestant Churches"
  ig_dutch_reformed_church:0 "Dutch Reformed Church"
+ ig_dutch_reformed_church_desc:0 "The official denomination of the Dutch Royal Family, the Dutch Reformed Church is a reformed protestant denomination that spread worldwide through Dutch colonization and immigration."
 
  ig_protestant_church_liberal:0 "Evangelical Churches"
  ig_protestant_church_liberal_desc:0 "Evangelical Protestants emphasize the personal experience of conversion and salvation and the spreading of the 'good news' through preaching and acts of charity."
@@ -113,87 +114,123 @@
  #minority devout traits here!
 
  ig_trait_safe_haven:0 "Safe Haven"
+ ig_trait_safe_haven_desc:0 "Our home has embraced our faith has given us acceptance and comfort. We're eager to share this haven with others seeking refuge and spiritual kinship."
  
  ig_trait_coexistence:0 "Coexistance"
+ ig_trait_coexistence_desc:0 "Our peaceful coexistance is an example that should soothe even the most restless souls among us."
 
  ig_trait_underground_worship:0 "Underground Worship"
+ ig_trait_underground_worship_desc:0 "We must protect our beliefs and values that are under threat and preserve our faith."
 
 ############################################## Ideologies ##############################################
 
  ideology_pietist:0 "Pietist"
- ideology_pietist_desc:0 "#lore Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity.#!"
+ ideology_pietist_desc:0 "Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity."
 
  ideology_pietist_minority:0 "Pietist"
+ ideology_pietist_minority_desc:0 "Pietism is the belief in individual sanctification through day to day actions and often includes a dedication to charity."
 
  ideology_church_lands:0 "Church Lands"
- ideology_church_lands_desc:0 "#lore The Church has extensive land holdings throughout the country that provide it wealth and influence.#!"
+ ideology_church_lands_desc:0 "The Church has extensive land holdings throughout the country that provide it wealth and influence."
 
  ideology_church_lands_russia:0 "Church Lands"
- ideology_church_lands_russia_desc:0 "#lore The Orthodox Patriarchy has extensive land holdings throughout the country that provide it wealth and influence, and is heavily invested in the tradition of serfdom.#!"
+ ideology_church_lands_russia_desc:0 "The Orthodox Patriarchy has extensive land holdings throughout the country that provide it wealth and influence. It is heavily invested in the tradition of serfdom."
 
- ideology_missionary_catholic:0 "Missionaries"
+ ideology_missionary_catholic:0 "Catholic Missionaries"
+ ideology_missionary_catholic_desc:0 "It is the duty of the Church to educate and convert."
 
- ideology_missionary_catholic_minority:0 "Missionaries"
+ ideology_missionary_catholic_minority:0 "Catholic Missionaries"
+ ideology_missionary_catholic_minority_desc:0 "It is the duty of the Church to educate and convert."
 
  ideology_missionary_orthodox:0 "Missionaries"
+ ideology_missionary_orthodox_desc:0 "It is the duty of the Church to educate and convert."
 
  ideology_state_church:0 "State Church"
+ ideology_state_church_desc:0 "The Church derives power from the support granted to it by the ruling government and in turn supports a strong hierarchical government structure that aligns with its interests."
 
  ideology_state_church_anglican:0 "State Church"
+ ideology_state_church_anglican_desc:0 "The Church of England derives power from the support granted to it by the ruling government and in turn supports a strong hierarchical government structure that aligns with its interests."
 
  ideology_state_church_protestant:0 "State Church"
+ ideology_state_church_protestant_desc:0 "The Church derives power from the support granted to it by the ruling government and in turn supports a strong hierarchical government structure that aligns with its interests."
 
  ideology_two_kingdoms:0 "Two Kingdoms"
+ ideology_two_kingdoms_desc:0 "A belief in the distinction between the spiritual kingdom of God and the temporal kingdom of man leads this group to support a stronger separation of Church and governmental authority."
 
  ideology_two_kingdoms_minority:0 "Two Kingdoms"
+ ideology_two_kingdoms_minority_desc:0 "A belief in the distinction between the spiritual kingdom of God and the temporal kingdom of man leads this group to support a stronger separation of Church and governmental authority."
 
  ideology_patriarchal_personal:0 "Patriarchal"
+ ideology_patriarchal_personal_desc:0 "This group believes men should have political authority and that women should obey their fathers and husbands."
 
  ideology_halakha:0 "Halakha"
+ ideology_halakha_desc:0 "Scholars support the primacy of Jewish law and courts and believe that faith should shape the legal and moral framework of society."
 
  ideology_cheder_tzedakah:0 "Jewish Moralist"
+ ideology_cheder_tzedakah_desc:0 "A commitmment to building a community well versed in Jewish values by instructing the young and supporting the less fortunate."
 
  ideology_fiqh_sunni:0 "Sunni Fiqh"
+ ideology_fiqh_sunni_desc:0 "Sunni Islamic jurisprudence should guide and shape society for the benefit of Muslim subjects and to guide non Muslims towards a better way of life."
 
  ideology_fiqh_shia:0 "Shia Fiqh"
+ ideology_fiqh_shia_desc:0 "Ja'fari Islamic jurisprudence should guide and shape society for the benefit of Muslim subjects and to guide non Muslims towards a better way of life."
 
  ideology_fiqh_minority:0 "Fiqh"
+ ideology_fiqh_minority_desc:0 "Islamic jurisprudence should guide and shape society for the benefit of Muslim subjects and to guide non Muslims towards a better way of life."
 
  ideology_patriarchal_extreme:0 "Patriarchal"
+ ideology_patriarchal_extreme_desc:0 "This group believes men should have political authority and that women should obey their fathers and husbands."
 
  ideology_patriarchal_extreme_personal:0 "Patriarchal"
+ ideology_patriarchal_extreme_personal_desc:0 "This group believes men should have political authority and that women should obey their fathers and husbands."
 
  ideology_maktab:0 "Maktab"
+ ideology_maktab_desc:0 "Islamic teachings and values should be imparted to the community beginning at a young age."
 
  ideology_seva_sikh:0 "Seva"
+ ideology_seva_sikh_desc:0 "The practice of Langar (a communal meal shared with any who wish to partake) is a core part of the Sikh practice of Seva, or selfless service."
 
  ideology_seva_hindu:0 "Seva"
+ ideology_seva_hindu_desc:0 "The practice of Seva, or selfless service, encourages Hindu practioners to provide charity and aid to those that need it in their community."
 
  ideology_seva_minority:0 "Seva"
+ ideology_seva_minority_desc:0 "The practice of Seva, or selfless service, encourages the faithful to provide charity and aid to those that need it in their community."
 
  ideology_khalsa:0 "Khalsa"
+ ideology_khalsa_desc:0 "The Khalsa tradition calls dedicated Sikhs to be warriors against religious persecution."
 
  ideology_dharma_varna:0 "Varnas"
+ ideology_dharma_varna_desc:0 "Hindu society is divided into four varnas that bind individuals to a rigid hierarchy in order to maintain a stable balance of power. Social mobility is forbidden, especially for those with low enough positions in society to be considered outcasts from the system altogether."
 
  ideology_royal_patronage:0 "Royal Patronage"
+ ideology_royal_patronage_desc:0 "Monks are embedded in the royal court to perform various ceremonies and monestaries receive direct support from the monarch."
 
  ideology_making_merit:0 "Making Merit"
+ ideology_making_merit_desc:0 "Merit-making, by performing acts of service, study, or self-sacrifice, is a key element of Buddhist society."
 
  ideology_making_merit_minority:0 "Making Merit"
+ ideology_making_merit_minority_desc:0 "Merit-making, by performing acts of service, study, or self-sacrifice, is a key element of Buddhist society."
 
  ideology_terauke:0 "Terauke"
+ ideology_terauke_desc:0 "A system to combat Christian conversions, Japanese subjects were required to register (and financially support) their local Buddhist temples in exchange for certification that they were not Christians. In practice, this made Buddhist temples part of the government appratus."
 
  ideology_tulku:0 "Tulku"
+ ideology_tulku_desc:0 "Tulku are reincarnated spiritual leaders that are venerated as part of the Buddhist state."
 
  ideology_li:0 "Li"
+ ideology_li_desc:0 "The proper behavior and relationship between individuals in Confucian society."
 
  ideology_li_minority:0 "Li"
+ ideology_li_minority_desc:0 "The proper behavior and relationship between individuals in Confucian society."
 
  ideology_imperial_exams:0 "Imperial Exams"
+ ideology_imperial_exams_desc:0 "Confucian scholars support the traditional civil service examinations to qualify bureaucrats for civil service based on their literary and knowledge of traditional Confucian texts."
 
  ideology_saisei_itchi:0 "Saisei Itchi"
+ ideology_saisei_itchi_desc:0 "The unity of ritual and rule centers Shinto rituals within the government of the emperor."
 
  ideology_haibutsu_kishaku:0 "Haibutsu Kishaku"
+ ideology_haibutsu_kishaku_desc:0 "Anti-Buddhist sentiment rooted in part by a desire to rid Shinto (and Japan) of all non-native religious and cultural influences."
 
  ideology_minority_faith:0 "Minority Faith"
 

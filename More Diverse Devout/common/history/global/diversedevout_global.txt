@@ -66,13 +66,13 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_local_police
+				this = { has_law = law_type:law_local_police }
 			}
 			activate_law = law_type:law_religious_jurisprudence
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_hereditary_bureaucrats
+				this = { has_law = law_type:law_hereditary_bureaucrats }
 			}
 			activate_law = law_type:law_religious_administration
 		}
@@ -87,13 +87,13 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_local_police
+				this = { has_law = law_type:law_local_police }
 			}
 			activate_law = law_type:law_religious_jurisprudence
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_hereditary_bureaucrats
+				this = { has_law = law_type:law_hereditary_bureaucrats}
 			}
 			activate_law = law_type:law_religious_administration
 		}
@@ -117,7 +117,7 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_state_religion
+				this = { has_law = law_type:law_state_religion }
 			}
 			activate_law = law_type:law_freedom_of_conscience
 		}
@@ -132,7 +132,7 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_state_religion
+				this = { has_law = law_type:law_state_religion }
 			}
 			activate_law = law_type:law_freedom_of_conscience
 		}
@@ -147,7 +147,7 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_state_religion
+				this = { has_law = law_type:law_state_religion }
 			}
 			activate_law = law_type:law_freedom_of_conscience
 		}
@@ -171,7 +171,7 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this.has_law = law_type:law_state_religion
+				this = { has_law = law_type:law_state_religion }
 			}
 			activate_law = law_type:law_freedom_of_conscience
 		}

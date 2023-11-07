@@ -18,28 +18,28 @@ reset_minority_religion = {
 
 on_country_released_as_independent = {
 	on_actions = {
-		set_minority_religion_new_country
+		set_religious_igs_new_country
 	}
 }
 
 on_country_released_as_own_subject = {
 	on_actions = {
-		set_minority_religion_new_country
+		set_religious_igs_new_country
 	}
 }
 
 on_country_released_as_overlord_subject = {
 	on_actions = {
-		set_minority_religion_new_country
+		set_religious_igs_new_country
 	}
 }
 
-set_minority_religion_new_country = {
+set_religious_igs_new_country = {
 	effect = {
 		scope:target = {
 			effect_set_minority_faith_country_var = yes
 			effect_set_minority_faith_ideologies_by_religion = yes
+			effect_set_devout_ideologies_by_religion = yes
 		}
-		
 	}
 }

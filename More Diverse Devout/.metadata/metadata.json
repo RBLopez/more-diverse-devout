@@ -1,8 +1,8 @@
 {
   "name" : "More Diverse Devout",
   "id" : "",
-  "version" : "",
-  "supported_game_version" : "",
+  "version" : "1.0",
+  "supported_game_version" : "1.4.2",
   "picture" : "thumbnail.png",
   "short_description" : "",
   "tags" : [],

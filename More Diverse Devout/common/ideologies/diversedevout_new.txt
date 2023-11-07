@@ -1,5 +1,5 @@
 ﻿ideology_church_lands = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/church_lands.dds"
 
 	lawgroup_land_reform = {
 		law_tenant_farmers = approve
@@ -11,7 +11,7 @@
 }
 
 ideology_church_lands_russia = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/church_lands.dds"
 
 	lawgroup_land_reform = {
 		law_serfdom = strongly_approve
@@ -23,7 +23,7 @@ ideology_church_lands_russia = {
 }
 
 ideology_missionary_catholic = {
-	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
+	icon = "gfx/interface/icons/ideology_icons/missionary.dds"
 
 	lawgroup_citizenship = {
 		law_ethnostate = neutral
@@ -49,7 +49,7 @@ ideology_missionary_catholic = {
 }
 
 ideology_missionary_catholic_minority = {
-	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
+	icon = "gfx/interface/icons/ideology_icons/missionary.dds"
 
 	lawgroup_citizenship = {
 		law_ethnostate = neutral
@@ -76,7 +76,7 @@ ideology_missionary_catholic_minority = {
 }
 
 ideology_missionary_orthodox = {
-	#icon = "gfx/interface/icons/ideology_icons/pious.dds"
+	icon = "gfx/interface/icons/ideology_icons/missionary.dds"
 
 	lawgroup_citizenship = {
 		law_ethnostate = neutral
@@ -88,7 +88,7 @@ ideology_missionary_orthodox = {
 }
 
 ideology_state_church = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/state_church.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -108,7 +108,7 @@ ideology_state_church = {
 }
 
 ideology_state_church_anglican = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/state_church.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -136,7 +136,7 @@ ideology_state_church_anglican = {
 }
 
 ideology_state_church_protestant = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/state_church.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -200,7 +200,7 @@ ideology_pietist_minority = {
 }
 
 ideology_two_kingdoms = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/two_kingdoms.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = neutral
@@ -235,7 +235,7 @@ ideology_two_kingdoms = {
 }
 
 ideology_two_kingdoms_minority = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/two_kingdoms.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = neutral
@@ -268,6 +268,7 @@ ideology_patriarchal_personal = {
 }
 
 ideology_halakha = {
+	icon = "gfx/interface/icons/ideology_icons/halakha.dds"
 
 	lawgroup_bureaucracy = {
 		law_hereditary_bureaucrats = disapprove
@@ -285,6 +286,7 @@ ideology_halakha = {
 }
 
 ideology_cheder_tzedakah = {
+	icon = "gfx/interface/icons/ideology_icons/unused/theocrat.dds"
 
 	lawgroup_education_system = {
 		law_religious_schools = strongly_approve
@@ -296,7 +298,7 @@ ideology_cheder_tzedakah = {
 }
 
 ideology_fiqh_sunni = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -337,7 +339,7 @@ ideology_fiqh_sunni = {
 }
 
 ideology_fiqh_shia = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = approve
@@ -378,6 +380,8 @@ ideology_fiqh_shia = {
 }
 
 ideology_fiqh_minority = {
+	icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+
 	lawgroup_citizenship = {
 		law_ethnostate = neutral
 		law_national_supremacy = neutral
@@ -425,7 +429,7 @@ ideology_patriarchal_extreme_personal = {
 }
 
 ideology_maktab = {
-	#icon = "gfx/interface/icons/ideology_icons/pious.dds"
+	icon = "gfx/interface/icons/ideology_icons/unused/theocrat.dds"
 	
 	lawgroup_education_system = {
 		law_religious_schools = approve
@@ -521,7 +525,7 @@ ideology_dharma_varna = {
 }
 
 ideology_royal_patronage = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/unused/royalist.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -574,7 +578,15 @@ ideology_making_merit_minority = {
 }
 
 ideology_terauke = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/teruake.dds"
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_approve
+		law_freedom_of_conscience = disapprove
+		law_religious_tolerance = disapprove
+		law_total_separation = strongly_disapprove
+		law_state_atheism = strongly_disapprove
+	}
 
 	lawgroup_bureaucracy = {
 		law_religious_administration = approve
@@ -583,7 +595,7 @@ ideology_terauke = {
 }
 
 ideology_tulku = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/halakha.dds"
 	
 	lawgroup_governance_principles = {
 		law_monarchy = approve
@@ -660,7 +672,7 @@ ideology_li_minority = {
 }
 
 ideology_imperial_exams = {
-	#icon = "gfx/interface/icons/ideology_icons/moralist.dds"
+	icon = "gfx/interface/icons/ideology_icons/imperial_exam.dds"
 
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -685,6 +697,7 @@ ideology_imperial_exams = {
 }
 
 ideology_saisei_itchi = {
+	icon = "gfx/interface/icons/ideology_icons/teruake.dds"
 
 	lawgroup_governance_principles = {
 		law_monarchy = strongly_approve
@@ -704,6 +717,7 @@ ideology_saisei_itchi = {
 }
 
 ideology_haibutsu_kishaku = {
+	icon = "gfx/interface/icons/ideology_icons/haibutsu_kishaku.dds"
 
 	lawgroup_citizenship = {
 		law_ethnostate = approve
@@ -723,6 +737,7 @@ ideology_haibutsu_kishaku = {
 }
 
 ideology_minority_faith = {
+	icon = "gfx/interface/icons/ideology_icons/minority_doctrine.dds"
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
@@ -747,6 +762,7 @@ ideology_minority_faith = {
 }
 
 ideology_minority_doctrine = {
+	icon = "gfx/interface/icons/ideology_icons/minority_doctrine.dds"
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
@@ -772,6 +788,7 @@ ideology_minority_doctrine = {
 }
 
 ideology_minority_religion = {
+	icon = "gfx/interface/icons/ideology_icons/minority_religion.dds"
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
@@ -798,6 +815,7 @@ ideology_minority_religion = {
 }
 
 ideology_foreign_religion = {
+	icon = "gfx/interface/icons/ideology_icons/foreign_religion.dds"
 
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
@@ -822,8 +840,4 @@ ideology_foreign_religion = {
 	lawgroup_free_speech = {
 		law_outlawed_dissent = disapprove
 	}
-}
-
-ideology_minority_catholic = {
-	icon = "gfx/interface/icons/ideology_icons/papal_paternalistic.dds"
 }
