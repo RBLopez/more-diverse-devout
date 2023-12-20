@@ -6,7 +6,10 @@ GLOBAL = {
 
 	every_country = {
 		limit = {
-			this = c:USA
+			OR = {
+				this = c:USA
+				this = c:TEX
+			}
 		}
 		set_variable = protestant_liberal
 	}
@@ -167,7 +170,7 @@ GLOBAL = {
 		effect_set_minority_faith_country_var = yes
 		ig:ig_devout = {
 			effect_remove_religious_ideologies_all = yes
-			effect_set_religious_ideology_confusionism = yes
+			effect_set_religious_ideology_confucianism = yes
 		}
 		if = {
 			limit = {
@@ -199,6 +202,16 @@ GLOBAL = {
 			}
 		}
 		effect_set_minority_faith_ideologies_by_religion = yes
+	}
+
+	every_country = {
+		limit = {
+			this = c:CHI
+		}
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+		activate_law = law_type:law_religious_administration
 	}
 
 	every_country = {

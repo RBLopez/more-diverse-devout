@@ -653,7 +653,7 @@ han={
 	ethnicities = {
 		1 = asian
 	}
-	graphics = asian
+	graphics = east_asian
 }
 
 hakka={
@@ -721,7 +721,7 @@ hakka={
 	ethnicities = {
 		1 = asian
 	}
-	graphics = asian
+	graphics = east_asian
 }
 
 min={
@@ -784,7 +784,7 @@ min={
 	ethnicities = {
 		1 = asian
 	}
-	graphics = asian
+	graphics = east_asian
 }
 
 yue={
@@ -862,5 +862,5 @@ yue={
 	ethnicities = {
 		1 = asian
 	}
-	graphics = asian
+	graphics = east_asian
 }

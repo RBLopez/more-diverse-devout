@@ -54,7 +54,7 @@ effect_set_devout_ideologies_by_religion = {
 		}
 		else_if = {
 			limit = { owner.religion = rel:confucianism }
-			effect_set_religious_ideology_confusionism = yes
+			effect_set_religious_ideology_confucianism = yes
 		}
 		else_if = {
 			limit = {  owner.religion = rel:shinto }
@@ -192,7 +192,7 @@ effect_set_minority_faith_ideologies_by_religion = {
 					owner = { var:minority_faith ?= rel:confucianism }
 				}
 				this.leader = { change_character_religion = rel:confucianism }
-				effect_set_religious_ideology_confusionism = yes
+				effect_set_religious_ideology_confucianism = yes
 			}
 			else_if = {
 				limit = { 

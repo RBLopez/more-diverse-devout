@@ -60,12 +60,16 @@ effect_set_religious_ideology_vanilla = {
 		add_ideology = ideology_moralist
 		add_ideology = ideology_pious
 		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 	}
 }
 
 
 effect_set_religious_ideology_protestant = {
 	if = {
+		# 'Liberal' protestantism. Based on USA churches
 		limit = {
 			owner = { has_variable = protestant_liberal }
 		}
@@ -76,6 +80,9 @@ effect_set_religious_ideology_protestant = {
 			}
 			add_ideology = ideology_two_kingdoms
 			add_ideology = ideology_pietist
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_work_ethic_protestant
+			set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 		}
 		else_if = {
 			limit = {
@@ -87,6 +94,7 @@ effect_set_religious_ideology_protestant = {
 		add_ideology = ideology_patriarchal_personal
 	}
 	else = {
+		#conservative protestantism. European Lutherans/Calvinists
 		if = {
 			limit = {
 				owner = { ig:ig_devout ?= prev }
@@ -94,6 +102,9 @@ effect_set_religious_ideology_protestant = {
 			add_ideology = ideology_state_church
 			add_ideology = ideology_pietist
 			add_ideology = ideology_patriarchal
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_divine_right
+			set_ig_trait = ig_trait:ig_trait_work_ethic
 		}
 		else_if = {
 			limit = {
@@ -150,6 +161,9 @@ effect_set_religious_ideology_anglican = {
 		add_ideology = ideology_pietist
 		add_ideology = ideology_patriarchal
 		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_work_ethic
 	}
 	else_if = {
 		limit = {
@@ -170,6 +184,9 @@ effect_set_religious_ideology_catholic = {
 		add_ideology = ideology_missionary_catholic
 		add_ideology = ideology_patriarchal
 		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 	}
 	else_if = {
 		limit = {
@@ -190,6 +207,9 @@ effect_set_religious_ideology_orthodox = {
 		add_ideology = ideology_missionary_orthodox
 		add_ideology = ideology_patriarchal
 		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 	}
 	else_if = {
 		limit = {
@@ -210,6 +230,9 @@ effect_set_religious_ideology_oriental_orthodox = {
 		add_ideology = ideology_missionary_orthodox
 		add_ideology = ideology_patriarchal
 		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
 	}
 	else_if = {
 		limit = {
@@ -249,6 +272,9 @@ effect_set_religious_ideology_jewish = {
 		}
 		add_ideology = ideology_halakha
 		add_ideology = ideology_cheder_tzedakah
+		set_ig_trait = ig_trait:ig_trait_traditsye
+		set_ig_trait = ig_trait:ig_trait_yeshivot
+		set_ig_trait = ig_trait:ig_trait_the_best_revenge
 	}
 	else_if = {
 		limit = {
@@ -268,6 +294,9 @@ effect_set_religious_ideology_shia = {
 		add_ideology = ideology_fiqh_shia
 		add_ideology = ideology_maktab
 		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_da_wat
 	}
 	else_if = {
 		limit = {
@@ -287,6 +316,9 @@ effect_set_religious_ideology_sunni = {
 		add_ideology = ideology_fiqh_sunni
 		add_ideology = ideology_maktab
 		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_da_wat
 	}
 	else_if = {
 		limit = {
@@ -305,6 +337,9 @@ effect_set_religious_ideology_sikh = {
 		}
 		add_ideology = ideology_khalsa
 		add_ideology = ideology_seva_sikh
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_khalsa_loyal
+		set_ig_trait = ig_trait:ig_trait_kar_seva_happy
 	}
 	else_if = {
 		limit = {
@@ -324,6 +359,9 @@ effect_set_religious_ideology_hindu = {
 		add_ideology = ideology_dharma_varna
 		add_ideology = ideology_seva_hindu
 		add_ideology = ideology_patriarchal_extreme
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
 	}
 	else_if = {
 		limit = {
@@ -342,6 +380,9 @@ effect_set_religious_ideology_theravada = {
 		}
 		add_ideology = ideology_royal_patronage
 		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
 	}
 	else_if = {
 		limit = {
@@ -360,6 +401,9 @@ effect_set_religious_ideology_mahayana = {
 		}
 		add_ideology = ideology_royal_patronage
 		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
 	}
 	else_if = {
 		limit = {
@@ -377,6 +421,9 @@ effect_set_religious_ideology_gelugpa = {
 		}
 		add_ideology = ideology_tulku
 		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_temporal_mandate
 	}
 	else_if = {
 		limit = {
@@ -397,7 +444,7 @@ effect_set_religious_ideology_gelugpa = {
 	}
 }
 
-effect_set_religious_ideology_confusionism = {
+effect_set_religious_ideology_confucianism = {
 	set_interest_group_name = ig_scholar_officials
 	
 	if = {
@@ -407,6 +454,9 @@ effect_set_religious_ideology_confusionism = {
 		add_ideology = ideology_li
 		add_ideology = ideology_imperial_exams
 		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_civil_service
+		set_ig_trait = ig_trait:ig_trait_mandate_of_heaven
 	}
 	else_if = {
 		limit = {
@@ -427,6 +477,9 @@ effect_set_religious_ideology_shinto = {
 		add_ideology = ideology_saisei_itchi
 		add_ideology = ideology_haibutsu_kishaku
 		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_haibutsu_kishaku
+		set_ig_trait = ig_trait:ig_trait_secular_shrine_theory
+		set_ig_trait = ig_trait:ig_trait_heavenly_sovereign
 	}
 	else_if = {
 		limit = {

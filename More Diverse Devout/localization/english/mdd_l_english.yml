@@ -24,9 +24,6 @@
  polytheist:0 "Polytheistic"
  atheism:0 "Atheist"
 
-
-
-
 ######### Interest Groups #############
 
  ig_minority_faiths:0 "Minority Faiths"
@@ -111,7 +108,7 @@
  ig_gentlemen_scholars_desc:0 "While Imperial examinations are available to all, extensive tutoring gives landowning familes an outsized ability to gain government positions and the resulting power and influence."
 
 
- #minority devout traits here!
+########    Interest Group Traites ##############
 
  ig_trait_safe_haven:0 "Safe Haven"
  ig_trait_safe_haven_desc:0 "Our home has embraced our faith has given us acceptance and comfort. We're eager to share this haven with others seeking refuge and spiritual kinship."
@@ -120,7 +117,22 @@
  ig_trait_coexistence_desc:0 "Our peaceful coexistance is an example that should soothe even the most restless souls among us."
 
  ig_trait_underground_worship:0 "Underground Worship"
- ig_trait_underground_worship_desc:0 "We must protect our beliefs and values that are under threat and preserve our faith."
+ ig_trait_underground_worship_desc:0 "We must protect our beliefs and values that are under threat so that we can preserve our faith."
+
+ ig_trait_work_ethic_protestant:0 "$ig_trait_work_ethic$"
+ ig_trait_work_ethic_protestant_desc:0 "$ig_trait_work_ethic_desc$"
+
+ ig_trait_khalsa_loyal:0 "$ig_trait_khalsa$"
+ ig_trait_khalsa_loyal_desc:0 "$ig_trait_khalsa_desc$"
+
+ ig_trait_kar_seva_happy:0 "$ig_trait_kar_seva$"
+ ig_trait_kar_seva_happy_desc:0 "$ig_trait_kar_seva_desc$"
+
+ ig_trait_mandate_of_heaven:0 "Mandate of Heaven"
+ ig_trait_mandate_of_heaven_desc:0 "Heaven approves of our ruler, who deserves our respect and support."
+
+ ig_trait_civil_service_exams:0 "Civil Service Examinations"
+ ig_trait_civil_service_exams_desc:0 "Widespread acceptance of the civil service examinations encourages all who are able to study classic Confucian texts."
 
 ############################################## Ideologies ##############################################
 
@@ -255,19 +267,33 @@
  law_religious_charity:0 "Religious Charity"
  law_religious_charity_desc:0 "Organized charitable institutions - often religious - provide some help to the destitute."
   
-  # Policing
- law_religious_jurisprudence:0 "Religious Jurisprudence"
- law_religious_jurisprudence_desc:0 "Clergy or religious scholars settle disputes and enforce religious law."
-
-  
   # Bureaucracy
  #lawgroup_bureaucracy:0 "Bureaucracy"
  #lawgroup_bureaucracy_desc:0 "How your country is administered."
 
  #law_hereditary_bureaucrats:0 "Hereditary Bureaucrats"
  #law_hereditary_bureaucrats_desc:0 "Bureacrats hold their position through traditional inheritance, passing on the responsiblities to their children."
- law_religious_administration:0 "Religious Administration"
- law_religious_administration_desc:0 "Clergy or religious scholars perform the administrative functions of the state alongside their religious duties."
+ law_religious_administration:0 "[Law.GetCustom('law_religious_administration_custom_name')]"
+ law_religious_administration_desc:0 "[Law.GetCustom('law_religious_administration_custom_description')]"
+ custom_loc_default_administration:0 "Religious Administration"
+ custom_loc_default_administration_desc:0 "Clergy or religious scholars perform the administrative functions of the state alongside their religious duties."
+ custom_loc_confucian_administration:0 "Imperial Examinations"
+ custom_loc_confucian_administration_desc:0 "Bureaucrats are recruited from a pool of candidates who have passed different levels of examinations based on Confucian texts."
+ custom_loc_muslim_administration:0 "Siyasa Shar'iyya"
+ custom_loc_muslim_administration_desc:0 "Governance is conducted according to sharia by local qadi judges."
+
+
+  # Policing
+ law_religious_jurisprudence:0 "[Law.GetCustom('law_religious_jurisprudence_custom_name')]"
+ law_religious_jurisprudence_desc:0 "[Law.GetCustom('law_religious_jurisprudence_custom_description')]"
+ custom_loc_default_jurisprudence:0 "Religious Jurisprudence"
+ custom_loc_default_jurisprudence_desc:0 "Clergy or religious scholars settle disputes and enforce religious law."
+ custom_loc_jewish_jurisprudence:0 "Halakha"
+ custom_loc_jewish_jurisprudence_desc:0 "Beth din comprised of local rabbis settle monetary and civil disputes."
+
+  
+
+ 
  #law_appointed_bureaucrats:0 "Appointed Bureaucrats"
  #law_appointed_bureaucrats_desc:0 "Bureacrats are appointed by rulers to serve the country's best interests in exchange for high wages."
  #law_elected_bureaucrats:0 "Elected Bureaucrats"
@@ -276,4 +302,4 @@
 
 ######### Production Methods #######
 
- pm_religious_bureaucrats_main:0 "Administrative Clergy"
+ #pm_religious_bureaucrats_main:0 "Administrative Clergy"
