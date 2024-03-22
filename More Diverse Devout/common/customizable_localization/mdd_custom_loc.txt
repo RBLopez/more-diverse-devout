@@ -1,11 +1,11 @@
 ﻿## Laws ##
 law_religious_jurisprudence_custom_name = {
 	type = law
-	log_loc_errors = no
 	random_valid = no
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = {
 				has_discrimination_trait = muslim
 			}
@@ -15,6 +15,7 @@ law_religious_jurisprudence_custom_name = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = rel:jewish
 		}
 		localization_key = custom_loc_jewish_jurisprudence
@@ -32,6 +33,7 @@ law_religious_jurisprudence_custom_description = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = {
 				has_discrimination_trait = muslim
 			}
@@ -41,6 +43,7 @@ law_religious_jurisprudence_custom_description = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = rel:jewish
 		}
 		localization_key = custom_loc_jewish_jurisprudence_desc
@@ -58,6 +61,7 @@ law_religious_administration_custom_name = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = rel:confucianism
 		}
 		localization_key = custom_loc_confucian_administration
@@ -65,6 +69,7 @@ law_religious_administration_custom_name = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = {
 				has_discrimination_trait = muslim
 			}
@@ -84,6 +89,7 @@ law_religious_administration_custom_description = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = rel:confucianism
 		}
 		localization_key = custom_loc_confucian_administration_desc
@@ -91,6 +97,7 @@ law_religious_administration_custom_description = {
 
 	text = {
 		trigger = {
+			exists = owner
 			owner.religion = {
 				has_discrimination_trait = muslim
 			}

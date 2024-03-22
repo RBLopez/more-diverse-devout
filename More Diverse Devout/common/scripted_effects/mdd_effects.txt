@@ -1,0 +1,200 @@
+﻿#can be used anywhere. replace with a flag? If I know what that is
+effect_get_vatican_country = {
+	p:xB040A0.controller = {
+		save_scope_as = vatican_country
+	}
+}
+
+#sets a global variable, can be used anywhere
+effect_set_catholic_authority_global = {
+	effect_get_vatican_country = yes
+	set_global_variable = {
+		name = global_catholic_authority
+		value = 0
+	}
+	every_country = {
+		limit = {
+			this = country_controls_vatican
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = vatican_country_catholic_authority
+		}
+	}
+	every_country = {
+		limit = {
+			religion = rel:catholic
+			NOT = {
+				this = scope:vatican_country
+			}
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = catholic_authority
+		}
+	}
+	every_country = {
+		limit = {
+			NOT = {
+				religion = rel:catholic
+			}
+			NOT = {
+				this = scope:vatican_country
+			}
+			OR = {
+				is_country_type = recognized
+				is_country_type = colonial
+			}
+		}
+		random_scope_pop = {
+			limit = {
+				religion = rel:catholic
+			}
+			save_scope_as = catholic_pop
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = catholic_minority_authority
+		}
+	}
+
+}
+
+#this effect assumes country scope
+effect_create_minority_ig_leader = {
+	if = {
+		limit = {
+			exists = var:minority_faith
+			ig:ig_minority_faiths.leader = {
+				is_historical = no
+			}
+		}
+		random_scope_pop = {
+			limit = {
+				is_pop_type = clergymen
+				trigger_if = {
+					limit = {
+						owner.var:minority_faith = rel:catholic
+					}
+					has_pop_religion = catholic
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:protestant
+					}
+					has_pop_religion = protestant
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:orthodox
+					}
+					has_pop_religion = orthodox
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:oriental_orthodox
+					}
+					has_pop_religion = oriental_orthodox
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:sunni
+					}
+					has_pop_religion = sunni
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:shiite
+					}
+					has_pop_religion = shiite
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:jewish
+					}
+					has_pop_religion = jewish
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:mahayana
+					}
+					has_pop_religion = mahayana
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:gelugpa
+					}
+					has_pop_religion = gelugpa
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:theravada
+					}
+					has_pop_religion = theravada
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:hindu
+					}
+					has_pop_religion = hindu
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:shinto
+					}
+					has_pop_religion = shinto
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:sikh
+					}
+					has_pop_religion = sikh
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:animist
+					}
+					has_pop_religion = animist
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:atheist
+					}
+					has_pop_religion = atheist
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:anglican
+					}
+					has_pop_religion = anglican
+				}
+				trigger_else_if = {
+					limit = {
+						owner.var:minority_faith = rel:confucianism
+					}
+					has_pop_religion = confucianism
+				}
+			}
+			save_scope_as = clergypop
+		}
+		if = {
+			limit = {
+				exists = scope:clergypop
+			}
+			scope:clergypop.culture = {
+				save_scope_as = clergy_culture
+			}
+			create_character = {
+				culture = scope:clergy_culture
+				religion = var:minority_faith
+				interest_group = ig:ig_minority_faiths
+				ig_leader = yes
+				
+			}
+		}	
+	}
+
+}

@@ -1,0 +1,145 @@
+﻿je_roman_question_italian = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+	possible = {
+		#designs on italian unification
+		#roman question is not answered (global variable)
+		#not papal states
+	}
+
+	complete = {
+		#papal states forms ital
+		#roman question is answered
+	}
+
+	on_complete = {
+		#??
+	}
+
+	can_revolution_inherit = yes
+
+}
+
+je_roman_question_papal = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+	possible = {
+		#is papal states
+		#not catholic theocracy
+		#OR some other 
+	}
+
+	complete = {
+		#papal states forms italy
+		#roman question is answered
+	}
+
+	on_complete = {
+		#??
+	}
+
+	fail = {
+		#papal states doesn't exist
+		#or timeout/loss of catholic authority
+		#
+	}
+
+	on_fail = {
+		#prisoner in the vatican (?)
+	}
+
+	can_revolution_inherit = yes
+}
+
+je_roman_question_defender ={
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+	possible = {
+		#not italian
+		#catholic in europe
+		#at least one nation has designs on rome
+		#at least a major power
+	}
+
+	complete = {
+		#papal states forms italy
+		#roman question is answered
+	}
+
+	on_complete = {
+		#roman question is answered
+		#
+	}
+
+	fail = {
+		#papal states doesn't exist
+		#or timeout
+	}
+
+	on_fail = {
+		#prisoner in the vatican (?)
+	}
+
+	can_revolution_inherit = yes
+}
+
+je_prisoner_in_vatican = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+	on_weekly_pulse = {
+		#check for dead popes and trigger papal elections
+	}
+
+	modifiers_while_active = {
+		#unclear
+	}
+
+	complete = {
+		#roman question is answered
+	}
+
+	on_complete = {
+		#add holy see to owning country
+	}
+
+	fail = {
+		#owning country no longer owns rome
+	}
+
+	on_fail = {
+		#give the new country this journal entry (?) or a custom event that can trigger it
+	}
+
+	can_revolution_inherit = yes
+
+}
+
+je_holy_see = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+	on_weekly_pulse = {
+		#check for dead popes and trigger papal elections
+	}
+
+	fail = {
+		#owning country no longer owns rome
+	}
+
+	on_fail = {
+		#give the new country this journal entry (?) or a custom event that can trigger it
+	}
+
+	can_revolution_inherit = yes
+
+}
+

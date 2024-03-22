@@ -190,7 +190,7 @@ GLOBAL = {
 		}
 	}
 
-	#set minority faith to protestant(?) for all australian countries
+	#set minority faith to protestant( or catholic?) for all australian countries
 	#set minority faith to catholic in non-lower canadas
 	#set minority faith to catholic for texas
 	#set minority faith to oriental_orthodox for egypt
@@ -202,6 +202,10 @@ GLOBAL = {
 			}
 		}
 		effect_set_minority_faith_ideologies_by_religion = yes
+		trigger_event = {
+			id = mdd_setup.1
+			days = 1
+		}
 	}
 
 	every_country = {
@@ -210,6 +214,9 @@ GLOBAL = {
 		}
 		ig:ig_devout = {
 			add_ruling_interest_group = yes
+		}
+		ig:ig_landowners = {
+			set_interest_group_name = ig_gentlemen_scholars
 		}
 		activate_law = law_type:law_religious_administration
 	}
