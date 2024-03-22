@@ -1,0 +1,77 @@
+﻿# This is executed last among all history
+# this file exclusively handles setting the initial religious demographics by converting starting pops to the appropriate religions
+GLOBAL = {
+
+	#Great Britian
+	every_country = {
+		limit = { this = c:GBR }
+		every_scope_state = {
+			#8% - 12% of british protestants are methodists or presbyterians
+			every_scope_pop = {
+				limit = {
+					this.culture = cu:british
+					this.religion = rel:anglican
+				}
+				change_pop_religion = {
+					target = rel:protestant
+					value = 0.12
+				}
+			}
+			#scottish protestants are 7% anglicans. In lowlands this is 25%
+			if = {
+				limit = {this.state_region = s:STATE_LOWLANDS}
+				every_scope_pop = {
+					limit = {
+						this.culture = cu:scottish
+						this.religion = rel:protestant
+					}
+					change_pop_religion = {
+						target = rel:anglican
+						value = 0.25
+					}
+				}
+			}
+			else = {
+				every_scope_pop = {
+					limit = {
+						this.culture = cu:scottish
+						this.religion = rel:protestant
+					}
+					change_pop_religion = {
+						target = rel:anglican
+						value = 0.07
+					}
+				}
+			}
+			#88% of irish protestants are anglican (12% are presbyterian). In ulster 40% anglican and 60% presbyterian
+			if = {
+				limit = {this.state_region = s:STATE_ULSTER}
+				every_scope_pop = {
+					limit = {
+						this.culture = cu:irish
+						this.religion = rel:protestant
+					}
+					change_pop_religion = {
+						target = rel:anglican
+						value = 0.40
+					}
+				}
+			}
+			else = {
+				every_scope_pop = {
+					limit = {
+						this.culture = cu:irish
+						this.religion = rel:protestant
+					}
+					change_pop_religion = {
+						target = rel:anglican
+						value = 0.88
+					}
+				}
+			}
+		}
+	}
+
+
+
+}

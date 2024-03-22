@@ -72,38 +72,3 @@ has_minority_faith = {
 	}
 }
 
-#country scope
-country_controls_vatican = {
-	p:xB040A0.controller = this
-}
-
-is_papal_states = {
-	OR = {
-		this ?= c:PAP
-		AND = {
-			exists = c:ITA
-			c:ITA = {
-				was_formed_from = c:PAP
-			}
-		}
-	}
-}
-
-has_papal_rule = {
-	has_law = law_type:law_theocracy
-	rel:catholic = {
-		is_state_religion = yes
-	}
-	OR = {
-		is_papal_states = yes
-		AND = {
-			NOT = {
-				c:PAP = {
-					is_country_alive = no
-				}
-			}
-			country_controls_vatican = yes
-		}
-	}
-}
-
