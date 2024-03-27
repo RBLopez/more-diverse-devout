@@ -31,6 +31,13 @@
 		}
 		recalculate_pop_ig_support = yes
 		effect_set_minority_faith_ideologies_by_religion = yes
+		owner = {
+			trigger_event = {
+				id = mdd_setup.1
+				days = 1
+			}
+		}
+		
 	}
 
 	on_disable = {

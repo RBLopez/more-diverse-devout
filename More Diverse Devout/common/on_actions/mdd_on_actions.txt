@@ -40,6 +40,31 @@ set_religious_igs_new_country = {
 			effect_set_minority_faith_country_var = yes
 			effect_set_minority_faith_ideologies_by_religion = yes
 			effect_set_devout_ideologies_by_religion = yes
+			trigger_event = {
+				id = mdd_setup.1
+				days = 1
+			}
 		}
 	}
+}
+
+on_character_death = {
+	on_actions = {
+		conditional_minority_faith_leader_creation
+	}
+}
+
+conditional_minority_faith_leader_creation = {
+	effect = {
+		if = {
+			limit = {
+				exists = owner.ig:ig_minority_faiths
+				is_interest_group_type = ig_minority_faiths
+			}
+			owner = {
+				effect_create_minority_ig_leader = yes
+			}
+		}
+	}
+	
 }

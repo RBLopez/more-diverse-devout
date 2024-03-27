@@ -71,3 +71,4 @@ has_minority_faith = {
 		}
 	}
 }
+

@@ -4,8 +4,8 @@
  tt_opposing_state_atheism:0 "Suppressed under $STATE_ATHEISM_LAW$"
  tt_minority_faith:0 "Pop is [InterestGroup.AccessCountry.MakeScope.Var('minority_faith').GetReligion.GetName]" 
 
- RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under [GetLawType('law_religious_jurisprudence').GetName]"
- RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under [GetLawType('law_religious_administration').GetName]"
+ RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under $law_religious_jurisprudence$"
+ RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under $law_religious_administration$"
  RELIGOUS_MINORITY_CULTURE:0 "Minority [concept_culture] accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
@@ -13,7 +13,6 @@
 
 ############## Religions and Religious Traits ################
 
- #atheist:0 "Humanism" #relabeled
  anglican:0 "Anglican"
  confucianism:0 "Confucian"
 
@@ -33,22 +32,13 @@
  ig_minority_animist:0 "Indigenous Faiths"
  ig_minority_animist_desc:0 "Indigenous animist faiths native to this region."
 
-# ig_catholic_church:0 "Catholic Church"
-# ig_catholic_church_desc:0 "Catholicism is the largest sect of Christianity. Believers hold that the Archbishop of Rome, the Pope, is the uninterrupted successor to the authority of Jesus Christ via Saint Peter. Other important beliefs include veneration of the saints and of the Virgin Mary."
-# ig_orthodox_church:0 "Orthodox Church"
-# ig_orthodox_church_desc:0 "A communion of Christian church communities headed by individual bishops and most prominant in Eastern Europe and the Caucasus."
  ig_russian_orthodox_church:0 "Russian Orthodox Church"
  ig_russian_orthodox_church_desc:0 "The largest member of the communion of Orthodox Churches, the Russian Orthodox Church views itself as the patron and protector of all Orthodox Christians and a pillar of Imperial Russia."
 
-# ig_oriental_orthodox_church:1 "Oriental Orthodox Church"
-# ig_oriental_orthodox_church_desc:1 "A group of Christian churches stemming from the earliest days of Christianity and most prominant in Africa and South Asia."
  ig_coptic_church:0 "Coptic Church"
  ig_coptic_church_desc:0 "One of the largest and most prominent Oriental Orthodox Churches, the Coptic Church is believed to be founded by Mark the Evangelist in 42 CE and is based in Alexandria."
  ig_ethiopian_orthodox_church:0 "Orthodox Tewahedo Church"
  ig_ethiopian_orthodox_church_desc:0 "Established in the 4th century in Ethiopia, the Orthodox Tewahedo Church has a long history in Ethiopia and historical ties to the Coptic Church in Egypt."
-
-# ig_anglican_church:0 "Church of England"
-# ig_anglican_church_desc:0 "The Church of England (or the Anglican Church) was created by King Henry VIII during the Protestant Reformation and the British monarch serves as the official head of the Church. While officially protestant, the Anglican Church retained more of the heirarchy and character of the Roman Catholic Church than most other protestant churches and is often presented as a middle way or via media between Protestantism and Catholicism."
 
  ig_protestant_church:0 "Protestant Churches"
  ig_protestant_church_desc:0 "A collection of christian churches that separated from the Catholic Church during the Protestant Reformation in the 16th century. Protestants reject the Pope and see the Catholic veneration of the saints as bordering on idolatry."
@@ -62,48 +52,10 @@
  ig_protestant_church_liberal:0 "Evangelical Churches"
  ig_protestant_church_liberal_desc:0 "Evangelical Protestants emphasize the personal experience of conversion and salvation and the spreading of the 'good news' through preaching and acts of charity."
  
-
-# ig_rabbinical_council:0 "Rabbinical Council"
-# ig_rabbinical_council_desc:0 "The leadership of a country's Jewish populace tend to be well-educated Rabbis with strong traditions of debate and scholarship."
-
-
-# ig_sunni_madrasahs:1 "Sunni Ulema"
-# ig_sunni_madrasahs_desc:1 "Sunnism is the largest sect of Islam. Believers hold that Muhammad was succeeded as Caliph of Islam by his uncle, Abu Bakr, as opposed to the Shi'a view that his son-in-law Ali was the legitimate successor."
-
-
-# ig_shia_madrasahs:1 "Shi'a Ulema"
-# ig_shia_madrasahs_desc:1 "Shi'ism is the second largest sect of Islam. Believers hold that Muhammad was succeeded as Caliph of Islam by his son-in-law, Ali, as opposed to the Sunni view that his uncle Abu Bakr was the legitimate successor."
-
-
-# ig_hindu_priesthood:0 "Hindu Priesthood"
-# ig_hindu_priesthood_desc:0 "Probably the oldest organized religion still in existence, Hinduism holds that breaking the cycle of reincarnation and achieving Nirvana requires adherence to a caste system whereby individuals serve a role to improve their karma, just as the many gods worshiped by Hindus serve different roles."
-
-# ig_sikh_priesthood:0 "Sikh Priesthood"
-# ig_sikh_priesthood_desc:0 "A relatively young religion, founded in the 16th century in Punjab, Sikhism is a monotheistic faith holding that worldly pursuits are distractions from the oneness of God."
-
-
-# ig_vajrayana_monks:0 "Vajrayana Sangha"
-# ig_vajrayana_monks_desc:0 "Vajrayana or Esoteric Buddhism is strongest in Tibet and Mongolia. It emphasizes the use of mantras and the transmission of teachings from directly from teacher to student."
  ig_yellow_hat:0 "Gelug Sangha"
  ig_yellow_hat_desc:0 "The dominant Buddhist school in Tibet, the Gelug school's most prominent member is the Dali Lama."
 
 
-# ig_mahayana_monks:0 "Mahayana Sangha"
-# ig_mahayana_monks_desc:0 "Mahayana Buddhism is strongest in China, Vietnam and Korea. The multiple Buddhas and Bodhisattvas recognized by this chool are viewed as caring, compassionate, and sometimes supernatural beings that achieve enlightenment due to their wish to help others."
- 
-
-# ig_theravada_monks:0 "Theravada Sangha"
-# ig_theravada_monks_desc:0 "Theravada Buddhism is strongest in Burma, Siam, Cambodia and Ceylon and is the oldest Buddist school. It places great emphasis on the teachings of Gautama Buddha, as preserved in the Pali Canon."
-
-
-# ig_shinto_monks:0 "Shinto Kannushi"
-# ig_shinto_monks_desc:0 "Shintoism is a native Japanese faith that primarily revolves around worship and placation of kami, the spirits of nature and dead ancestors."
- ig_shinto_state:0 "Ministry of Divinities"
- ig_shinto_state_desc:0 "State organized and directed Shinto organization."
-
-  # Chinese IGs
-# ig_scholar_officials:0 "Scholar-Officials"
-# ig_scholar_officials_desc:0 "Empowered by the Imperial examination system, Confucian scholars wield considerable power and influence due to their prominent placement and symbiotic relationship with imperial power."
  ig_gentlemen_scholars:0 "Gentlemen Scholars"
  ig_gentlemen_scholars_desc:0 "While Imperial examinations are available to all, extensive tutoring gives landowning familes an outsized ability to gain government positions and the resulting power and influence."
 
@@ -256,50 +208,32 @@
  ideology_foreign_religion_desc:0 "This religion is completely different than the [concept_state_religion]"
 
 
-
 ############################################# Laws ######################################
 
  # Church and State group
  law_religious_tolerance:0 "Religious Tolerance"
  law_religious_tolerance_desc:0 "Religion plays a role in public life but the people may choose what to believe. Only particularly exotic religions are discriminated against."
  
-  # Welfare group
+ # Welfare group
  law_religious_charity:0 "Religious Charity"
  law_religious_charity_desc:0 "Organized charitable institutions - often religious - provide some help to the destitute."
   
-  # Bureaucracy
- #lawgroup_bureaucracy:0 "Bureaucracy"
- #lawgroup_bureaucracy_desc:0 "How your country is administered."
-
- #law_hereditary_bureaucrats:0 "Hereditary Bureaucrats"
- #law_hereditary_bureaucrats_desc:0 "Bureacrats hold their position through traditional inheritance, passing on the responsiblities to their children."
- law_religious_administration:0 "[Law.GetCustom('law_religious_administration_custom_name')]"
- law_religious_administration_desc:0 "[Law.GetCustom('law_religious_administration_custom_description')]"
+ # Bureaucracy
+ law_religious_administration:0 "$custom_loc_default_administration$" #[LawType.GetCustom('law_religious_administration_custom_name')] this fails absolutely because data type is law in politics panel, lawstance description from within ideology popups, and from interest groups for pop support
+ law_religious_administration_desc:0 "$custom_loc_default_administration_desc$" #[LawType.GetCustom('law_religious_administration_custom_description')]
  custom_loc_default_administration:0 "Religious Administration"
  custom_loc_default_administration_desc:0 "Clergy or religious scholars perform the administrative functions of the state alongside their religious duties."
  custom_loc_confucian_administration:0 "Imperial Examinations"
  custom_loc_confucian_administration_desc:0 "Bureaucrats are recruited from a pool of candidates who have passed different levels of examinations based on Confucian texts."
- custom_loc_muslim_administration:0 "Siyasa Shar'iyya"
+ custom_loc_muslim_administration:0 "Siyasa Shariyya"
  custom_loc_muslim_administration_desc:0 "Governance is conducted according to sharia by local qadi judges."
 
-
-  # Policing
- law_religious_jurisprudence:0 "[Law.GetCustom('law_religious_jurisprudence_custom_name')]"
- law_religious_jurisprudence_desc:0 "[Law.GetCustom('law_religious_jurisprudence_custom_description')]"
+ # Policing
+ law_religious_jurisprudence:0 "$custom_loc_default_jurisprudence$" #[Law.GetCustom('law_religious_jurisprudence_custom_name')]
+ law_religious_jurisprudence_desc:0 "$custom_loc_default_jurisprudence_desc$" #[Law.GetCustom('law_religious_jurisprudence_custom_description')]
  custom_loc_default_jurisprudence:0 "Religious Jurisprudence"
  custom_loc_default_jurisprudence_desc:0 "Clergy or religious scholars settle disputes and enforce religious law."
  custom_loc_jewish_jurisprudence:0 "Halakha"
  custom_loc_jewish_jurisprudence_desc:0 "Beth din comprised of local rabbis settle monetary and civil disputes."
 
-  
-
  
- #law_appointed_bureaucrats:0 "Appointed Bureaucrats"
- #law_appointed_bureaucrats_desc:0 "Bureacrats are appointed by rulers to serve the country's best interests in exchange for high wages."
- #law_elected_bureaucrats:0 "Elected Bureaucrats"
- #law_elected_bureaucrats_desc:0 "Local officials are elected by their constitutents, decentralizing power while making citizens easier to manage."
-
-
-######### Production Methods #######
-
- #pm_religious_bureaucrats_main:0 "Administrative Clergy"

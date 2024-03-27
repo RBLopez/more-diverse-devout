@@ -226,6 +226,15 @@ effect_set_minority_faith_ideologies_by_religion = {
 
 #this effect assumes country scope
 effect_set_minority_faith_country_var = {
+	if = {
+		limit = {
+			exists = var:minority_faith
+		}
+		set_local_variable = {
+			name = prior_minority_faith
+			value = var:minority_faith
+		}
+	}
 	remove_variable = minority_faith
 	set_local_variable = {
 		name = top_minority_faith_percent
@@ -553,5 +562,15 @@ effect_set_minority_faith_country_var = {
 			name = top_minority_faith_percent
 			value = religion_percent_theravada
 		}
+	}
+	#set up new leader if necessary
+	if = {
+		limit = {
+			exists = local_var:prior_minority_faith
+			NOT = {
+				local_var:prior_minority_faith = var:minority_faith
+			}
+		}
+		effect_create_minority_ig_leader = yes
 	}
 }
