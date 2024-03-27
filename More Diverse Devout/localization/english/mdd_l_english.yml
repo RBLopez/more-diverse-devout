@@ -214,12 +214,12 @@
  law_religious_tolerance:0 "Religious Tolerance"
  law_religious_tolerance_desc:0 "Religion plays a role in public life but the people may choose what to believe. Only particularly exotic religions are discriminated against."
  
-  # Welfare group
+ # Welfare group
  law_religious_charity:0 "Religious Charity"
  law_religious_charity_desc:0 "Organized charitable institutions - often religious - provide some help to the destitute."
   
-  # Bureaucracy
- law_religious_administration:0 "$custom_loc_default_administration$" #[LawType.GetCustom('law_religious_administration_custom_name')] this fails absolutely because its law in politics panel, lawstance description from within ideology popups, and from interest groups for pop support
+ # Bureaucracy
+ law_religious_administration:0 "$custom_loc_default_administration$" #[LawType.GetCustom('law_religious_administration_custom_name')] this fails absolutely because data type is law in politics panel, lawstance description from within ideology popups, and from interest groups for pop support
  law_religious_administration_desc:0 "$custom_loc_default_administration_desc$" #[LawType.GetCustom('law_religious_administration_custom_description')]
  custom_loc_default_administration:0 "Religious Administration"
  custom_loc_default_administration_desc:0 "Clergy or religious scholars perform the administrative functions of the state alongside their religious duties."
@@ -228,10 +228,7 @@
  custom_loc_muslim_administration:0 "Siyasa Shariyya"
  custom_loc_muslim_administration_desc:0 "Governance is conducted according to sharia by local qadi judges."
 
-#2343 - on the overall panel
-#1988 - in the laws
-
-  # Policing
+ # Policing
  law_religious_jurisprudence:0 "$custom_loc_default_jurisprudence$" #[Law.GetCustom('law_religious_jurisprudence_custom_name')]
  law_religious_jurisprudence_desc:0 "$custom_loc_default_jurisprudence_desc$" #[Law.GetCustom('law_religious_jurisprudence_custom_description')]
  custom_loc_default_jurisprudence:0 "Religious Jurisprudence"

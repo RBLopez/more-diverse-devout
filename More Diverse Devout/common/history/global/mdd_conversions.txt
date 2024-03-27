@@ -69,9 +69,127 @@ GLOBAL = {
 					}
 				}
 			}
+			#roughly 25% of anglo-canadians under direct british rule are protestant
+			every_scope_pop = {
+				limit = {
+					this.culture = cu:anglo_canadian
+					this.religion = rel:anglican
+				}
+				change_pop_religion = {
+					target = rel:protestant
+					value = 0.25
+				}
+			}
 		}
 	}
 
+	#What about Cape Colony and EIC ?
+
+	#Canadian countries
+	every_country = {
+		limit = {
+			OR = {
+				this = c:QUE
+				this = c:HBC
+				this = c:NBS
+				this = c:NVS
+				this = c:ONT
+				this = c:ORG
+			}
+		}
+		#missing good numbers, but assume 20% non-anglican protestants for anglo_canadians
+		every_scope_pop = {
+			limit = {
+				this.culture = cu:anglo_canadian
+				this.religion = rel:anglican
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 0.20
+			}
+		}
+	}
+
+	#Australia/New Zealand
+	#notes: per https://en.wikipedia.org/wiki/Religion_in_Australia (via yearbook of australia)
+	# "Australian society in 1901 was predominantly Anglo-Celtic, with 40% of the population being Anglican, 23% Catholic, 34% other Christian and about 1% professing non-Christian religions"
+	# per https://dictionaryofsydney.org/entry/religion
+	# at the time of the first census of New South Wales, in November 1828, it was assumed that everyone in the colony could be counted as belonging to one of four religious groups: Protestant, Catholic, Jewish, and Pagan. Jews and 'Pagans' lived mostly in Sydney Town,
+	# the Camden district was rather more Catholic (39 per cent) and the Windsor district was rather more Protestant (79 per cent) than elsewhere, but the colony was not religiously divided, at least geographically, though sectarianism has played a role in the life of the city.
+	# we'll go with 40% protestant to 60% anglican for australians, and assume the irish are catholic
+	every_country = {
+		limit = {
+			OR = {
+				this = c:NSW
+				this = c:TAS
+				this = c:SAS
+				this = c:KAU
+				this = c:WAS
+				this = c:NTO
+			}
+		}
+		every_scope_pop = {
+			limit = {
+				this.culture = cu:australian
+				this.religion = rel:anglican
+			}
+			change_pop_religion = {
+				target = rel:protestant
+				value = 0.40
+			}
+		}
+	}
+
+	#Confucianism/Buddhism in Asia
+	#Han, Hakka, Min, Yue cultures have Confucianism set as their primary religion, but in reality Mahayna was probably more practiced (it's difficult because the two are not exclusive)
+	every_country = {
+		limit = {
+			OR = {
+				country_is_in_east_asia = yes
+				country_is_in_southeast_asia = yes
+			}
+		}
+		#Han is 65% practicing Mahayana
+		every_scope_pop = {
+			limit = {
+				this.culture = cu:han
+				this.religion = rel:confucianism
+			}
+			change_pop_religion = {
+				target = rel:mahayana
+				value = 0.65
+			}
+		}
+		#Hakka, Min, Yue 70% practicing Mahayana. 100% when in southeast asia
+		every_scope_pop = {
+			limit = {
+				OR = {
+					this.culture = cu:hakka
+					this.culture = cu:min
+					this.culture = cu:yue
+				}
+				this.religion = rel:confucianism
+			}
+			if = {
+				limit = {
+					state = {
+						state_is_in_southeast_asia = yes
+					}
+				}
+				change_pop_religion = {
+					target = rel:mahayana
+					value = 1
+				}
+			}
+			else = {
+				change_pop_religion = {
+					target = rel:mahayana
+					value = 0.70
+				}
+			}
+		}
+
+	}
 
 
 }
