@@ -236,4 +236,9 @@
  custom_loc_jewish_jurisprudence:0 "Halakha"
  custom_loc_jewish_jurisprudence_desc:0 "Beth din comprised of local rabbis settle monetary and civil disputes."
 
- 
+###########################################  Journal Entries and Events  ######################################
+ je_group_mdd_content:0 "More Diverse Devout"
+ je_roman_question_italian:0 "The Roman Question"
+ je_roman_question_defender:0 "Defender of the Faith"
+ je_prisoner_in_vatican:0 "Prisoner in the Vatican"
+ je_holy_see:0  "The Holy See"

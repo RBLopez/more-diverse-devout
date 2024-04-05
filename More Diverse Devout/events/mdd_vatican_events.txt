@@ -1,0 +1,23 @@
+﻿namespace = mdd_vatican
+
+mdd_vatican.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		add_journal_entry = {
+			type = je_prisoner_in_vatican
+		}
+	}
+}
+
+mdd_vatican.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		add_journal_entry = {
+			type = je_holy_see
+		}
+	}
+}

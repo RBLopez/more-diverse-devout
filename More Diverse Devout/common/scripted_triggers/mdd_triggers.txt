@@ -79,28 +79,19 @@ country_controls_vatican = {
 
 is_papal_states = {
 	OR = {
-		this ?= c:PAP
-		AND = {
-			exists = c:ITA
-			c:ITA = {
-				was_formed_from = c:PAP
-			}
-		}
+		c:PAP ?= this
+		was_formed_from = PAP
 	}
 }
 
 has_papal_rule = {
 	has_law = law_type:law_theocracy
-	rel:catholic = {
-		is_state_religion = yes
-	}
+	country_has_state_religion = rel:catholic
 	OR = {
 		is_papal_states = yes
 		AND = {
-			NOT = {
-				c:PAP = {
-					is_country_alive = no
-				}
+			c:PAP = {
+				is_country_alive = no
 			}
 			country_controls_vatican = yes
 		}

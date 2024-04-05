@@ -123,7 +123,7 @@
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_religious_schools
+					has_law = law_type:law_state_atheism
 				}
 			}
 			add = {

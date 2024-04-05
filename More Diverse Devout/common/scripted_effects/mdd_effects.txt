@@ -1,13 +1,12 @@
 ﻿#sets a global variable, can be used anywhere
 effect_set_catholic_authority_global = {
-	effect_get_vatican_country = yes
 	set_global_variable = {
 		name = global_catholic_authority
 		value = 0
 	}
 	every_country = {
 		limit = {
-			this = country_controls_vatican
+			country_controls_vatican = yes
 		}
 		debug_log_scopes = yes
 		change_global_variable = {

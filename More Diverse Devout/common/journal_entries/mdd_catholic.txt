@@ -3,39 +3,28 @@
 
 	group = je_group_mdd_content
 
+	is_shown_when_inactive = {
+		NOT = {
+			has_global_variable = roman_question_answered
+		}
+		is_papal_states = no
+		OR = {
+			country_has_primary_culture = cu:north_italian
+			country_has_primary_culture = cu:south_italian
+		}
+	}
+
 	possible = {
-		#designs on italian unification
-		#roman question is not answered (global variable)
-		#not papal states
+		is_papal_states = no
+		has_variable = risorgimento_unifying_stance
+		NOT = {
+			has_global_variable = roman_question_answered
+		}
 	}
 
 	complete = {
-		#papal states forms ital
-		#roman question is answered
-	}
-
-	on_complete = {
-		#??
-	}
-
-	can_revolution_inherit = yes
-
-}
-
-je_roman_question_papal = {
-	icon = "gfx/interface/icons/religion_icons/catholic.dds"
-
-	group = je_group_mdd_content
-
-	possible = {
-		#is papal states
-		#not catholic theocracy
-		#OR some other 
-	}
-
-	complete = {
+		has_global_variable = roman_question_answered
 		#papal states forms italy
-		#roman question is answered
 	}
 
 	on_complete = {
@@ -43,16 +32,13 @@ je_roman_question_papal = {
 	}
 
 	fail = {
-		#papal states doesn't exist
-		#or timeout/loss of catholic authority
-		#
+		#papal states is dead and didn't form italy
 	}
 
 	on_fail = {
 		#prisoner in the vatican (?)
 	}
 
-	can_revolution_inherit = yes
 }
 
 je_roman_question_defender ={
@@ -60,39 +46,73 @@ je_roman_question_defender ={
 
 	group = je_group_mdd_content
 
+	is_shown_when_inactive = {
+		is_papal_states = no
+		NOT = {
+			has_global_variable = roman_question_answered
+		}
+		country_has_state_religion = rel:catholic
+		country_rank >= rank_value:major_power
+	}
+
 	possible = {
-		#not italian
-		#catholic in europe
-		#at least one nation has designs on rome
-		#at least a major power
+		NOT = {
+			has_global_variable = roman_question_answered
+			has_variable = risorgimento_unifying_stance
+		}
+		is_papal_states = no
+		country_has_state_religion = rel:catholic
+		country_rank >= rank_value:major_power
+		OR = {
+			country_is_in_europe = yes
+			has_variable = risorgimento_anti_unifying_stance
+		}
+		any_country = {
+			has_variable = risorgimento_unifying_stance
+		}
 	}
 
 	complete = {
+		has_global_variable = roman_question_answered
 		#papal states forms italy
-		#roman question is answered
 	}
 
 	on_complete = {
-		#roman question is answered
-		#
+		#?
 	}
 
 	fail = {
-		#papal states doesn't exist
-		#or timeout
+		#papal states is dead and didn't form italy
 	}
 
 	on_fail = {
 		#prisoner in the vatican (?)
 	}
 
-	can_revolution_inherit = yes
 }
 
 je_prisoner_in_vatican = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
 	group = je_group_mdd_content
+
+	is_shown_when_inactive = {
+		NOT = {
+			has_global_variable = roman_question_answered
+		}
+		is_papal_states = no
+		has_variable = risorgimento_unifying_stance
+	}
+
+	possible = {
+		NOT = {
+			has_global_variable = roman_question_answered
+		}
+		c:PAP = {
+			is_country_alive = no
+		}
+		country_controls_vatican = yes
+	}
 
 	on_weekly_pulse = {
 		#check for dead popes and trigger papal elections
@@ -103,7 +123,7 @@ je_prisoner_in_vatican = {
 	}
 
 	complete = {
-		#roman question is answered
+		has_global_variable = roman_question_answered
 	}
 
 	on_complete = {
@@ -111,15 +131,19 @@ je_prisoner_in_vatican = {
 	}
 
 	fail = {
-		#owning country no longer owns rome
+		country_controls_vatican = no
 	}
 
 	on_fail = {
-		#give the new country this journal entry (?) or a custom event that can trigger it
+		every_country = {
+			limit = {
+				country_controls_vatican = yes
+			}
+			trigger_event = {
+				id = mdd_vatican.1
+			}
+		}
 	}
-
-	can_revolution_inherit = yes
-
 }
 
 je_holy_see = {
@@ -127,19 +151,80 @@ je_holy_see = {
 
 	group = je_group_mdd_content
 
+	possible = {
+		has_global_variable = roman_question_answered
+		has_papal_rule = no
+		country_controls_vatican = yes
+	}
+
 	on_weekly_pulse = {
 		#check for dead popes and trigger papal elections
 	}
 
 	fail = {
-		#owning country no longer owns rome
+		country_controls_vatican = no
 	}
 
 	on_fail = {
-		#give the new country this journal entry (?) or a custom event that can trigger it
+		every_country = {
+			limit = {
+				country_controls_vatican = yes
+			}
+			trigger_event = {
+				id = mdd_vatican.2
+			}
+		}
 	}
 
-	can_revolution_inherit = yes
+}
+
+#journal entry in vatican country lets a fail trigger if country_controls_vatican = no OR if country_is_papal_states = no
+#mass media fuels the fires (requirement for quanta cura?)
+#also encompass Quanta cura/syllabus of errors (1864)
+#first vatican council is (1870)
+#use this to track waning catholic power generally, 'fails' when authority falls too low (and kicks off the vatican council event chain and papal infallibility)
+#give this to the papal states at game start?
+#what does 'success' look like? (look at springtime of peoples reactionary success criteria?)
+je_anti_secularization = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+}
+
+#protestant (european protestant?) response to papal infallibility
+#include some attacks on cultural minorities that are majority catholic (ie. Poles in Germany)?
+#struggle especially over schooling
+#triggered by papal infallibility
+je_kulturkampf = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+}
+
+#catholic response to papal infallibility
+#struggle over state religion and potentially schooling
+#triggered by papal infallibility
+je_gallicanism = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+}
+
+#triggered after rerum novarum (IRL 1891)
+#devout IG in catholic countries can become more liberal and adopt corporatism
+je_catholic_social_teaching = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
+
+}
+
+#let countries with catholic minorities potentially liberalize as well
+je_catholic_social_teaching_minority = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	group = je_group_mdd_content
 
 }
 
