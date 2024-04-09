@@ -1,4 +1,4 @@
-﻿#assumes pop scope
+﻿#pop scope, is the pop a member of the dominant minority faith in their country?
 has_minority_faith = {
 	OR = {
 		AND = {
@@ -77,6 +77,7 @@ country_controls_vatican = {
 	p:xB040A0.controller = this
 }
 
+#country scope
 is_papal_states = {
 	OR = {
 		c:PAP ?= this
@@ -84,6 +85,7 @@ is_papal_states = {
 	}
 }
 
+#country scope
 has_papal_rule = {
 	has_law = law_type:law_theocracy
 	country_has_state_religion = rel:catholic
@@ -95,6 +97,26 @@ has_papal_rule = {
 			}
 			country_controls_vatican = yes
 		}
+	}
+}
+
+#country scope
+has_catholic_presence = {
+	OR = {
+		country_has_state_religion = rel:catholic
+		var:minority_faith ?= rel:catholic
+		religion_percent_country = {
+			target = rel:catholic
+			value >= 0.10
+		}
+	}
+}
+
+#country scope
+has_catholic_ig = {
+	OR = {
+		country_has_state_religion = rel:catholic
+		var:minority_faith ?= rel:catholic
 	}
 }
 

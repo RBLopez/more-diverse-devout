@@ -1,0 +1,23 @@
+﻿# Define pop candidates here, with IG = devout and possible for papal states only
+# events for papal succession look for whether papal states is a thing, and shows the devout leader if so
+# otherwise random event list for the 'type' of pope (conservative or more liberal, roughly what nationality) and have a different event option depending on the decade for potential popes
+
+
+#1846 CONCLAVE
+#conservative was luigi lambruschini
+#IRL  giovanni ferretti / pius IX (liberal) was elected as compromise candidate, but turned super conservative after 1848 and being forced to flee
+# Tommaso Bernetti was liberal leader
+# tommaso Pasquale Gizzi was the preferred liberal candidate
+
+#1878 CONCLAVE
+# IRL elect Vincenzo Pecci / Leo XIII (liberal and 'internationalist')
+# other candidates luigi bilio and alessandra franchi (conservative favorite)
+
+#1903 CONCLAVE
+# IRL Guiseppe Sarto (Pius X)
+# Mariano Rampolla was the most popular, blocked by Austrian monarch. afterwards the ability of catholic monarchs to veto was ended.
+# Girolamo Gotti was conservative choice
+# Serafino Vannutelli was a conservative choice
+
+#1914 CONCLAVE
+#TBD

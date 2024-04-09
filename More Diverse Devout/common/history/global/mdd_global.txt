@@ -2,8 +2,6 @@
 GLOBAL = {
 
 
-	# set_global_variable = global_protestant_liberal
-
 	every_country = {
 		limit = {
 			OR = {
@@ -238,6 +236,19 @@ GLOBAL = {
 		ig:ig_devout = {
 			remove_ideology = ideology_church_lands
 			add_ideology = ideology_church_lands_russia
+		}
+	}
+
+	every_country = {
+		limit = {
+			this = c:PAP
+		}
+		add_journal_entry = {
+			type = je_anti_secularization
+		}
+		trigger_event = { #workaround for odd ruler/character interactions. sets up the pope
+			id = mdd_setup.2
+			days = 1
 		}
 	}
 

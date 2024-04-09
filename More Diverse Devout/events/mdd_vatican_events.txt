@@ -1,5 +1,6 @@
 ﻿namespace = mdd_vatican
 
+#used to reset prisoner in the vatican to a new country if control of Rome changes
 mdd_vatican.1 = {
 	type = country_event
 	hidden = yes
@@ -11,6 +12,7 @@ mdd_vatican.1 = {
 	}
 }
 
+#used to reset the holy see to a new country if control of Rome changes
 mdd_vatican.2 = {
 	type = country_event
 	hidden = yes
@@ -21,3 +23,116 @@ mdd_vatican.2 = {
 		}
 	}
 }
+
+#papal succession in-game mechanics
+mdd_vatican.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = mdd_vatican.3.t
+	desc = mdd_vatican.3.d
+	flavor = mdd_vatican.3.f
+
+	gui_window = event_window_1char_tabloid #figure out a character-based window, this isn't a bad first attempt
+
+	left_icon = scope:new_pope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+		#triggered by character death on_action
+		exists = scope:old_pope
+	}
+
+	immediate = {
+		#who is the new pope?
+		if = {
+			limit = {
+				has_papal_rule = yes
+			}
+			ruler = {
+				debug_log_scopes = no
+				save_scope_as = new_pope
+				set_variable = {
+					name = mdd_is_pope
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = ig:ig_devout
+				country_has_state_religion = rel:catholic
+			}
+			debug_log = "devout ig"
+			ig:ig_devout = {
+				leader = {
+					save_scope_as = new_pope
+					set_variable = {
+						name = mdd_is_pope
+					}
+				}
+			}
+		}
+		else_if = {
+			#atheist papal states?
+			limit = {
+				var:minority_faith ?= rel:catholic
+			}
+			debug_log = "minority catholic"
+			ig:ig_minority_faiths = {
+				leader = {
+					save_scope_as = new_pope
+					set_variable = {
+						name = mdd_is_pope
+					}
+				}
+			}
+		}
+		else = {
+			debug_log = "final else"
+			#something truly bizarre. get a random pope
+		}
+		debug_log_scopes = yes
+	}
+
+	option = {
+		name = mdd_vatican.3.a
+		default_option = yes
+		#nothing, just acknowledge and close
+		#send notification to catholic countries?
+	}
+
+	option = {
+		name = mdd_vatican.3.b
+		trigger = {
+			has_technology_researched = mass_communication
+		}
+		# make this a big deal somehow
+		# increase devout ig attraction in catholic and catholic minority countries?
+		# 
+	}
+
+}
+
+#papal succession je triggered
+
+#vatican council kicked off (vatican country)
+#send notification to each relevant country (catholic_presence)
+
+
+#results of vatican council (vatican country)
+#triggers event in each relevant country (minority_faith is catholic or catholic state religion)
+#notification to catholic_presence countries that aren't catholic or minority faith catholic
+
+
+#vatican council notification (catholic countries)
+#adds journal entry gallicanism
+  
+
+#vatican council notification (catholic minority countries)
+#adds journal entry kulturkampf

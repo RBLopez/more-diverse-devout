@@ -183,12 +183,31 @@ je_holy_see = {
 #also encompass Quanta cura/syllabus of errors (1864)
 #first vatican council is (1870)
 #use this to track waning catholic power generally, 'fails' when authority falls too low (and kicks off the vatican council event chain and papal infallibility)
-#give this to the papal states at game start?
+#give this to the papal states at game start
 #what does 'success' look like? (look at springtime of peoples reactionary success criteria?)
 je_anti_secularization = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
 	group = je_group_mdd_content
+
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		#added at game start to papal states
+	}
+
+	fail = {
+		OR = {
+			country_controls_vatican = no
+			is_papal_states = no
+		}	
+	}
+
+	on_fail = {
+		#?? vatican council immediately? Or nothing
+	}
 
 }
 
@@ -200,6 +219,15 @@ je_kulturkampf = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
 	group = je_group_mdd_content
+
+	#added via event? or triggered by infallibility/vatican council global var?
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		always = no
+	}
 }
 
 #catholic response to papal infallibility
@@ -209,6 +237,15 @@ je_gallicanism = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
 	group = je_group_mdd_content
+
+	#added via event? or triggered by infallibility/vatican council global var?
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		always = no
+	}
 }
 
 #triggered after rerum novarum (IRL 1891)
@@ -218,6 +255,16 @@ je_catholic_social_teaching = {
 
 	group = je_group_mdd_content
 
+	#added via event? or triggered by rerum novarum global var?
+	#maybe show when corporatism researched or rerum novarum, and possible when rerum novarum
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		always = no
+	}
+
 }
 
 #let countries with catholic minorities potentially liberalize as well
@@ -225,6 +272,16 @@ je_catholic_social_teaching_minority = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
 	group = je_group_mdd_content
+
+	#added via event? or triggered by rerum novarum global var?
+	#maybe show when corporatism researched or rerum novarum, and possible when rerum novarum
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		always = no
+	}
 
 }
 

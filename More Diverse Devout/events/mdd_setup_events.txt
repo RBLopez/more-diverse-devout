@@ -12,5 +12,17 @@ mdd_setup.1 = {
 			effect_create_minority_ig_leader = yes
 		}
 	}
-	
+}
+
+mdd_setup.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		ruler = {
+			set_variable = {
+				name = mdd_is_pope
+			}
+		}
+	}
 }

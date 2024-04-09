@@ -17,9 +17,7 @@ effect_set_catholic_authority_global = {
 	every_country = {
 		limit = {
 			religion = rel:catholic
-			NOT = {
-				this = scope:vatican_country
-			}
+			country_controls_vatican = no
 		}
 		debug_log_scopes = yes
 		change_global_variable = {
@@ -32,9 +30,7 @@ effect_set_catholic_authority_global = {
 			NOT = {
 				religion = rel:catholic
 			}
-			NOT = {
-				this = scope:vatican_country
-			}
+			country_controls_vatican = no
 			OR = {
 				is_country_type = recognized
 				is_country_type = colonial
