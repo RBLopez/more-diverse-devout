@@ -24,7 +24,7 @@ mdd_vatican.2 = {
 	}
 }
 
-#papal succession in-game mechanics
+#papal succession event in the country controlling the vatican
 mdd_vatican.3 = {
 	type = country_event
 	placement = ROOT
@@ -45,59 +45,13 @@ mdd_vatican.3 = {
 	duration = 3
 
 	trigger = {
-		#triggered by character death on_action
+		#triggered by character death on_action or by journal entry pulse
 		exists = scope:old_pope
+		exists = scope:new_pope
 	}
 
 	immediate = {
-		#who is the new pope?
-		if = {
-			limit = {
-				has_papal_rule = yes
-			}
-			ruler = {
-				debug_log_scopes = no
-				save_scope_as = new_pope
-				set_variable = {
-					name = mdd_is_pope
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				exists = ig:ig_devout
-				country_has_state_religion = rel:catholic
-			}
-			debug_log = "devout ig"
-			ig:ig_devout = {
-				leader = {
-					save_scope_as = new_pope
-					set_variable = {
-						name = mdd_is_pope
-					}
-				}
-			}
-		}
-		else_if = {
-			#atheist papal states?
-			limit = {
-				var:minority_faith ?= rel:catholic
-			}
-			debug_log = "minority catholic"
-			ig:ig_minority_faiths = {
-				leader = {
-					save_scope_as = new_pope
-					set_variable = {
-						name = mdd_is_pope
-					}
-				}
-			}
-		}
-		else = {
-			debug_log = "final else"
-			#something truly bizarre. get a random pope
-		}
-		debug_log_scopes = yes
+
 	}
 
 	option = {
@@ -111,15 +65,12 @@ mdd_vatican.3 = {
 		name = mdd_vatican.3.b
 		trigger = {
 			has_technology_researched = mass_communication
+			is_papal_states = yes
 		}
 		# make this a big deal somehow
-		# increase devout ig attraction in catholic and catholic minority countries?
-		# 
 	}
 
 }
-
-#papal succession je triggered
 
 #vatican council kicked off (vatican country)
 #send notification to each relevant country (catholic_presence)

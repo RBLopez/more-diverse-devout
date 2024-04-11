@@ -246,7 +246,7 @@ GLOBAL = {
 		add_journal_entry = {
 			type = je_anti_secularization
 		}
-		trigger_event = { #workaround for odd ruler/character interactions. sets up the pope
+		trigger_event = { #workaround for odd ruler/character interactions. sets up the pope and historical cardinals
 			id = mdd_setup.2
 			days = 1
 		}

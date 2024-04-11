@@ -2,6 +2,53 @@
 # events for papal succession look for whether papal states is a thing, and shows the devout leader if so
 # otherwise random event list for the 'type' of pope (conservative or more liberal, roughly what nationality) and have a different event option depending on the decade for potential popes
 
+luigi_lambruschini_template = {
+	# already created as a character at game start, but not from a template
+	# cardinal from september 1831. died 1854
+	first_name = Luigi
+	last_name = Lambruschini
+	historical = yes
+	religion = rel:catholic
+	birth_date = 1776.3.6
+	interest_group = ig_devout
+	ideology = ideology_moderate
+}
+
+giovanni_ferretti_template = {
+	# already created as a character at game start, but not from a template
+	# IRL liberal pope elected 1846
+	# cardinal from dec 1839. died 1878
+	first_name = Giovanni_Maria
+	last_name = Ferretti
+	historical = yes
+	religion = rel:catholic
+	birth_date = 1792.5.13
+	interest_group = ig_devout
+	ideology = ideology_theocrat
+}
+
+tommaso_bernetti_template = {
+	# liberal option
+	# cardinal from oct 1826. died 1852
+	first_name = Tommaso
+	last_name = Bernetti
+	historical = yes
+	religion = rel:catholic
+	birth_date = 1779.12.29
+	interest_group = ig_devout
+	#ideology = ideology_theocrat
+}
+
+tommaso_gizzi_template = {
+	# liberal option
+	# cardinal from july 1841. died 1849
+	first_name = Tommaso_Pasquale
+	last_name = Gizzi
+	historical = yes
+	religion = rel:catholic
+	birth_date = 1787.9.22
+	interest_group = ig_devout
+}
 
 #1846 CONCLAVE
 #conservative was luigi lambruschini

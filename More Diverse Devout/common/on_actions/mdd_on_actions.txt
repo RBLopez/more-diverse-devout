@@ -51,7 +51,7 @@ set_religious_igs_new_country = {
 on_character_death = {
 	on_actions = {
 		conditional_minority_faith_leader_creation
-		papal_succession
+		check_papal_succession
 	}
 }
 
@@ -69,7 +69,7 @@ conditional_minority_faith_leader_creation = {
 	}
 }
 
-papal_succession = {
+check_papal_succession = {
 	effect = {
 		if = {
 			limit = {
@@ -78,16 +78,7 @@ papal_succession = {
 			this = {
 				save_scope_as = old_pope
 			}
-			#papal succession doesn't seem quite right even in papal states (dictatorial). maybe I need to control the entire thing?
-			every_country = {
-				limit = {
-					is_papal_states = yes
-				}
-				trigger_event = {
-					id = mdd_vatican.3
-					days = 1
-				}
-			}
+			effect_papal_succession = yes
 		}
 	}
 }

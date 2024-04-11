@@ -14,6 +14,7 @@ mdd_setup.1 = {
 	}
 }
 
+#Papal states setup
 mdd_setup.2 = {
 	type = country_event
 	hidden = yes
@@ -23,6 +24,20 @@ mdd_setup.2 = {
 			set_variable = {
 				name = mdd_is_pope
 			}
+		}
+
+		#override historical cardinals
+		create_character = {
+			template = luigi_lambruschini_template
+			ig_leader = yes
+			interest_group = ig_devout
+			ideology = ideology_moderate
+		}
+		create_character = {
+			template = giovanni_ferretti_template
+			ig_leader = yes
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_theocrat
 		}
 	}
 }

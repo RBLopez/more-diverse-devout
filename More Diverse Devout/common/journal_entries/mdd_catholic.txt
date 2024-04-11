@@ -33,6 +33,8 @@
 
 	fail = {
 		#papal states is dead and didn't form italy
+		#on_country_formed for italian formation if italy
+		#on_war_end for war that takes over the country
 	}
 
 	on_fail = {
@@ -115,7 +117,8 @@ je_prisoner_in_vatican = {
 	}
 
 	on_weekly_pulse = {
-		#check for dead popes and trigger papal elections
+		#check for dead popes and new popes
+		#if pope is dead and new pope, effect_papal_succession = yes
 	}
 
 	modifiers_while_active = {
@@ -190,13 +193,9 @@ je_anti_secularization = {
 
 	group = je_group_mdd_content
 
-	is_shown_when_inactive = {
-		always = no
-	}
-
-	possible = {
-		#added at game start to papal states
-	}
+	# added at game start to papal states
+	# is_shown_when_inactive = {	}
+	# possible = { }
 
 	fail = {
 		OR = {

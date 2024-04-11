@@ -1,0 +1,193 @@
+﻿#sets a global variable, can be used anywhere
+effect_set_catholic_authority_global = {
+	set_global_variable = {
+		name = global_catholic_authority
+		value = 0
+	}
+	every_country = {
+		limit = {
+			country_controls_vatican = yes
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = vatican_country_catholic_authority
+		}
+	}
+	every_country = {
+		limit = {
+			religion = rel:catholic
+			country_controls_vatican = no
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = catholic_authority
+		}
+	}
+	every_country = {
+		limit = {
+			NOT = {
+				religion = rel:catholic
+			}
+			country_controls_vatican = no
+			OR = {
+				is_country_type = recognized
+				is_country_type = colonial
+			}
+		}
+		random_scope_pop = {
+			limit = {
+				religion = rel:catholic
+			}
+			save_scope_as = catholic_pop
+		}
+		debug_log_scopes = yes
+		change_global_variable = {
+			name = global_catholic_authority
+			add = catholic_minority_authority
+		}
+	}
+}
+
+#papal succession. assumes that we have saved scope old_pope
+#called from within the country controlling the vatican
+effect_papal_succession = {
+	random_list = {
+		5 = {
+			debug_log = "conservative pope"
+			#add modifiers here to change the factor
+			#create characters and store as new_pope. historical popes have value 200, runners up 150, alternates have value 100. random has value 1 (just in case year triggers all fail)
+			random_list = {
+				150 = {
+					trigger = {
+						year > 1831
+						year < 1854
+						NOT = {
+							scope:old_pope = {
+								has_template = luigi_lambruschini_template
+							}
+						}
+					}
+					create_character = {
+						template = luigi_lambruschini_template
+						save_scope_as = new_pope
+					}
+				}
+				1 = {
+					create_character = {
+						female = no
+						religion = rel:catholic
+						interest_group = ig_devout
+						save_scope_as = new_pope
+					}
+				}
+			}
+			scope:new_pope = {
+				set_variable = mdd_is_pope
+			}
+		}
+		2 = {
+			debug_log = "liberal pope"
+			#add modifiers here to change the factor
+			#create characters and store as new_pope. historical popes have value 200, runners up 150, other alternates have value 50, random cardinals 10
+			random_list = {
+				200 = {
+					trigger = {
+						year >= 1839
+						year <= 1876
+						NOT = {
+							scope:old_pope = {
+								has_template = giovanni_ferretti_template
+							}
+						}
+					}
+					create_character = {
+						template = giovanni_ferretti_template
+						save_scope_as = new_pope
+						on_create = {
+							set_variable = mdd_is_pope
+						}
+					}
+				}
+				50 = {
+					trigger = {
+						year >= 1826
+						year <= 1852
+						NOT = {
+							scope:old_pope = {
+								has_template = tommaso_bernetti_template
+							}
+						}
+					}
+					create_character = {
+						template = tommaso_bernetti_template
+						save_scope_as = new_pope
+						on_create = {
+							set_variable = mdd_is_pope
+						}
+					}
+				}
+				150 = {
+					trigger = {
+						year >= 1841
+						year <= 1849
+						NOT = {
+							scope:old_pope = {
+								has_template = tommaso_gizzi_template
+							}
+						}
+					}
+					create_character = {
+						template = tommaso_gizzi_template
+						save_scope_as = new_pope
+					}
+				}
+				1 = {
+					create_character = {
+						female = no
+						religion = rel:catholic
+						interest_group = ig_devout
+						save_scope_as = new_pope
+						on_create = {
+							set_variable = mdd_is_pope
+						}
+					}
+				}
+			}
+			scope:new_pope = {
+				set_variable = mdd_is_pope
+			}
+		}
+	}
+	debug_log_scopes = yes
+	#we have scope:new_pope now
+	#scope:new_pope = {
+	#	set_variable = mdd_is_pope
+	#	if = {
+	#		limit = {
+	#			this.owner = {
+	#				is_papal_states = yes
+	#			}
+	#		}
+	#		if = {
+	#			limit = {
+	#				this.owner = {
+	#					has_papal_rule = yes
+	#				}
+	#			}
+	#			set_character_as_ruler = yes
+	#		}
+	#		else = {
+	#			set_as_interest_group_leader = yes
+	#		}
+	#	}
+	#	else = {
+	#		place_character_in_void = 1200
+	#	}
+	#}
+	#trigger_event = {
+	#	id = mdd_vatican.3
+	#	days = 1
+	#}
+}
