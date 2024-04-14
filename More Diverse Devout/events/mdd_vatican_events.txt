@@ -1,26 +1,77 @@
 ﻿namespace = mdd_vatican
 
-#used to reset prisoner in the vatican to a new country if control of Rome changes
+#on initial end of papal rule, popup that adds the prisoner in the vatican to the controlling country
 mdd_vatican.1 = {
 	type = country_event
-	hidden = yes
+	placement = ROOT
+
+	title = mdd_vatican.1.t
+	desc = mdd_vatican.1.d
+	flavor = mdd_vatican.1.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:prisoner_pope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
 
 	immediate = {
-		add_journal_entry = {
-			type = je_prisoner_in_vatican
+		#find the old pope somehow? in every_scope_character? and in every_character_in_void?
+		#get mdd_current_pope global var and put in the void
+		# if rulers and IG leaders die on country death, this may be difficult.
+		global_var:mdd_current_pope ?= {
+			save_scope_as = prisoner_pope
+			set_variable = first_vatican_prisoner
 		}
+
+	}
+
+	option = {
+		name = mdd_vatican.1.a
+		default_option = yes
+		#nothing, just acknowledge and close
+		#send notification to catholic countries?
 	}
 }
 
-#used to reset the holy see to a new country if control of Rome changes
+#initial event that triggers the creation of the holy see. triggered from prisoner in the vatican JE
 mdd_vatican.2 = {
 	type = country_event
-	hidden = yes
+	placement = ROOT
+
+	title = mdd_vatican.2.t
+	desc = mdd_vatican.2.d
+	flavor = mdd_vatican.2.f
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:lateran_pope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
 
 	immediate = {
-		add_journal_entry = {
-			type = je_holy_see
+		set_global_variable = mdd_roman_question_answered
+		global_var:mdd_current_pope ?= {
+			save_scope_as = lateran_pope
 		}
+	}
+
+	option = {
+		name = mdd_vatican.2.a
+		default_option = yes
+		#nothing, just acknowledge and close
+		#send notification to catholic countries?
+		#boost prestige of the current ruler/country for pulling this off
 	}
 }
 
@@ -33,7 +84,7 @@ mdd_vatican.3 = {
 	desc = mdd_vatican.3.d
 	flavor = mdd_vatican.3.f
 
-	gui_window = event_window_1char_tabloid #figure out a character-based window, this isn't a bad first attempt
+	gui_window = event_window_1char_tabloid
 
 	left_icon = scope:new_pope
 
@@ -46,12 +97,24 @@ mdd_vatican.3 = {
 
 	trigger = {
 		#triggered by character death on_action or by journal entry pulse
-		exists = scope:old_pope
+		#exists = scope:old_pope
 		exists = scope:new_pope
 	}
 
 	immediate = {
-
+		if = {
+			limit = {
+				NOT = { exists = { scope:old_pope } }
+				has_global_variable = mdd_current_pope
+			}
+			global_var:mdd_current_pope = {
+				save_scope_as = old_pope
+			}
+		}
+		set_global_variable = {
+			name = mdd_current_pope
+			value = this
+		}
 	}
 
 	option = {
@@ -65,7 +128,7 @@ mdd_vatican.3 = {
 		name = mdd_vatican.3.b
 		trigger = {
 			has_technology_researched = mass_communication
-			is_papal_states = yes
+			has_papal_rule = yes
 		}
 		# make this a big deal somehow
 	}

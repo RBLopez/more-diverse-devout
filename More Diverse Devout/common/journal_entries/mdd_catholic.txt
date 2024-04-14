@@ -43,6 +43,140 @@
 
 }
 
+#'hidden' AI journal used to track if/when the papal states dies or country controlling the vatican dies
+#may be redundant with better entry criteria for prisoner in the vatican
+je_pope_tracker = {
+	icon = "gfx/interface/icons/religion_icons/catholic.dds"
+
+	fail = {
+		NOT = { exists = c:PAP }
+		OR = {
+			NOT = { exists = c:ITA }
+			NOT = {
+				c:ITA ?= {
+					was_formed_from = PAP
+				}
+			}
+		}
+		any_country = {
+			country_controls_vatican = yes
+			NOT = { has_journal_entry = je_prisoner_in_vatican }
+			NOT = { has_journal_entry = je_holy_see }
+		}
+	}
+
+	on_fail = {
+		if = { #papal states just died
+			limit = {
+				NOT = { has_global_variable = mdd_papal_rule_ended }
+			}
+			add_global_variable = mdd_papal_rule_ended
+			any_country = {
+				country_controls_vatican = yes
+				trigger_event = {
+					id = mdd_vatican.1
+				}
+			}
+		}
+		#these are probably unnecessary with appropriate triggers for journal entries
+		#else = { 
+		#	if = {
+		#		limit = {
+		#			has_global_variable = mdd_roman_question_answered
+		#		}
+		#		any_country = {
+		#			country_controls_vatican = yes
+		#			trigger_event = {
+		#				id = mdd_vatican.4
+		#			}
+		#		}
+		#	}
+		#	else = {
+		#		any_country = {
+		#			country_controls_vatican = yes
+		#			trigger_event = {
+		#				id = mdd_vatican.2
+		#			}
+		#		}
+		#	}
+		#}
+	}
+
+
+	is_shown_when_inactive = {
+		is_ai = yes
+		country_controls_vatican = no
+        OR = {
+            AND = {
+                has_global_variable = mdd_pope_tracker
+                OR = {
+                    this = global_var:mdd_pope_tracker
+                    global_var:mdd_pope_tracker = {
+                        OR = {
+                            is_country_alive = no
+                            OR = {
+                                is_ai = no
+                                NOT = { # Human players eligible only if they conquered all the AIs
+                                    any_country = {
+                                        is_ai = yes
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            NOT = {
+                has_global_variable = mdd_pope_tracker
+            }
+        }
+	}
+
+	possible = {
+        always = yes
+    }
+
+	immediate = {
+        if = {
+            limit = {
+                OR = {
+                    NOT = {
+                        has_global_variable = mdd_pope_tracker
+                    }
+                    global_var:mdd_pope_tracker = {
+                        OR = {
+                            is_country_alive = no
+                            OR = {
+                                is_ai = no
+                                NOT = {
+                                    any_country = {
+                                        is_ai = yes
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            set_global_variable = {
+                name  = mdd_pope_tracker
+                value = this
+            }
+        }
+    }
+    
+    invalid = {
+        OR = {
+            is_ai = no
+            AND = {
+                has_global_variable = mdd_pope_tracker
+                this != global_var:mdd_pope_tracker
+            }
+        }
+    }
+
+}
+
 je_roman_question_defender ={
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
@@ -99,26 +233,47 @@ je_prisoner_in_vatican = {
 	group = je_group_mdd_content
 
 	is_shown_when_inactive = {
-		NOT = {
-			has_global_variable = roman_question_answered
+		OR = {
+			AND = {
+				is_papal_states = no
+				has_variable = risorgimento_unifying_stance
+			}
+			country_controls_vatican = yes
 		}
-		is_papal_states = no
-		has_variable = risorgimento_unifying_stance
+		NOT = {
+			has_global_variable = mdd_roman_question_answered
+		}	
 	}
 
 	possible = {
-		NOT = {
-			has_global_variable = roman_question_answered
-		}
-		c:PAP = {
-			is_country_alive = no
-		}
 		country_controls_vatican = yes
+		has_papal_rule = no
+		NOT = {
+			has_global_variable = mdd_roman_question_answered
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = mdd_papal_rule_ended }
+			}
+			set_global_variable = mdd_papal_rule_ended
+			trigger_event = {
+				#flavor event that kicks of notification of prisoner in the vatican
+				#either secularization of c:PAP or death of the country
+				#ideally find a way to save the old pope and/or put him in the void
+				# -- maybe set global variable that saves pope character. update every papal succession
+				# delay this just in case there is a revolution that temporarily takes rome?
+				id = mdd_vatican.1
+			}
+		}
 	}
 
 	on_weekly_pulse = {
 		#check for dead popes and new popes
 		#if pope is dead and new pope, effect_papal_succession = yes
+		#also add the possibility of some of the anti-secularization events if they didn't fire before this kicked off?
 	}
 
 	modifiers_while_active = {
@@ -126,27 +281,25 @@ je_prisoner_in_vatican = {
 	}
 
 	complete = {
-		has_global_variable = roman_question_answered
+		has_global_variable = mdd_roman_question_answered
 	}
 
 	on_complete = {
 		#add holy see to owning country
 	}
 
-	fail = {
-		country_controls_vatican = no
-	}
-
-	on_fail = {
-		every_country = {
-			limit = {
-				country_controls_vatican = yes
-			}
-			trigger_event = {
-				id = mdd_vatican.1
-			}
+	invalid = {
+		OR = {
+			country_controls_vatican = no
+			has_papal_rule = yes
 		}
 	}
+
+	# add an on_invalid here to handle papal rule coming back
+	# removes papal_rule_ended variable, sets pope and ruler of the country, fires flavor event
+
+	can_revolution_inherit = yes
+
 }
 
 je_holy_see = {
@@ -154,30 +307,30 @@ je_holy_see = {
 
 	group = je_group_mdd_content
 
-	possible = {
-		has_global_variable = roman_question_answered
-		has_papal_rule = no
+	is_shown_when_inactive = {
 		country_controls_vatican = yes
+		has_papal_rule = no
+	}
+
+	possible = {
+		has_global_variable = mdd_roman_question_answered
+		country_controls_vatican = yes
+		has_papal_rule = no
+	}
+
+	modifiers_while_active = {
+		#prestige? catholic loyalty?
 	}
 
 	on_weekly_pulse = {
 		#check for dead popes and trigger papal elections
 	}
 
-	fail = {
+	invalid = {
 		country_controls_vatican = no
 	}
 
-	on_fail = {
-		every_country = {
-			limit = {
-				country_controls_vatican = yes
-			}
-			trigger_event = {
-				id = mdd_vatican.2
-			}
-		}
-	}
+	can_revolution_inherit = yes
 
 }
 
@@ -185,9 +338,7 @@ je_holy_see = {
 #mass media fuels the fires (requirement for quanta cura?)
 #also encompass Quanta cura/syllabus of errors (1864)
 #first vatican council is (1870)
-#use this to track waning catholic power generally, 'fails' when authority falls too low (and kicks off the vatican council event chain and papal infallibility)
 #give this to the papal states at game start
-#what does 'success' look like? (look at springtime of peoples reactionary success criteria?)
 je_anti_secularization = {
 	icon = "gfx/interface/icons/religion_icons/catholic.dds"
 
@@ -200,7 +351,7 @@ je_anti_secularization = {
 	fail = {
 		OR = {
 			country_controls_vatican = no
-			is_papal_states = no
+			has_papal_rule = no
 		}	
 	}
 

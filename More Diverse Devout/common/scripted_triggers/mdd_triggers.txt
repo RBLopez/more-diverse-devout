@@ -87,17 +87,12 @@ is_papal_states = {
 
 #country scope
 has_papal_rule = {
-	has_law = law_type:law_theocracy
-	country_has_state_religion = rel:catholic
 	OR = {
 		is_papal_states = yes
-		AND = {
-			c:PAP = {
-				is_country_alive = no
-			}
-			country_controls_vatican = yes
-		}
+		country_controls_vatican = yes
 	}
+	has_law = law_type:law_theocracy
+	country_has_state_religion = rel:catholic
 }
 
 #country scope

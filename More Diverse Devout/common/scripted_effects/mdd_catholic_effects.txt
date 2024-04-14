@@ -57,6 +57,7 @@ effect_papal_succession = {
 		5 = {
 			debug_log = "conservative pope"
 			#add modifiers here to change the factor
+			# modifier = ?
 			#create characters and store as new_pope. historical popes have value 200, runners up 150, alternates have value 100. random has value 1 (just in case year triggers all fail)
 			random_list = {
 				150 = {
@@ -90,7 +91,8 @@ effect_papal_succession = {
 		2 = {
 			debug_log = "liberal pope"
 			#add modifiers here to change the factor
-			#create characters and store as new_pope. historical popes have value 200, runners up 150, other alternates have value 50, random cardinals 10
+			# modifier = ?
+			#create characters and store as new_pope. historical popes have value 200, runners up 150, other historical alternates have value 50, random cardinals 10
 			random_list = {
 				200 = {
 					trigger = {
@@ -105,9 +107,6 @@ effect_papal_succession = {
 					create_character = {
 						template = giovanni_ferretti_template
 						save_scope_as = new_pope
-						on_create = {
-							set_variable = mdd_is_pope
-						}
 					}
 				}
 				50 = {
@@ -123,9 +122,6 @@ effect_papal_succession = {
 					create_character = {
 						template = tommaso_bernetti_template
 						save_scope_as = new_pope
-						on_create = {
-							set_variable = mdd_is_pope
-						}
 					}
 				}
 				150 = {
@@ -149,45 +145,42 @@ effect_papal_succession = {
 						religion = rel:catholic
 						interest_group = ig_devout
 						save_scope_as = new_pope
-						on_create = {
-							set_variable = mdd_is_pope
-						}
 					}
 				}
 			}
 			scope:new_pope = {
-				set_variable = mdd_is_pope
+				set_variable = mdd_liberal_pope
 			}
 		}
 	}
 	debug_log_scopes = yes
 	#we have scope:new_pope now
-	#scope:new_pope = {
-	#	set_variable = mdd_is_pope
-	#	if = {
-	#		limit = {
-	#			this.owner = {
-	#				is_papal_states = yes
-	#			}
-	#		}
-	#		if = {
-	#			limit = {
-	#				this.owner = {
-	#					has_papal_rule = yes
-	#				}
-	#			}
-	#			set_character_as_ruler = yes
-	#		}
-	#		else = {
-	#			set_as_interest_group_leader = yes
-	#		}
-	#	}
-	#	else = {
-	#		place_character_in_void = 1200
-	#	}
-	#}
-	#trigger_event = {
-	#	id = mdd_vatican.3
-	#	days = 1
-	#}
+	scope:new_pope = {
+		set_variable = mdd_is_pope
+		if = {
+			limit = {
+				this.owner = {
+					is_papal_states = yes
+				}
+			}
+			if = {
+				limit = {
+					this.owner = {
+						has_papal_rule = yes
+					}
+				}
+				set_character_as_ruler = yes
+			}
+			else = {
+				set_as_interest_group_leader = yes
+			}
+		}
+		else = {
+			place_character_in_void = 1200
+		}
+	}
+	trigger_event = {
+		id = mdd_vatican.3
+		days = 1
+	}
 }
