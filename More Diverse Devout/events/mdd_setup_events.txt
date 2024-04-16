@@ -21,12 +21,18 @@ mdd_setup.2 = {
 
 	immediate = {
 		ruler = {
+			set_variable = mdd_is_pope
 			set_variable = {
-				name = mdd_is_pope
+				name = mdd_papacy_length_yrs
+				value = 5
+			}
+			set_global_variable = {
+				name = mdd_current_pope
+				value = this
 			}
 		}
 
-		#override historical cardinals
+		#override historical cardinals with templates that match starting history vaues
 		create_character = {
 			template = luigi_lambruschini_template
 			ig_leader = yes

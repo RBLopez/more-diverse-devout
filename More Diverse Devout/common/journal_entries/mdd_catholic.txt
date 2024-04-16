@@ -296,7 +296,7 @@ je_prisoner_in_vatican = {
 	}
 
 	# add an on_invalid here to handle papal rule coming back
-	# removes papal_rule_ended variable, sets pope and ruler of the country, fires flavor event
+	# removes papal_rule_ended variable, sets pope as ruler of the country, fires flavor event
 
 	can_revolution_inherit = yes
 
@@ -335,6 +335,7 @@ je_holy_see = {
 }
 
 #journal entry in vatican country lets a fail trigger if country_controls_vatican = no OR if country_is_papal_states = no
+#actions that mimic the papacy's fight against secularization and their loss of power (probably through random events)
 #mass media fuels the fires (requirement for quanta cura?)
 #also encompass Quanta cura/syllabus of errors (1864)
 #first vatican council is (1870)

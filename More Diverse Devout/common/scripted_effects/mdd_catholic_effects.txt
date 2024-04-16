@@ -6,46 +6,35 @@ effect_set_catholic_authority_global = {
 	}
 	every_country = {
 		limit = {
-			country_controls_vatican = yes
-		}
-		debug_log_scopes = yes
-		change_global_variable = {
-			name = global_catholic_authority
-			add = vatican_country_catholic_authority
-		}
-	}
-	every_country = {
-		limit = {
-			religion = rel:catholic
-			country_controls_vatican = no
-		}
-		debug_log_scopes = yes
-		change_global_variable = {
-			name = global_catholic_authority
-			add = catholic_authority
-		}
-	}
-	every_country = {
-		limit = {
-			NOT = {
-				religion = rel:catholic
-			}
-			country_controls_vatican = no
 			OR = {
-				is_country_type = recognized
-				is_country_type = colonial
+				country_controls_vatican = yes
+				has_catholic_presence = yes
 			}
 		}
-		random_scope_pop = {
+		debug_log_scopes = yes
+		if = {
+			limit = {
+				country_controls_vatican = yes
+			}
+			change_global_variable = {
+				name = global_catholic_authority
+				add = catholic_authority_rome
+			}
+		}
+		else_if = {
 			limit = {
 				religion = rel:catholic
 			}
-			save_scope_as = catholic_pop
+			change_global_variable = {
+				name = global_catholic_authority
+				add = catholic_authority
+			}
 		}
-		debug_log_scopes = yes
-		change_global_variable = {
-			name = global_catholic_authority
-			add = catholic_minority_authority
+		else = {
+			change_global_variable = {
+				name = global_catholic_authority
+				add = catholic_authority_minority
+			}
 		}
 	}
 }
@@ -65,7 +54,7 @@ effect_papal_succession = {
 						year > 1831
 						year < 1854
 						NOT = {
-							scope:old_pope = {
+							scope:old_pope ?= {
 								has_template = luigi_lambruschini_template
 							}
 						}
@@ -80,12 +69,12 @@ effect_papal_succession = {
 						female = no
 						religion = rel:catholic
 						interest_group = ig_devout
-						save_scope_as = new_pope
+						on_created = {
+							save_scope_as = new_pope
+							set_variable = mdd_is_pope
+						}
 					}
 				}
-			}
-			scope:new_pope = {
-				set_variable = mdd_is_pope
 			}
 		}
 		2 = {
@@ -99,14 +88,17 @@ effect_papal_succession = {
 						year >= 1839
 						year <= 1876
 						NOT = {
-							scope:old_pope = {
+							scope:old_pope ?= {
 								has_template = giovanni_ferretti_template
 							}
 						}
 					}
 					create_character = {
 						template = giovanni_ferretti_template
-						save_scope_as = new_pope
+						on_created = {
+							save_scope_as = new_pope
+							set_variable = mdd_is_pope
+						}
 					}
 				}
 				50 = {
@@ -114,14 +106,17 @@ effect_papal_succession = {
 						year >= 1826
 						year <= 1852
 						NOT = {
-							scope:old_pope = {
+							scope:old_pope ?= {
 								has_template = tommaso_bernetti_template
 							}
 						}
 					}
 					create_character = {
 						template = tommaso_bernetti_template
-						save_scope_as = new_pope
+						on_created = {
+							save_scope_as = new_pope
+							set_variable = mdd_is_pope
+						}
 					}
 				}
 				150 = {
@@ -129,14 +124,17 @@ effect_papal_succession = {
 						year >= 1841
 						year <= 1849
 						NOT = {
-							scope:old_pope = {
+							scope:old_pope ?= {
 								has_template = tommaso_gizzi_template
 							}
 						}
 					}
 					create_character = {
 						template = tommaso_gizzi_template
-						save_scope_as = new_pope
+						on_created = {
+							save_scope_as = new_pope
+							set_variable = mdd_is_pope
+						}
 					}
 				}
 				1 = {
@@ -144,12 +142,12 @@ effect_papal_succession = {
 						female = no
 						religion = rel:catholic
 						interest_group = ig_devout
-						save_scope_as = new_pope
+						on_created = {
+							save_scope_as = new_pope
+							set_variable = mdd_is_pope
+						}
 					}
 				}
-			}
-			scope:new_pope = {
-				set_variable = mdd_liberal_pope
 			}
 		}
 	}

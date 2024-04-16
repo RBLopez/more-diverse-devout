@@ -102,7 +102,7 @@ has_catholic_presence = {
 		var:minority_faith ?= rel:catholic
 		religion_percent_country = {
 			target = rel:catholic
-			value >= 0.10
+			value >= 0.05
 		}
 	}
 }

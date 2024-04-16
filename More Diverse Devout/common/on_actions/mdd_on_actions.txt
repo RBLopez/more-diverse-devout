@@ -4,6 +4,12 @@
 	}
 }
 
+on_yearly_pulse_country = {
+	on_actions = {
+		catholic_authority_calc
+	}
+}
+
 reset_minority_religion = {
 	effect = {
 		#honestly not sure what's going on here errors-wise. probably need some debugging
@@ -81,4 +87,16 @@ check_papal_succession = {
 			effect_papal_succession = yes
 		}
 	}
+}
+
+catholic_authority_calc = {
+	effect = {
+		if = {
+			limit = {
+				country_controls_vatican = yes
+			}
+			effect_set_catholic_authority_global = yes
+		}
+	}
+
 }
