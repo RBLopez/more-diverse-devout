@@ -1,6 +1,6 @@
-﻿# Define pop candidates here, with IG = devout and possible for papal states only
-# events for papal succession look for whether papal states is a thing, and shows the devout leader if so
-# otherwise random event list for the 'type' of pope (conservative or more liberal, roughly what nationality) and have a different event option depending on the decade for potential popes
+﻿#need to figure out papal robes?
+#in genes_accessories, we have pope_outfits and male_outfit_christian_pope_01
+#gfx/portraits/portrait_modifiers, under papal_clothes I can likely change some modifiers here
 
 luigi_lambruschini_template = {
 	# already created as a character at game start, but not from a template
@@ -31,19 +31,19 @@ tommaso_bernetti_template = {
 	# liberal option
 	# cardinal from oct 1826. died 1852
 	first_name = Tommaso
-	last_name = Bernetti
+	last_name = "Bernetti"
 	historical = yes
 	religion = rel:catholic
 	birth_date = 1779.12.29
 	interest_group = ig_devout
-	#ideology = ideology_theocrat
+	#ideology = 
 }
 
 tommaso_gizzi_template = {
 	# liberal option
 	# cardinal from july 1841. died 1849
-	first_name = Tommaso_Pasquale
-	last_name = Gizzi
+	first_name = "Tommaso Pasquale"
+	last_name = "Gizzi"
 	historical = yes
 	religion = rel:catholic
 	birth_date = 1787.9.22

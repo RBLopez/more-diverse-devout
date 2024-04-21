@@ -60,7 +60,7 @@
  ig_gentlemen_scholars_desc:0 "While Imperial examinations are available to all, extensive tutoring gives landowning familes an outsized ability to gain government positions and the resulting power and influence."
 
 
-########    Interest Group Traites ##############
+########    Interest Group Traits ##############
 
  ig_trait_safe_haven:0 "Safe Haven"
  ig_trait_safe_haven_desc:0 "Our home has embraced our faith has given us acceptance and comfort. We're eager to share this haven with others seeking refuge and spiritual kinship."
@@ -237,8 +237,22 @@
  custom_loc_jewish_jurisprudence_desc:0 "Beth din comprised of local rabbis settle monetary and civil disputes."
 
 ###########################################  Journal Entries and Events  ######################################
+ country_controls_vatican_tt:0 "Is in control of the Vatican"
+ is_papal_states_tt:0 "Is Papal States or was formed from Papal States"
+
  je_group_mdd_content:0 "More Diverse Devout"
+
+ je_anti_secularization:0 "The rise of Secularization"
+
  je_roman_question_italian:0 "The Roman Question"
+
  je_roman_question_defender:0 "Defender of the Faith"
+
  je_prisoner_in_vatican:0 "Prisoner in the Vatican"
+
  je_holy_see:0  "The Holy See"
+
+ mdd_vatican.3.t:0 "Papal Enclave of YEAR"
+ mdd_vatican.3.d:0 "After the death of OLDPOPE, NEWPOPE has been chosen to lead the Catholic Church"
+ mdd_vatican.3.a:0 "Wonderful"
+ mdd_vatican.3.b:0 "Spread the word!"
