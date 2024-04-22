@@ -243,6 +243,13 @@
  je_group_mdd_content:0 "More Diverse Devout"
 
  je_anti_secularization:0 "The rise of Secularization"
+ anti_secular_positive_progress_tt:0 "#p Proper Catholic Authority has been established #!"
+ anti_secular_negative_progress_tt:0 "#n Catholic Authority has dipped below acceptable levels #!"
+ anti_secular_reactionary_victory_tt:0 "To complete with #ITALIC Reactionary Victory:#!"
+ anti_secular_secular_victory_tt:0 "To complete with #ITALIC Secular Victory:#!"
+ anti_secular_above_authority_goal_tt:0 "Raise the global authority of the Catholic Church to [JournalEntry.GetTotalGoalValue]"
+ anti_secular_below_authority_goal_tt:0 "Allow the global authority of the Catholic Church to fall below XX"
+
 
  je_roman_question_italian:0 "The Roman Question"
 
@@ -256,3 +263,9 @@
  mdd_vatican.3.d:0 "After the death of OLDPOPE, NEWPOPE has been chosen to lead the Catholic Church"
  mdd_vatican.3.a:0 "Wonderful"
  mdd_vatican.3.b:0 "Spread the word!"
+
+
+##################################### Names ####################
+ Bernetti:0 "Bernetti"
+ Tommaso_Pasquale:0 "Tommaso Pasquale"
+ Gizzi:0 "Gizzi"

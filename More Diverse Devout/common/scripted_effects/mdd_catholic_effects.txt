@@ -42,6 +42,8 @@ effect_set_catholic_authority_global = {
 #papal succession. assumes that we have saved scope old_pope
 #called from within the country controlling the vatican
 effect_papal_succession = {
+	debug_log = "succession"
+	debug_log_scopes = yes
 	random_list = {
 		#1846 Enclave Characters
 		200 = {
@@ -94,8 +96,8 @@ effect_papal_succession = {
 						has_template = luigi_lambruschini_template
 					}
 				}
-				random_scope_character = {
-					limit = {
+				every_scope_character = {
+					limit ={
 						has_template = luigi_lambruschini_template
 					}
 					save_scope_as = new_pope
@@ -108,7 +110,13 @@ effect_papal_succession = {
 						is_character_alive = yes
 					}
 				}
-				save_scope_as = new_pope
+				every_character_in_void = {
+					limit ={
+						has_template = luigi_lambruschini_template
+						is_character_alive = yes
+					}
+					save_scope_as = new_pope
+				}
 			}
 			else = {
 				create_character = {
@@ -161,7 +169,7 @@ effect_papal_succession = {
 						has_template = giovanni_ferretti_template
 					}
 				}
-				random_scope_character = {
+				every_scope_character = {
 					limit = {
 						has_template = giovanni_ferretti_template
 					}
@@ -175,7 +183,13 @@ effect_papal_succession = {
 						is_character_alive = yes
 					}
 				}
-				save_scope_as = new_pope
+				every_character_in_void = {
+					limit = {
+						has_template = giovanni_ferretti_template
+						is_character_alive = yes
+					}
+					save_scope_as = new_pope
+				}
 			}
 			else = {
 				create_character = {
@@ -234,7 +248,7 @@ effect_papal_succession = {
 						has_template = tommaso_gizzi_template
 					}
 				}
-				random_scope_character = {
+				every_scope_character = {
 					limit = {
 						has_template = tommaso_gizzi_template
 					}
@@ -248,7 +262,13 @@ effect_papal_succession = {
 						is_character_alive = yes
 					}
 				}
-				save_scope_as = new_pope
+				every_character_in_void = {
+					limit = {
+						has_template = tommaso_gizzi_template
+						is_character_alive = yes
+					}
+					save_scope_as = new_pope
+				}
 			}
 			else = {
 				create_character = {
@@ -256,7 +276,6 @@ effect_papal_succession = {
 					save_scope_as = new_pope
 				}
 			}
-			
 		}
 		50 = {
 			trigger = {
@@ -274,7 +293,7 @@ effect_papal_succession = {
 						has_template = tommaso_bernetti_template
 					}
 				}
-				random_scope_character = {
+				every_scope_character = {
 					limit = {
 						has_template = tommaso_bernetti_template
 					}
@@ -288,7 +307,13 @@ effect_papal_succession = {
 						is_character_alive = yes
 					}
 				}
-				save_scope_as = new_pope
+				every_character_in_void = {
+					limit = {
+						has_template = tommaso_bernetti_template
+						is_character_alive = yes
+					}
+					save_scope_as = new_pope
+				}
 			}
 			else = {
 				create_character = {
@@ -333,6 +358,29 @@ effect_papal_succession = {
 			place_character_in_void = 1200
 		}
 	}
+	trigger_event = {
+		id = mdd_vatican.3
+		days = 1
+	}
+}
+
+effect_succession_debug = {
+	debug_log = "succession test"
+	
+	create_character = {
+		female = no
+		religion = rel:catholic
+		interest_group = ig_devout
+		save_scope_as = new_pope
+	}
+
+	scope:new_pope = {
+		set_variable = mdd_is_pope
+		set_character_as_ruler = yes
+	}
+
+
+	debug_log_scopes = yes
 	trigger_event = {
 		id = mdd_vatican.3
 		days = 1

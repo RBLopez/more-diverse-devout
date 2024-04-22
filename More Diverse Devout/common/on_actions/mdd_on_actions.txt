@@ -81,10 +81,17 @@ check_papal_succession = {
 			limit = {
 				has_variable = mdd_is_pope
 			}
+			debug_log = "dead pope"
 			this = {
 				save_scope_as = old_pope
 			}
-			effect_papal_succession = yes
+			random_country = {
+				limit = {
+					country_controls_vatican = yes
+				}
+				debug_log_scopes = yes
+				effect_papal_succession = yes
+			}
 		}
 	}
 }

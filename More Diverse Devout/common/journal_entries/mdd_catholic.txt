@@ -70,7 +70,7 @@ je_pope_tracker = {
 			limit = {
 				NOT = { has_global_variable = mdd_papal_rule_ended }
 			}
-			add_global_variable = mdd_papal_rule_ended
+			set_global_variable = mdd_papal_rule_ended
 			any_country = {
 				country_controls_vatican = yes
 				trigger_event = {
@@ -349,16 +349,153 @@ je_anti_secularization = {
 	# is_shown_when_inactive = {	}
 	# possible = { }
 
-	fail = {
+	progressbar = yes
+
+	immediate ={
+		set_variable = {
+			name = years_above_authority
+			value = 0
+		}
+		set_variable = {
+			name = years_below_authority
+			value = 0
+		}
+	}
+
+	current_value = {
+		if = {
+			limit = {
+				scope:journal_entry = {
+					goal_value = 0
+				}
+			}
+			value = 700
+		}
+		else = {
+			value = global_var:global_catholic_authority
+		}
+	}
+
+	goal_add_value = {
+		value = 500
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = anti_secular_positive_progress_tt
+				trigger = {
+					global_var:global_catholic_authority >= 750 
+				}
+			}
+			triggered_desc = {
+				desc = anti_secular_negative_progress_tt
+				trigger = {
+					global_var:global_catholic_authority < 400 
+				}
+			}
+		}
+	}
+
+	progress_desc = "Catholic Authority factors detailed here: strong catholic interest groups, good relationships with papal states, catholic schooling, large number of catholics"
+
+	on_monthly_pulse = {
+		#put events here for Quanta cura and vatican council?
+		#other random events for various papal actions that are semi-historical.
+	}
+
+	on_yearly_pulse = {
+		effect = {
+			effect_set_catholic_authority_global = yes
+			if = {
+				limit = {
+					global_var:global_catholic_authority >= 750
+				}
+				change_variable = {
+					name = years_above_authority
+					add = 1
+				}
+				set_variable = {
+					name = years_below_authority
+					value = 0
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:global_catholic_authority <= 400
+				}
+				change_variable = {
+					name = years_below_authority
+					add = 1
+				}
+				set_variable = {
+					name = years_above_authority
+					value = 0
+				}
+			}
+			else = {
+				set_variable = {
+					name = years_above_authority
+					value = 0
+				}
+				set_variable = {
+					name = years_below_authority
+					value = 0
+				}
+			}
+		}
+	}
+
+	complete = {
 		OR = {
-			country_controls_vatican = no
-			has_papal_rule = no
+			custom_tooltip = {
+				text = anti_secular_reactionary_victory_tt
+				always = no
+			}
+			AND = {
+				custom_tooltip = {
+					text = anti_secular_above_authority_goal_tt
+					global_var:global_catholic_authority >=750
+				}
+				custom_tooltip = {
+					text = "... for 10 years"
+					var:years_above_authority >= 5
+				}
+			}
+			custom_tooltip = {
+				text = anti_secular_secular_victory_tt
+				always = no
+			}
+			AND = {
+				custom_tooltip = {
+					text = anti_secular_below_authority_goal_tt
+					global_var:global_catholic_authority < 400
+				}
+				custom_tooltip = {
+					text = "for 5 years"
+					var:years_below_authority >= 5
+				}
+			}
+			
+		}
+		
+
+	}
+
+	fail = {
+		hidden_trigger = {
+			OR = {
+				country_controls_vatican = no
+				has_papal_rule = no
+			}
 		}	
 	}
 
 	on_fail = {
 		#?? vatican council immediately? Or nothing
 	}
+
+	can_revolution_inherit = yes
 
 }
 
@@ -376,9 +513,6 @@ je_kulturkampf = {
 		always = no
 	}
 
-	possible = {
-		always = no
-	}
 }
 
 #catholic response to papal infallibility
@@ -394,9 +528,7 @@ je_gallicanism = {
 		always = no
 	}
 
-	possible = {
-		always = no
-	}
+
 }
 
 #triggered after rerum novarum (IRL 1891)
@@ -412,9 +544,6 @@ je_catholic_social_teaching = {
 		always = no
 	}
 
-	possible = {
-		always = no
-	}
 
 }
 
@@ -427,10 +556,6 @@ je_catholic_social_teaching_minority = {
 	#added via event? or triggered by rerum novarum global var?
 	#maybe show when corporatism researched or rerum novarum, and possible when rerum novarum
 	is_shown_when_inactive = {
-		always = no
-	}
-
-	possible = {
 		always = no
 	}
 

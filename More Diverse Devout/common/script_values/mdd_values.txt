@@ -14,7 +14,7 @@
 		add = 10
 	}
 	else ={
-		add = 20
+		add = 30
 	}
 	if = {
 		limit = {
@@ -72,7 +72,7 @@
 			}
 		}
 	}
-	#influence from catholic pops
+	#influence from catholic pops. 80% is 'break even' on points
 	if = {
 		limit = {
 			religion_percent_country = {
@@ -179,15 +179,23 @@
 
 catholic_authority = {
 	value = 5
+	if = {
+		limit = {
+			any_country = {
+				limit = {
+					is_papal_states = yes
+				}
+			}
+		}
+		#bonus for relationships with papal states
+		#has_diplomatic_pact trigger
+	}
 	# 'correct' church and state law
 	if = {
 		limit = {
 			has_law = law_type:law_state_religion
 		}
 		add = 10
-	}
-	else_if = {
-		add = -10
 	}
 	# 'correct' type of eduction
 	if = {
@@ -214,7 +222,6 @@ catholic_authority = {
 		}
 	}
 	else = {
-		add = -5
 		if = {
 			limit = {
 				ig:ig_devout = {
@@ -225,7 +232,7 @@ catholic_authority = {
 		}
 	}
 
-	#influence from catholic pops
+	#influence from catholic pops. min -5 max 5
 	if = {
 		limit = {
 			religion_percent_country = {
@@ -239,10 +246,10 @@ catholic_authority = {
 		limit = {
 			religion_percent_country = {
 				target = rel:catholic
-				value < 0.80
+				value < 0.75
 			}
 		}
-		add = -10
+		add = -5
 	}
 	else = {
 		add = 5
@@ -256,16 +263,6 @@ catholic_authority_minority = {
 	# check supression/acceptance of catholic minority
 	if = {
 		limit = {
-			OR = {
-				has_law = law_type:law_religious_schools
-				has_law = law_type:law_public_schools
-			}
-			
-		}
-		add = -10
-	}
-	if = {
-		limit = {
 			any_scope_pop = {
 				religion = rel:catholic
 				religion_accepted = yes
@@ -276,8 +273,18 @@ catholic_authority_minority = {
 	else = {
 		add = -10
 	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_religious_schools
+				has_law = law_type:law_public_schools
+			}
+			
+		}
+		add = -5
+	}
 
-	# does the catholic minority have political power?
+	# does the catholic minority have political power? if so, min of -5 if supporessed and marginal, max 15 if powerful
 	if = {
 		limit = {
 			var:minority_faith ?= rel:catholic

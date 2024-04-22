@@ -31,7 +31,7 @@ tommaso_bernetti_template = {
 	# liberal option
 	# cardinal from oct 1826. died 1852
 	first_name = Tommaso
-	last_name = "Bernetti"
+	last_name = Bernetti
 	historical = yes
 	religion = rel:catholic
 	birth_date = 1779.12.29
@@ -42,8 +42,8 @@ tommaso_bernetti_template = {
 tommaso_gizzi_template = {
 	# liberal option
 	# cardinal from july 1841. died 1849
-	first_name = "Tommaso Pasquale"
-	last_name = "Gizzi"
+	first_name = Tommaso_Pasquale
+	last_name = Gizzi
 	historical = yes
 	religion = rel:catholic
 	birth_date = 1787.9.22
