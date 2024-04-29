@@ -2,6 +2,7 @@
 #in genes_accessories, we have pope_outfits and male_outfit_christian_pope_01
 #gfx/portraits/portrait_modifiers, under papal_clothes I can likely change some modifiers here
 
+#1846 Conclave Characters
 luigi_lambruschini_template = {
 	# already created as a character at game start, but not from a template
 	# cardinal from september 1831. died 1854
@@ -37,6 +38,18 @@ tommaso_bernetti_template = {
 	birth_date = 1779.12.29
 	interest_group = ig_devout
 	#ideology = 
+	interest_group_leader_usage = {
+		country_trigger = {
+			is_papal_states = yes
+			this.religion = rel:catholic
+		}
+		interest_group_trigger = {
+			is_interest_group_type = ig_devout
+		}
+		earliest_usage_date = 1826.10.1
+		latest_usage_date = 1851.12.31
+		chance = 50
+	}
 }
 
 tommaso_gizzi_template = {
@@ -48,23 +61,181 @@ tommaso_gizzi_template = {
 	religion = rel:catholic
 	birth_date = 1787.9.22
 	interest_group = ig_devout
+	interest_group_leader_usage = {
+		country_trigger = {
+			is_papal_states = yes
+			this.religion = rel:catholic
+		}
+		interest_group_trigger = {
+			is_interest_group_type = ig_devout
+		}
+		earliest_usage_date = 1841.7.1
+		latest_usage_date = 1848.12.31
+		chance = 50
+	}
 }
 
-#1846 CONCLAVE
-#conservative was luigi lambruschini
-#IRL  giovanni ferretti / pius IX (liberal) was elected as compromise candidate, but turned super conservative after 1848 and being forced to flee
-# Tommaso Bernetti was liberal leader
-# tommaso Pasquale Gizzi was the preferred liberal candidate
+#1850s Cardinals
+giacomo_antonelli_template = {
+	#cardinal June 1847, died 1876
+	#reactionary. fought against risorgimento
+	first_name = Giacomo
+	last_name = Antonelli
+	historical = yes
+	religion = rel:catholic
+	birth_date = 1806.4.2
+	interest_group = ig_devout
+}
 
-#1878 CONCLAVE
-# IRL elect Vincenzo Pecci / Leo XIII (liberal and 'internationalist')
-# other candidates luigi bilio and alessandra franchi (conservative favorite)
+alessandro_barnabo_template = {
+	#known conservative
+}
 
-#1903 CONCLAVE
-# IRL Guiseppe Sarto (Pius X)
-# Mariano Rampolla was the most popular, blocked by Austrian monarch. afterwards the ability of catholic monarchs to veto was ended.
-# Girolamo Gotti was conservative choice
-# Serafino Vannutelli was a conservative choice
+giacomo_filippo_fransoni_template = {
+	#diplomat and missionary work
+}
 
-#1914 CONCLAVE
-#TBD
+karl_august_von_reisach_template = {
+	#german liberalizer, long shot (not eligible for ig leader)
+}
+
+pietro_marini_template = {
+	#lawer
+}
+
+#1860s Cardinals
+luigi_bilio_template = {
+	#diplomate and missionay work
+}
+
+louis_jacques_maurice_de_bonald_template = {
+	#french conservative/ultramonatist. long shot (not eligible for ig leader)
+}
+
+luigi_amat_di_san_filippo_e_sorso_template = {
+	#long shot for papacy, good ig leader
+}
+
+#1870s Cardinals
+guiseppe_pecci_template = {
+	#elevated 1879, influencial beforehand in curia
+}
+
+henry_edward_manning = {
+	#english corporatist
+}
+
+#1878 Conclave Characters
+vincenzo_pecci_template = {
+	#IRL pope. 'internationalist'/compromise candidate
+} 
+
+alessandra_franchi_template = {
+	#conservative favorite
+}
+
+teodolfo_mertel_template = {
+	#chatgpt 'leading candidate'
+}
+
+#1880s Cardinals
+lucido_maria_parocchi_template = {
+	#combatted secularism
+}
+
+pietro_respighi_template = {
+	#secretary of state
+}
+
+mariano_rampolla_del_tindaro_template = {
+	#diplomat. leading candidate in 1903
+}
+
+john_henry_newman_template = {
+	#british. not eligible but 'leading intellectual'
+}
+
+agostino_ciasca_template = {
+	#priminent diplomat. expert in 'eastern christianity'
+}
+
+francesco_di_paola_cassetta_template = {
+	#assited rampolla
+}
+
+#1890s Cardinals
+rafael_merry_del_val_template = {
+	#spanish. key admin in the 1890s
+}
+
+herbert_vaughan_template = {
+	#english corporatist
+}
+
+francesco_satolli_template = {
+	#delegate to the US. not eligible. corporatist
+}
+
+#1903 Conclave Characters
+guiseppe_sarto_template = {
+	#social justice work, but conservative.
+}
+
+girolamo_gotti_template = {
+	#conservative choice
+}
+
+serafino_vannutelli_template = {
+	#another conservative
+}
+
+#1900s Cardinals
+aristide_cavallari_template = {
+	#eastern rites
+}
+
+#1910s Cardinals
+pietro_gasparri_template = {
+	#secretary of state. legal advisor/diplomat
+}
+
+willem_marinus_van_rossum_template = {
+	#dutch missionary
+}
+
+guiseppe_pizzardo_template = {
+	#diplomat
+}
+
+#1914 Conclave Characters
+giacomo_della_chiesa_template = {
+	#IRL pope. compromise candidate focused on social justice. humanitarian response to WWI was important
+}
+
+#1920s Cardinals
+pietro_gasparri_template = {
+	#diplomacy during wwI. also negotiated Lateran treaty with Italy.
+}
+
+eugenio_tosi_template = {
+	#oversaw missionary activities
+}
+
+#1922 Conclave Characters
+achille_ratti_template = {
+	#IRL pope. anti facism and communism. 'mit brennender sorge'
+}
+
+#1930s Cardinals
+domenico_tardini_template = {
+
+}
+
+#1939 Conclave Characters
+eugenio_pacilli_template = {
+	#IRL pope in 1939
+}
+
+isidro_goma_y_tomas_template = {
+	#archibishop of toledo
+}

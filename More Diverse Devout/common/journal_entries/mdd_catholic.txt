@@ -281,7 +281,10 @@ je_prisoner_in_vatican = {
 	}
 
 	complete = {
-		has_global_variable = mdd_roman_question_answered
+		custom_tooltip = {
+			text = roman_question_answered_tt
+			has_global_variable = mdd_roman_question_answered
+		}
 	}
 
 	on_complete = {
@@ -313,7 +316,10 @@ je_holy_see = {
 	}
 
 	possible = {
-		has_global_variable = mdd_roman_question_answered
+		custom_tooltip = {
+			text = roman_question_answered_tt
+			has_global_variable = mdd_roman_question_answered
+		}
 		country_controls_vatican = yes
 		has_papal_rule = no
 	}
@@ -385,19 +391,19 @@ je_anti_secularization = {
 			triggered_desc = {
 				desc = anti_secular_positive_progress_tt
 				trigger = {
-					global_var:global_catholic_authority >= 750 
+					global_var:global_catholic_authority >= 1200 
 				}
 			}
 			triggered_desc = {
 				desc = anti_secular_negative_progress_tt
 				trigger = {
-					global_var:global_catholic_authority < 400 
+					global_var:global_catholic_authority < 500 
 				}
 			}
 		}
 	}
 
-	progress_desc = "Catholic Authority factors detailed here: strong catholic interest groups, good relationships with papal states, catholic schooling, large number of catholics"
+	# progress_desc = "Catholic Authority factors detailed here: strong catholic interest groups, good relationships with papal states, catholic schooling, large number of catholics"
 
 	on_monthly_pulse = {
 		#put events here for Quanta cura and vatican council?
@@ -409,7 +415,7 @@ je_anti_secularization = {
 			effect_set_catholic_authority_global = yes
 			if = {
 				limit = {
-					global_var:global_catholic_authority >= 750
+					global_var:global_catholic_authority >= 1200
 				}
 				change_variable = {
 					name = years_above_authority
@@ -422,7 +428,7 @@ je_anti_secularization = {
 			}
 			else_if = {
 				limit = {
-					global_var:global_catholic_authority <= 400
+					global_var:global_catholic_authority <= 500
 				}
 				change_variable = {
 					name = years_below_authority
@@ -447,48 +453,37 @@ je_anti_secularization = {
 	}
 
 	complete = {
-		OR = {
+		AND = {
 			custom_tooltip = {
-				text = anti_secular_reactionary_victory_tt
-				always = no
-			}
-			AND = {
-				custom_tooltip = {
-					text = anti_secular_above_authority_goal_tt
-					global_var:global_catholic_authority >=750
-				}
-				custom_tooltip = {
-					text = "... for 10 years"
-					var:years_above_authority >= 5
-				}
+				text = anti_secular_above_authority_goal_tt
+				global_var:global_catholic_authority >=1200
 			}
 			custom_tooltip = {
-				text = anti_secular_secular_victory_tt
-				always = no
+				text = anti_secular_above_authority_time_tt
+				var:years_above_authority >= 5
 			}
-			AND = {
-				custom_tooltip = {
-					text = anti_secular_below_authority_goal_tt
-					global_var:global_catholic_authority < 400
-				}
-				custom_tooltip = {
-					text = "for 5 years"
-					var:years_below_authority >= 5
-				}
-			}
-			
 		}
-		
-
 	}
 
 	fail = {
-		hidden_trigger = {
-			OR = {
-				country_controls_vatican = no
-				has_papal_rule = no
+		OR = {
+			AND = {
+				custom_tooltip = {
+					text = anti_secular_below_authority_goal_tt
+					global_var:global_catholic_authority < 500
+				}
+				custom_tooltip = {
+					text = anti_secular_below_authority_time_tt
+					var:years_below_authority >= 5
+				}
 			}
-		}	
+			hidden_trigger = {
+				OR = {
+					country_controls_vatican = no
+					has_papal_rule = no
+				}
+			}
+		}
 	}
 
 	on_fail = {

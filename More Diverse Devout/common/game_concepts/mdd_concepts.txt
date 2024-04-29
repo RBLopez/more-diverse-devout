@@ -1,0 +1,15 @@
+﻿concept_catholic_authority = {
+	texture = "gfx/interface/icons/religion_icons/catholic.dds"
+}
+
+concept_catholic_catholic_authority = {
+	texture = "gfx/interface/icons/religion_icons/catholic.dds"
+}
+
+concept_minority_catholic_authority = {
+	texture = "gfx/interface/icons/religion_icons/catholic.dds"
+}
+
+concept_roman_catholic_authority = {
+	texture = "gfx/interface/icons/religion_icons/catholic.dds"
+}
