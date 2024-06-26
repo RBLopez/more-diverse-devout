@@ -108,9 +108,9 @@ effect_create_minority_ig_leader = {
 				}
 				trigger_else_if = {
 					limit = {
-						owner.var:minority_faith = rel:confucianism
+						owner.var:minority_faith = rel:confucian
 					}
-					has_pop_religion = confucianism
+					has_pop_religion = confucian
 				}
 			}
 			save_scope_as = clergypop

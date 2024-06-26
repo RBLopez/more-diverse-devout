@@ -166,7 +166,7 @@ GLOBAL = {
 	}
 
 	every_country = {
-		limit = { this.religion = rel:confucianism }
+		limit = { this.religion = rel:confucian }
 		effect_set_minority_faith_country_var = yes
 		ig:ig_devout = {
 			effect_remove_religious_ideologies_all = yes

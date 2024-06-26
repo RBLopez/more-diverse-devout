@@ -19,6 +19,15 @@
 	ai_will_do = {
 		always = no
 	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
 }
 
 law_religious_charity = {
@@ -98,6 +107,15 @@ law_religious_charity = {
 			}
 		}
 	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
 }
 
 law_poor_laws = {
@@ -131,6 +149,15 @@ law_poor_laws = {
 			multiply = 0.1
 			min = 0
 			max = 1					
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
 		}
 	}
 }
@@ -173,6 +200,15 @@ law_wage_subsidies = {
 				min = 0
 				max = 1
 			}				
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
 		}
 	}
 }
@@ -219,6 +255,15 @@ law_old_age_pension = {
 			multiply = 0.1
 			min = 0
 			max = 1
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
 		}
 	}
 }

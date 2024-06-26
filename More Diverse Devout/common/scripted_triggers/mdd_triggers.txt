@@ -63,11 +63,11 @@ has_minority_faith = {
 		}
 		AND = {
 			owner = { var:minority_faith ?= rel:anglican }
-			religion = rel:atheist
+			religion = rel:anglican
 		}
 		AND = {
-			owner = { var:minority_faith ?= rel:confucianism }
-			religion = rel:atheist
+			owner = { var:minority_faith ?= rel:confucian }
+			religion = rel:confucian
 		}
 	}
 }
