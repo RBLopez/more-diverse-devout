@@ -3,8 +3,8 @@ This mod is for Victoria 3 (by Paradox Interactive). Steam description below (WI
 # Mod Description
 This mod aims to add diversity of gameplay related to different world religions via modifications to in-game religions, new and improved devout interest group ideologies, and new laws.
 
-## New Religions
-- Anglicanism and Confucianism have been added to the game, and the Atheist religion has been relabelled as 'Humanism'.
+## New Religion
+- Anglicanism has been added to the game, and the Atheist religion has been relabelled as 'Humanism'.
 - Religious traits have been reconfigured for all in-game religions.
 
 ## New Laws
@@ -24,5 +24,5 @@ This mod aims to add diversity of gameplay related to different world religions 
 ## Reworked State Atheism mechanics
 - The newly-renamed Humanism(Atheism), Confucianism, and Buddhist religions all have an 'Atheist' trait.
 - Any country with an 'Atheist' state religion may adopt State Atheism without changing their existing State Religion.
-- Countries with a theist state religion will have their State Relgion changed to Humanism when adopting State Atheism, but can regain their original state religion back if they move away from State Atheism.
+- Countries with a theist state religion will have their State Religion changed to Humanism when adopting State Atheism, but can regain their original state religion back if they move away from State Atheism.
 - Countries with a Humanist state religion will see the Devout interest group deactivated (though the Minority Faith interest group will be more popular under State Atheism).

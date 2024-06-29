@@ -6,6 +6,7 @@
 
  RELIGIOUS_SHOPKEEPERS:0 "$POP_SHOPKEEPERS$ under $law_religious_jurisprudence$"
  RELIGIOUS_BUREAUCRATS:0 "$POP_BUREAUCRATS$ under $law_religious_administration$"
+ ACADEMIC_FREEDOM:0 "$POP_ACADEMICS$ opposed to $law_outlawed_dissent$"
  RELIGOUS_MINORITY_CULTURE:0 "Minority [concept_culture] accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  RELIGIOUS_ETHNIC_MINORITY:0 "Minority heritage accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"
  RELIGIOUS_FOREIGN_CULTURE:0 "Foreign culture accepted by [InterestGroup.AccessCountry.GetStateReligion.GetName] [concept_state_religion]"

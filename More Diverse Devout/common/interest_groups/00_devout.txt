@@ -199,17 +199,41 @@
 				}
 				value = 10
 			}
-		}		
+		}
 
-		add = {
-			desc = "law_total_separation"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_total_separation
+		if = {
+			limit = {
+				scope:interest_group = {
+					law_stance = {
+						law = law_type:law_outlawed_dissent
+						value >= approve
 					}
 				}
-				value = 10
+				is_pop_type  = academics
+			}
+			desc = "law_outlawed_dissent"
+			multiply = 0.75
+
+		}		
+
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						scope:interest_group = {
+							has_ideology = ideology:ideology_corporatist
+						}
+						scope:interest_group.leader ={
+							has_ideology = ideology:ideology_corporatist_leader
+						}
+					}
+				}
+				
+				strata != rich
+			}
+			multiply = {
+				desc = "CORPORATISM_TECH"
+				value = 1.25
 			}
 		}			
 		
@@ -266,7 +290,7 @@
 				add = 1
 			}
 		}
-
+		
 		multiply = {
 			desc = "IG_IS_MARGINALIZED"
 			value = 1.0
@@ -279,7 +303,7 @@
 					value = 0.75
 				}
 			}
-		}					
+		}						
 	}
 	
 	monarch_weight = {

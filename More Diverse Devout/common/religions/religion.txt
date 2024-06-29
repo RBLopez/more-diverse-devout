@@ -86,6 +86,7 @@ gelugpa = {
 	texture = "gfx/interface/icons/religion_icons/gelugpa.dds"
 	traits = {
 		dharmic
+		three_teachings
 		atheism
 	}
 	color = { 0.1 0.4 0.9 }
@@ -95,6 +96,7 @@ theravada = {
 	texture = "gfx/interface/icons/religion_icons/theravada.dds"
 	traits = {
 		dharmic
+		three_teachings
 		atheism
 	}
 	color = { 0.7 0.4 0.6 }
