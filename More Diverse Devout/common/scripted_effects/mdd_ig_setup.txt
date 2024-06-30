@@ -53,7 +53,7 @@ effect_set_devout_ideologies_by_religion = {
 			effect_set_religious_ideology_gelugpa = yes
 		}
 		else_if = {
-			limit = { owner.religion = rel:confucianism }
+			limit = { owner.religion = rel:confucian }
 			effect_set_religious_ideology_confucianism = yes
 		}
 		else_if = {
@@ -189,9 +189,9 @@ effect_set_minority_faith_ideologies_by_religion = {
 			}
 			else_if = {
 				limit = { 
-					owner = { var:minority_faith ?= rel:confucianism }
+					owner = { var:minority_faith ?= rel:confucian }
 				}
-				this.leader = { change_character_religion = rel:confucianism }
+				this.leader = { change_character_religion = rel:confucian }
 				effect_set_religious_ideology_confucianism = yes
 			}
 			else_if = {
@@ -319,7 +319,7 @@ effect_set_minority_faith_country_var = {
 	#check confucian
 	if = {
 		limit = {
-			rel:confucianism = {
+			rel:confucian = {
 				NOT = {
 					is_state_religion = prev
 				}
@@ -328,7 +328,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_variable = {
 			name = minority_faith
-			value = rel:confucianism
+			value = rel:confucian
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent

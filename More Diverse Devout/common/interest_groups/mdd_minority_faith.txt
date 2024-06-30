@@ -123,7 +123,7 @@
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_religious_schools
+					has_law = law_type:law_state_atheism
 				}
 			}
 			add = {
@@ -145,14 +145,49 @@
 				add = 1
 			}
 		}
-		
+
+		if = {
+			limit = {
+				scope:interest_group = {
+					law_stance = {
+						law = law_type:law_outlawed_dissent
+						value >= approve
+					}
+				}
+				is_pop_type  = academics
+			}
+			desc = "law_outlawed_dissent"
+			multiply = 0.75
+
+		}		
+
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						scope:interest_group = {
+							has_ideology = ideology:ideology_corporatist
+						}
+						scope:interest_group.leader ={
+							has_ideology = ideology:ideology_corporatist_leader
+						}
+					}
+				}
+				
+				strata != rich
+			}
+			multiply = {
+				desc = "CORPORATISM_TECH"
+				value = 1.25
+			}
+		}			
 		
 		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
 				leader = {
 					value = popularity
-					multiply = 0.005
+					multiply = 0.0025
 					add = 1
 					max = 1.25
 					min = 0.75

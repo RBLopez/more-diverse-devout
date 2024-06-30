@@ -630,7 +630,7 @@ ideology_li = {
 	}
 
 	lawgroup_church_and_state = {
-		law_state_religion = strongly_approve
+		law_state_religion = approve
 		law_freedom_of_conscience = approve
 		law_religious_tolerance = neutral
 		law_total_separation = disapprove

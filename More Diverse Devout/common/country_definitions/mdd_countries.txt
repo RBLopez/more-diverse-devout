@@ -30,6 +30,6 @@ CHI = {
 	tier = empire
 	
 	cultures = { manchu han }
-	religion = confucianism
+	religion = confucian
 	capital = STATE_BEIJING
 }

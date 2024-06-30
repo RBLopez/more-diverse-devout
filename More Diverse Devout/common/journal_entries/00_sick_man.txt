@@ -23,6 +23,13 @@
 		trigger_event = {
 			id = sick_man.3
 		}
+		if = {
+			limit = {
+	       		is_in_power_bloc = yes
+	        	is_power_bloc_leader = yes				
+			}
+			custom_tooltip = sick_man_of_europe_lose_power_bloc
+		}
 	}
 
 	current_value = {
@@ -378,7 +385,7 @@ je_sick_man_bureaucracy = {
 	group = je_group_historical_content
 
 	complete = {
-		NOR = {
+		NOR = { 
 			has_law = law_type:law_religious_administration 
 			has_law = law_type:law_hereditary_bureaucrats 
 			has_law = law_type:law_land_based_taxation
