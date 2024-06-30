@@ -1,8 +1,0 @@
-texticon = {
-  icon = minority_faiths
-  iconsize = {
-    offset = { 0 7 }
-    texture = "gfx/interface/icons/ig_icons/minority_faiths_30.dds"
-    fontsize = 22
-  }
-}

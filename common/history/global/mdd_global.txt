@@ -190,10 +190,19 @@ GLOBAL = {
 		}
 	}
 
+	every_country = {
+		limit = {
+			this = c:EGY
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:oriental_orthodox
+		}
+	}
+
 	#set minority faith to protestant( or catholic?) for all australian countries
 	#set minority faith to catholic in non-lower canadas
 	#set minority faith to catholic for texas
-	#set minority faith to oriental_orthodox for egypt
 
 	every_country = {
 		limit = {
