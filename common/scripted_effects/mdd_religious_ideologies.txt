@@ -1,0 +1,492 @@
+﻿#####################
+#	THESE EFFECTS ASSUME AN INTEREST GROUP SCOPE. CALL FROM WITHIN THE INTEREST GROUP YOU WANT TO MODIFY (either devout or minority faiths)
+#####################
+effect_remove_religious_ideologies_all = {
+	remove_ideology = ideology_pious
+	remove_ideology = ideology_moralist
+	remove_ideology = ideology_patriarchal
+	remove_ideology = ideology_confucian
+	remove_ideology = ideology_shinto_moralist
+	remove_ideology = ideology_buddhist_moralist
+	remove_ideology = ideology_hindu_moralist
+	remove_ideology = ideology_sikh_moralist
+	remove_ideology = ideology_oriental_orthodox_patriarch
+	remove_ideology = ideology_heavenly_kingdom_theocratic
+	remove_ideology = ideology_russian_patriarch
+	remove_ideology = ideology_state_church
+	remove_ideology = ideology_two_kingdoms
+	remove_ideology = ideology_patriarchal_personal
+	remove_ideology = ideology_patriarchal_extreme
+	remove_ideology = ideology_orthodox_patriarch
+	remove_ideology = ideology_cheder_tzedakah
+	remove_ideology = ideology_church_lands
+	remove_ideology = ideology_dharma_varna
+	remove_ideology = ideology_fiqh_shia
+	remove_ideology = ideology_fiqh_sunni
+	remove_ideology = ideology_haibutsu_kishaku
+	remove_ideology = ideology_halakha
+	remove_ideology = ideology_imperial_exams
+	remove_ideology = ideology_khalsa
+	remove_ideology = ideology_li
+	remove_ideology = ideology_making_merit
+	remove_ideology = ideology_maktab
+	remove_ideology = ideology_missionary_catholic
+	remove_ideology = ideology_missionary_orthodox
+	remove_ideology = ideology_royal_patronage
+	remove_ideology = ideology_saisei_itchi
+	remove_ideology = ideology_seva_hindu
+	remove_ideology = ideology_seva_sikh
+	remove_ideology = ideology_state_church_anglican
+	remove_ideology = ideology_tulku
+	remove_ideology = ideology_church_lands_russia
+	remove_ideology = ideology_minority_doctrine
+	remove_ideology = ideology_minority_religion
+	remove_ideology = ideology_foreign_religion
+	remove_ideology = ideology_minority_faith
+	remove_ideology = ideology_pietist_minority
+	remove_ideology = ideology_li_minority
+	remove_ideology = ideology_making_merit_minority
+	remove_ideology = ideology_seva_minority
+	remove_ideology = ideology_fiqh_minority
+	remove_ideology = ideology_two_kingdoms_minority
+}
+
+effect_set_religious_ideology_vanilla = {
+	
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_moralist
+		add_ideology = ideology_pious
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+	}
+}
+
+
+effect_set_religious_ideology_protestant = {
+	if = {
+		# 'Liberal' protestantism. Based on USA churches
+		limit = {
+			owner = { has_variable = protestant_liberal }
+		}
+		set_interest_group_name = ig_protestant_church_liberal
+		if = {
+			limit = {
+				owner = { ig:ig_devout ?= prev }
+			}
+			add_ideology = ideology_two_kingdoms
+			add_ideology = ideology_pietist
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_work_ethic_protestant
+			set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+		}
+		else_if = {
+			limit = {
+				owner = { ig:ig_minority_faiths ?= prev }
+			}
+			add_ideology = ideology_two_kingdoms_minority
+			add_ideology = ideology_pietist_minority
+		}
+		add_ideology = ideology_patriarchal_personal
+	}
+	else = {
+		#conservative protestantism. European Lutherans/Calvinists
+		if = {
+			limit = {
+				owner = { ig:ig_devout ?= prev }
+			}
+			add_ideology = ideology_state_church
+			add_ideology = ideology_pietist
+			add_ideology = ideology_patriarchal
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_divine_right
+			set_ig_trait = ig_trait:ig_trait_work_ethic
+		}
+		else_if = {
+			limit = {
+				owner = { ig:ig_minority_faiths ?= prev }
+			}
+			add_ideology = ideology_pietist_minority
+			add_ideology = ideology_patriarchal_personal
+		}
+		#naming only below
+		if = {
+			limit = {
+				OR = {
+					owner = c:NET
+					owner = { country_has_primary_culture = cu:boer }
+					owner = { country_has_primary_culture = cu:dutch }
+					owner = {
+						any_overlord_or_above = { this = c:NET }
+					}
+				}
+			}
+			set_interest_group_name = ig_dutch_reformed_church
+		}
+		else_if = {
+			limit = {
+				OR = {
+					owner.capital.region = sr:region_north_germany
+					owner.capital.region = sr:region_south_germany
+					owner.capital.region = sr:region_poland
+					owner.capital.region = sr:region_rhine
+					owner.capital.region = sr:region_baltic
+				}
+			}
+			set_interest_group_name = ig_lutheran_church
+		}
+		else_if = {
+			limit = {
+				owner = { country_is_in_europe = yes }
+			}
+			set_interest_group_name = ig_reformed_church
+		}
+		else = {
+			set_interest_group_name = ig_protestant_church
+		}
+	}		
+}
+
+effect_set_religious_ideology_anglican = {
+	set_interest_group_name = ig_anglican_church
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_state_church_anglican
+		add_ideology = ideology_pietist
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_work_ethic
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_pietist_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_catholic = {
+	set_interest_group_name = ig_catholic_church
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_state_church
+		add_ideology = ideology_missionary_catholic
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_missionary_catholic_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_orthodox = {
+	set_interest_group_name = ig_orthodox_church
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_state_church
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_oriental_orthodox = { 
+	
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_state_church
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal
+		add_ideology = ideology_church_lands
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_be_fruitful_and_multiply
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_missionary_orthodox
+		add_ideology = ideology_patriarchal_personal
+	}
+	if = {
+		limit = {
+			OR = {
+				owner = { country_is_in_middle_east = yes }
+				owner.capital.region = sr:region_nile_basin
+				owner.capital.region = sr:region_north_africa
+				owner.capital.region = sr:region_niger
+				owner.capital.region = sr:region_senegal
+			}
+		}
+		set_interest_group_name = ig_coptic_church
+	}
+	else_if = {
+		limit = {
+			owner = { country_is_in_africa = yes }
+		}
+		set_interest_group_name = ig_ethiopian_orthodox_church
+	}
+	else = {
+		set_interest_group_name = ig_oriental_orthodox_church
+	}
+}
+
+effect_set_religious_ideology_jewish = {
+	set_interest_group_name = ig_rabbinical_council
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_halakha
+		add_ideology = ideology_cheder_tzedakah
+		set_ig_trait = ig_trait:ig_trait_traditsye
+		set_ig_trait = ig_trait:ig_trait_yeshivot
+		set_ig_trait = ig_trait:ig_trait_the_best_revenge
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		#add_ideology = ?? what is here that isn't covered in minority faiths ideologies?
+	}
+	add_ideology = ideology_patriarchal_personal
+}
+
+effect_set_religious_ideology_shia = {
+	set_interest_group_name = ig_shia_madrasahs
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_fiqh_shia
+		add_ideology = ideology_maktab
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_da_wat
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_fiqh_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_sunni = {
+	set_interest_group_name = ig_sunni_madrasahs
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_fiqh_sunni
+		add_ideology = ideology_maktab
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_da_wat
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_fiqh_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_sikh = {
+	set_interest_group_name = ig_sikh_priesthood
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_khalsa
+		add_ideology = ideology_seva_sikh
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_khalsa_loyal
+		set_ig_trait = ig_trait:ig_trait_kar_seva_happy
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_seva_minority
+	}
+	add_ideology = ideology_patriarchal_personal
+}
+
+effect_set_religious_ideology_hindu = {
+	set_interest_group_name = ig_hindu_priesthood
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_dharma_varna
+		add_ideology = ideology_seva_hindu
+		add_ideology = ideology_patriarchal_extreme
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_seva_minority
+		add_ideology = ideology_patriarchal_extreme_personal
+	}
+}
+
+effect_set_religious_ideology_theravada = {
+	set_interest_group_name = ig_theravada_monks
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_royal_patronage
+		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_making_merit_minority
+	}
+	add_ideology = ideology_patriarchal_personal
+}
+
+effect_set_religious_ideology_mahayana = {
+	set_interest_group_name = ig_mahayana_monks
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_royal_patronage
+		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_asceticism
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_making_merit_minority
+	}
+	add_ideology = ideology_patriarchal_personal
+}
+
+effect_set_religious_ideology_gelugpa = {
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_tulku
+		add_ideology = ideology_making_merit
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_temporal_mandate
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_making_merit_minority
+	}
+	add_ideology = ideology_patriarchal_personal
+	##Naming localization
+	if = {
+		limit = {
+			owner.capital.region = sr:region_himalayas
+		}
+		set_interest_group_name = ig_yellow_hat
+	}
+	else = {
+		set_interest_group_name = ig_vajrayana_monks
+	}
+}
+
+effect_set_religious_ideology_confucianism = {
+	set_interest_group_name = ig_scholar_officials
+	
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_li
+		add_ideology = ideology_imperial_exams
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_civil_service
+		set_ig_trait = ig_trait:ig_trait_mandate_of_heaven
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_li_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_shinto = {
+	set_interest_group_name = ig_shinto_monks
+	
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_saisei_itchi
+		add_ideology = ideology_haibutsu_kishaku
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_haibutsu_kishaku
+		set_ig_trait = ig_trait:ig_trait_secular_shrine_theory
+		set_ig_trait = ig_trait:ig_trait_heavenly_sovereign
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		#add_ideology = not clear what should be here except religious minority
+		add_ideology = ideology_patriarchal_personal
+	}
+	
+}

@@ -1,0 +1,196 @@
+﻿vatican_country_catholic_authority = {
+	value = 0
+	#check for 'rightful control of vatican'
+	if = {
+		limit = {
+			NOT = {
+				this ?= c:PAP
+			}
+		}
+		add = -100
+	}
+	else ={
+		add = 10
+	}
+	if = {
+		limit = {
+			NOT = {
+				this.religion = rel:catholic
+			}
+		}
+		add = -200
+	}
+	#catholic country
+	else = {
+		# 'correct' governance and laws
+		if = {
+			limit = {
+				has_law = law_type:law_state_religion
+			}
+			add = 10
+		}
+		else = {
+			add = -20
+		}
+		if = {
+			limit = {
+				has_law = law_type:law_religious_schools
+			}
+			add = 10
+		}
+		#add governance principles: theocracy is best, monarchy if we must
+		# certainly no voting of any kind accepted
+		# dislike of elected beaurocrats as well - church and curia should run things
+		# and no free speech allowed, nor women's rights
+
+		# 'correct' groups in power
+		if = {
+			limit = {
+				ig:ig_devout = {
+					is_in_government = yes
+				}
+			}
+			add = 10
+			if = {
+				limit = {
+					ig:ig_devout ={
+						is_strongest_ig_in_government = yes
+					}
+				}
+				add = 5
+			}
+		}
+		else = {
+			add = -10
+			if = {
+				limit = {
+					ig:ig_devout = {
+						is_powerful = yes
+					}
+				}
+				add = 5
+			}
+		}
+
+		if = {
+			limit = {
+				religion_percent_country = {
+					target = rel:catholic
+					value < 0.95
+				}
+			}
+			add = -10
+		}
+
+
+		# add negatives for radicals or democrat politicians, use any_scope_character a few times:
+		# huge negative for powerful, popular radicals
+		# smaller negative for a large proportion of popular radicals (this is additive)
+		# look at reverse of springtime of the peoples
+		# this may turn into a scripted value
+		# there are usually 8/9 IG leaders. 1 ruler if not an IG leader, plus maybe 1 or 2 agitators in large countries
+	}
+
+	multiply = authority_by_rank_multiplier
+}
+
+catholic_authority = {
+	value = 5
+}
+
+catholic_minority_authority = {
+	value = -10
+	# check supression/acceptance of catholic minority
+	if = {
+		limit = {
+			has_law = law_type:law_state_religion
+		}
+		add = -10
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_religious_schools
+				has_law = law_type:law_public_schools
+			}
+			
+		}
+		add = -10
+	}
+	if = {
+		limit = {
+			scope:catholic_pop = {
+				religion_accepted = yes
+			}
+		}
+		add = 5
+	}
+	else = {
+		add = -10
+	}
+
+	# does the catholic minority have political power?
+	if = {
+		limit = {
+			var:minority_faith ?= rel:catholic
+			exists = ig:ig_minority_faiths
+		}
+		add = 5
+		if = {
+			limit = {
+				ig:ig_minority_faiths = {
+					is_powerful = yes
+				}
+			}
+			add = 5
+		}
+		if = {
+			limit = {
+				ig:ig_minority_faiths = {
+					is_being_suppressed = yes
+				}
+			}
+			add = -10
+		}
+		else_if = {
+			limit = {
+				ig:ig_minority_faiths = {
+					is_marginal = yes
+				}
+			}
+			add = -5
+		}
+	}
+	# add a check or two here about the percentage of catholics in the country
+	# and give a boost for catholic politicians (2 or more)
+
+	# are 'liberal' forces of democracy and free speech enshrined in law in this godless place?
+	# positives for monarchy and wealth voting or more regressive
+	# also positive for some censorship (but not outlawed dissent) and limits on women
+	
+	# use scripted value for negative influence from radical or democratic/republican leaders
+}
+
+authority_by_rank_multiplier = {
+	if = {
+		limit = {
+			this.country_rank = 7 #great power
+		}
+		value = 3
+	}
+	else_if = {
+		limit = {
+			this.country_rank = 6 #major power
+		}
+		value = 2
+	}
+	else_if = {
+		limit = {
+			this.country_rank < 2 #insignificant/unrecognized/decentralized
+		}
+		value = 0.5
+	}
+	else = {
+		value = 1
+	}
+}
