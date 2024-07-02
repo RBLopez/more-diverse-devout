@@ -89,4 +89,68 @@ pm_religious_academia = {
 			building_employment_academics_add = 1000
 		}
 	}			
-}			
+}
+
+pm_temple_temple_grounds = {
+	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+
+	disallowing_laws = {
+		law_state_atheism
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 15
+			building_employment_laborers_add = 30
+		}
+		unscaled = {
+			building_clergymen_shares_add = 1
+		}
+	}
+}
+
+pm_temple_state_atheism = {
+	texture = "gfx/interface/icons/law_icons/state_atheism.dds"
+
+	unlocking_laws = {
+		law_state_atheism
+	}
+
+}
+
+pm_temple_church_lands = {
+	texture = "gfx/interface/icons/law_icons/church_lands.dds"
+
+	disallowing_laws = {
+		law_state_atheism
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 50
+			building_employment_laborers_add = 100
+		}
+		unscaled = {
+			building_clergymen_shares_add = 1
+		}
+	}
+}
+
+pm_temple_waqf = {
+	texture = "gfx/interface/icons/ideology_icons/moralist.dds"
+
+	disallowing_laws = {
+		law_state_atheism
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clergymen_add = 30
+			building_employment_laborers_add = 60
+		}
+		unscaled = {
+			building_clergymen_shares_add = 1
+		}
+	}
+
+}

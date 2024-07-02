@@ -8,3 +8,17 @@
 		pm_professional_bureaucrats
 	}
 }
+
+pmg_ownership_building_temple = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_temple_temple_grounds
+		pm_temple_state_atheism
+		pm_temple_church_lands
+		pm_temple_waqf
+	}
+
+
+}
