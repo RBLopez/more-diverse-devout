@@ -9,16 +9,24 @@
 	}
 }
 
-pmg_ownership_building_temple = {
+pmg_administration_manor_house = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
 
 	production_methods = {
-		pm_temple_temple_grounds
-		pm_temple_state_atheism
-		pm_temple_church_lands
-		pm_temple_waqf
+		pm_manor_house_secular_administration
+		pm_manor_house_religious_administration
 	}
+}
 
+pmg_religious_relationship_manor_house = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
 
+	production_methods = {
+		pm_manor_house_state_atheism
+		pm_manor_house_patronage
+		pm_manor_house_temple_grounds
+		pm_manor_house_church_lands
+	}
 }
