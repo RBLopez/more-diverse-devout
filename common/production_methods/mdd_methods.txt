@@ -101,6 +101,9 @@ pm_manor_house_secular_administration = {
 	building_modifiers = {
 		level_scaled = {
 			building_employment_bureaucrats_add = 100
+		}
+		unscaled = {
+			building_bureaucrats_shares_add = 1
 		}	
 	}
 }
@@ -132,14 +135,22 @@ pm_manor_house_state_atheism = {
 
 pm_manor_house_patronage = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
+	is_hidden_when_unavailable = yes
 
 	disallowing_laws = {
 		law_state_atheism
 	}
 
+	unlocking_production_methods = {
+		pm_manor_house_patronage
+	}
+
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add = 100
+			building_employment_clergymen_add = 50
+		}
+		unscaled = {
+			building_clergymen_shares_add = 1
 		}
 	}
 }
@@ -158,16 +169,16 @@ pm_manor_house_temple_grounds = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add = 100
+			building_employment_clergymen_add = 50
 		}
 		unscaled = {
-			building_clergymen_shares_add = 1
+			building_clergymen_shares_add = 2
 		}
 	}
 }
 
 pm_manor_house_church_lands = {
-	texture = "gfx/interface/icons/ideology_icons/church_lands.dds"
+	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	is_hidden_when_unavailable = yes
 
 	disallowing_laws = {
@@ -180,7 +191,7 @@ pm_manor_house_church_lands = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clergymen_add = 100
+			building_employment_clergymen_add = 50
 		}
 		unscaled = {
 			building_clergymen_shares_add = 5

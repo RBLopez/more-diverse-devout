@@ -131,5 +131,91 @@ effect_create_minority_ig_leader = {
 			}
 		}	
 	}
+}
 
+#country scope
+effect_set_manor_house_religious_pm = {
+	if = {
+		limit = {
+			has_law = law_type:law_state_atheism
+		}
+		# no actions needed, pms sort themselves out
+	}
+	else_if = {
+		limit = {
+			OR = {
+				ig:ig_devout = {
+					has_ideology = ideology:ideology_church_lands
+				}
+				ig:ig_devout = {
+					has_ideology = ideology:ideology_church_lands_russia
+				}
+			}
+		}
+		every_scope_state = {
+			if = {
+				limit = {
+					NOT = {
+						is_production_method_active = {
+							building_type = building_manor_house
+							production_method = pm_manor_house_church_lands
+						}
+					}
+				}
+				activate_production_method = {
+					building_type = building_manor_house
+					production_method = pm_manor_house_church_lands
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				religion = {
+					has_discrimination_trait = christian
+				}
+				religion = {
+					has_discrimination_trait = muslim
+				}
+				religion = { #buddhism, hinduism, sikhism
+					has_discrimination_trait = dharmic
+				}
+			}
+		}
+		every_scope_state = {
+			if = {
+				limit = {
+					NOT = {
+						is_production_method_active = {
+							building_type = building_manor_house
+							production_method = pm_manor_house_temple_grounds
+						}
+					}
+				}
+				activate_production_method = {
+					building_type = building_manor_house
+					production_method = pm_manor_house_temple_grounds
+				}
+			}
+		}
+	}
+	else = {
+		every_scope_state = {
+			if = {
+				limit = {
+					NOT = {
+						is_production_method_active = {
+							building_type = building_manor_house
+							production_method = pm_manor_house_patronage
+						}
+					}
+				}
+				activate_production_method = {
+					building_type = building_manor_house
+					production_method = pm_manor_house_patronage
+				}
+			}
+		}
+	}
 }

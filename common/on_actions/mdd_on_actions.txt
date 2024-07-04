@@ -44,6 +44,10 @@ set_religious_igs_new_country = {
 				id = mdd_setup.1
 				days = 1
 			}
+			trigger_event = {
+				id = mdd_setup.2
+				days = 1
+			}
 		}
 	}
 }

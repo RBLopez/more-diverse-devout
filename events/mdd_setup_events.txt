@@ -14,3 +14,12 @@ mdd_setup.1 = {
 	}
 	
 }
+
+mdd_setup.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		effect_set_manor_house_religious_pm = yes
+	}
+}

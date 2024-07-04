@@ -180,6 +180,20 @@ GLOBAL = {
 		}
 	}
 
+	#setup manor house PMs
+	every_country = {
+		limit = {
+			NOT = {
+				is_country_type = decentralized
+			}
+		}
+		trigger_event = {
+			id = mdd_setup.2
+			days = 1
+		}
+	}
+
+	#specific minority faith setup
 	every_country = {
 		limit = {
 			this = c:QUE
@@ -217,6 +231,7 @@ GLOBAL = {
 		}
 	}
 
+	#country-specific law and IG tinkering
 	every_country = {
 		limit = {
 			this = c:CHI
@@ -248,6 +263,13 @@ GLOBAL = {
 			remove_ideology = ideology_church_lands
 			add_ideology = ideology_church_lands_russia
 		}
+	}
+
+	every_country = {
+		limit = {
+			this = c:PER
+		}
+		activate_law = law_type:law_religious_administration
 	}
 
 }
