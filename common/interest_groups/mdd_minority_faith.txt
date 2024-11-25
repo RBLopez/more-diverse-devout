@@ -7,6 +7,12 @@
 	ideologies = {
 		ideology_minority_faith
 	}
+
+	character_ideologies = {
+		ideology_moderate
+		ideology_traditionalist
+		ideology_traditionalist_minoritarian
+	}
 	
 	enable = {
 		owner = {
@@ -76,8 +82,15 @@
 			}
 			custom_tooltip = {
 				text = tt_opposing_state_atheism
-				owner = {
-					has_law = law_type:law_state_atheism
+				trigger_if = {
+					limit = {
+						owner = {
+							has_law = law_type:law_state_atheism
+						}
+					}
+					owner = {
+						has_law = law_type:law_state_atheism
+					}
 				}
 			}
 		}
@@ -173,7 +186,6 @@
 						}
 					}
 				}
-				
 				strata != rich
 			}
 			multiply = {
@@ -284,7 +296,7 @@
 				value = 0
 			}
 		}
-		# Basically impossible with State Atheism
+		# Impossible with State Atheism
 		if = {
 			limit = {
 				owner = {

@@ -1,7 +1,6 @@
 ﻿# group = this is the law_group a law belongs to
 # icon = graphical icon shown in-game
 # modifier = {} modifier on country for having adopted this law
-# cultural_acceptance_rule and religious_acceptance_rule are triggers in the pop scope used to check if a pop should be accepted or discriminated against
 
 law_state_religion = {
 	group = lawgroup_church_and_state
@@ -27,19 +26,21 @@ law_state_religion = {
 		}
 	}
 	
-	religious_acceptance_rule = {
-		is_state_religion = scope:country
-	}
-	
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = 0.3
-		state_radicals_from_sol_change_accepted_religion_mult = -0.1
-		state_loyalists_from_sol_change_accepted_religion_mult = 0.1	
 		country_authority_add = 200
-	}
-	
-	possible_political_movements = {
-		law_freedom_of_conscience
+		country_state_religion_wages_mult = 0.1
+		country_non_state_religion_wages_mult = -0.1
+
+		country_acceptance_state_religion_add = 25
+		country_acceptance_shared_religious_trait_add = 0
+		country_acceptance_religion_base_add = -25	
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
 	}
 
 	can_impose = {
@@ -52,20 +53,6 @@ law_state_religion = {
 				}
 			}
 			can_impose_law_default = yes
-		}
-	}
-
-	pop_support = {
-		value = 0
-		# Clergy like theocracy
-		add = {
-			desc = "POP_CLERGYMEN"
-			if = {
-				limit = {
-					is_pop_type = clergymen
-				}
-			}
-			value = 0.25
 		}
 	}
 	
@@ -82,6 +69,43 @@ law_state_religion = {
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+		
+		if = {
+			limit = {
+				has_law = law_type:law_state_religion
+				power_bloc ?= { has_identity = identity:identity_religious }
+				religion = scope:target_country.religion			
+			}
+			
+			add = base_impose_law_weight	
+			
+			# Very important for religious blocs
+			if = {
+				limit = { scope:target_country = { has_law = law_type:law_freedom_of_conscience } }
+				multiply = 2 
+			}
+			else = {
+				multiply = 5
+			}
+		}
+			
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
 		}
 	}
 }
@@ -127,15 +151,25 @@ law_freedom_of_conscience = {
 		}
 	}
 
-	religious_acceptance_rule = {
-		shares_heritage_trait_with_state_religion = scope:country
-	}
+#	religious_acceptance_rule = {
+#		shares_heritage_trait_with_state_religion = scope:country
+#	}
 	
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = 0.2
-		state_radicals_from_sol_change_accepted_religion_mult = -0.06
-		state_loyalists_from_sol_change_accepted_religion_mult = 0.06
-		country_authority_add = 125
+		country_authority_add = 125 #100 in vanilla
+		country_state_religion_wages_mult = 0.05
+		country_non_state_religion_wages_mult = -0.05	
+
+		country_acceptance_state_religion_add = 20
+		country_acceptance_shared_religious_trait_add = 15 ## need to figure out a way to get a modifier here for religious heritage trate
+		country_acceptance_religion_base_add = 0
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -158,10 +192,19 @@ law_freedom_of_conscience = {
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_education
+				has_law = law_type:law_state_religion
+			}
+			add = 1000
+		}				
 	}
 	
 	ai_impose_chance = {
@@ -220,15 +263,25 @@ law_religious_tolerance = {
 		}
 	}
 	
-	religious_acceptance_rule = {
-		shares_trait_with_state_religion = scope:country
-	}
+#	religious_acceptance_rule = {
+#		shares_trait_with_state_religion = scope:country
+#	}
 	
 	modifier = {
 		interest_group_ig_devout_pol_str_mult = 0.1
-		state_radicals_from_sol_change_accepted_religion_mult = -0.03
-		state_loyalists_from_sol_change_accepted_religion_mult = 0.03
 		country_authority_add = 50
+		country_state_religion_wages_mult = 0.05
+		country_non_state_religion_wages_mult = -0.05	
+
+		country_acceptance_state_religion_add = 20
+		country_acceptance_shared_religious_trait_add = 15 ## need to figure out a way to get a modifier here for religious heritage trait
+		country_acceptance_religion_base_add = 0
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
 	}
 	
 	possible_political_movements = {
@@ -248,40 +301,40 @@ law_religious_tolerance = {
 		}
 	}
 
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_ACADEMICS"
-			# Academics generally against religious perseecution
-			if = {
-				limit = {
-					owner = {
-						NOT = { has_law = law_type:law_total_separation }
-					}
-					is_pop_type = academics
-				}
-				value = 0.25
-			}
-		}
-		add = {
-			desc = "POP_DISCRIMINATED"
-			if = {
-				limit = { 
-					religion_accepted = no
-					religion = { shares_trait_with_state_religion = prev.owner }
-					owner = { NOT = { has_law = law_type:law_total_separation } }
-				}
-				add = 0.5
-				
-				if = {
-					limit = { 
-						standard_of_living <= 10
-					}
-					add = 0.5
-				}
-			}		
-		}
-	}
+#	pop_support = {
+#		value = 0
+#		add = {
+#			desc = "POP_ACADEMICS"
+#			# Academics generally against religious perseecution
+#			if = {
+#				limit = {
+#					owner = {
+#						NOT = { has_law = law_type:law_total_separation }
+#					}
+#					is_pop_type = academics
+#				}
+#				value = 0.25
+#			}
+#		}
+#		add = {
+#			desc = "POP_DISCRIMINATED"
+#			if = {
+#				limit = { 
+#					religion_accepted = no
+#					religion = { shares_trait_with_state_religion = prev.owner }
+#					owner = { NOT = { has_law = law_type:law_total_separation } }
+#				}
+#				add = 0.5
+#				
+#				if = {
+#					limit = { 
+#						standard_of_living <= 10
+#					}
+#					add = 0.5
+#				}
+#			}		
+#		}
+#	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
@@ -308,6 +361,15 @@ law_total_separation = {
 		law_theocracy
 	}
 	
+	can_enact = {
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
+	}
+	
 	on_enact = {
 		recalculate_pop_ig_support = yes
 		if = {
@@ -315,7 +377,6 @@ law_total_separation = {
 				has_law = law_type:law_state_atheism
 			}
 			set_state_religion = root.country_definition.religion
-			effect_set_manor_house_religious_pm = yes
 		}
 		if = {
 			limit = {
@@ -324,53 +385,39 @@ law_total_separation = {
 			remove_modifier = antireligious_policies
 		}
 	}
-	
-	religious_acceptance_rule = {
-		always = yes
-	}
-	
-	possible_political_movements = {
-		law_religious_tolerance
-		law_state_atheism
-	}
 
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_ACADEMICS"
-			# Academics generally against religious perseecution
-			if = {
-				limit = {
-					is_pop_type = academics
+	modifier = {
+		country_acceptance_state_religion_add = 15
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_religion_base_add = 15
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
+	}
+	
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
 				}
-				value = 0.25
 			}
-		}
-
-		add = {
-			desc = "POP_DISCRIMINATED"
-			if = {
-				limit = { 
-					religion_accepted = no
-				}
-				add = 0.5
-
-				if = {
-					limit = { 
-						standard_of_living <= 10
-					}
-					add = 0.5
-				}
-			}			
+			can_impose_law_default = yes
 		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
+		
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
-		}
+		}			
 	}
 }
 
@@ -402,6 +449,12 @@ law_state_atheism = {
 		ig:ig_devout = {
 			is_in_government = no
 		}
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
 	}
 
 	on_enact = {
@@ -415,7 +468,6 @@ law_state_atheism = {
 					}
 				}
 			}
-			set_state_religion = rel:atheist
 			add_modifier = {
 				name = antireligious_policies
 				months = long_modifier_time
@@ -433,19 +485,41 @@ law_state_atheism = {
 					}
 				}
 			}
-			effect_set_manor_house_religious_pm = yes
 		}
-		
-	}
-	
-	religious_acceptance_rule = {
-		#this will include atheist/humanists, confusionism and buddhist faiths
-		has_discrimination_trait = atheism
 	}
 
-	possible_political_movements = {
-		law_religious_tolerance
-		law_total_separation
+	on_activate = {
+		limit = {
+			religion = {
+				NOT = {
+					has_discrimination_trait = atheism
+				}
+			}
+		}
+		set_state_religion = rel:atheist
+		effect_set_manor_house_religious_pm = yes
+	}
+	
+#	religious_acceptance_rule = { #how the heck do I do this with modifiers instead of triggers? scripted_modifiers?
+#		#this will include atheist/humanists, confusionism and buddhist faiths
+#		has_discrimination_trait = atheism
+#	}
+
+	modifier = { # will need to be reworked to figure out MDD state atheist values
+		#interest_group_ig_devout_pol_str_mult = -0.5 #switched with reduced political clout of clergy
+		country_clergymen_pol_str_mult = -0.9
+		state_conversion_mult = 0.25
+		country_authority_add = 200
+
+		country_acceptance_state_religion_add = 15
+		country_acceptance_shared_religious_trait_add = 0
+		country_acceptance_religion_base_add = -10
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
 	}
 
 	can_impose = {
@@ -458,30 +532,6 @@ law_state_atheism = {
 				}
 			}
 			can_impose_law_default = yes
-		}
-	}
-
-	pop_support = {
-		value = 0
-		# Some euphoric academics will support this
-		add = {
-			desc = "POP_ACADEMICS"
-			if = {
-				limit = {
-					is_pop_type = academics
-				}
-				value = 0.1
-			}
-		}
-		# Atheists will support this
-		add = {
-			desc = "POP_ATHEISTS"
-			if = {
-				limit = {
-					has_pop_religion = atheist
-				}
-				value = 0.5
-			}
 		}
 	}
 
@@ -513,6 +563,20 @@ law_state_atheism = {
 			else = {
 				multiply = 2
 			}
+		}
+			
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {	
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
 		}
 	}
 

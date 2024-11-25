@@ -23,26 +23,6 @@
 	disallowing_laws = {
 		law_council_republic
 	}
-	
-	possible_political_movements = {
-		law_religious_administration
-		law_appointed_bureaucrats
-		law_elected_bureaucrats
-	}
-
-	pop_support = {
-		value = 0
-		# Aristocrats like nepotism
-		add = {
-			desc = "POP_ARISTOCRATS"			
-			if = {
-				limit = { 
-					is_pop_type = aristocrats
-				}
-				value = 0.25
-			}
-		}
-	}
 
 	ai_will_do = {
 		exists = ruler
@@ -78,27 +58,11 @@ law_religious_administration = {
 		law_total_separation
 	}
 
-	possible_political_movements = {
-		law_hereditary_bureaucrats
-		law_appointed_bureaucrats
-		law_elected_bureaucrats
-	}
-
-	pop_support = {
-		value = 0
-		add = {
-			desc = "POP_CLERGYMEN"
-			if = {
-				limit = {
-					is_pop_type = clergymen
-					owner.ig:ig_devout = {
-						law_stance = {
-							law = law_type:law_religious_administration
-							value > neutral
-						}
-					}
-				}
-				value = 0.25
+	can_enact = { #only allow this in countries with appropriate state religions
+		owner.ig:ig_devout = {
+			law_stance = {
+				law = law_type:law_religious_administration
+				value > neutral
 			}
 		}
 	}
@@ -140,10 +104,7 @@ law_appointed_bureaucrats = {
 		country_bureaucrats_pol_str_mult = 0.25
 		state_tax_capacity_mult = 0.25
 	}
-	
-	possible_political_movements = {
-		law_elected_bureaucrats
-	}
+
 
 	on_enact = {
 		if = {
@@ -160,38 +121,28 @@ law_appointed_bureaucrats = {
 		}
 	}
 
-	pop_support = {
-		value = 0
-		# Academics like technocracy
-		add = {
-			desc = "POP_ACADEMICS"			
-			if = {
-				limit = { 
-					is_pop_type = academics
-				}
-				value = 0.33
-			}
-		}
-		# Bureuacrats like non-hereditary
-		add = {
-			desc = "POP_BUREAUCRATS"
-			if = {
-				limit = {
-					owner = { has_law = law_type:law_hereditary_bureaucrats }
-					is_pop_type = bureaucrats
-				}
-			}
-			value = 0.25
-		}
-	}
-
 	ai_enact_weight_modifier = { #Petitions
 		value = 0
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
 		}
+
+		if = {
+			limit = { 
+				OR = {
+					has_journal_entry = je_sick_man_bureaucracy
+					has_journal_entry = je_great_reforms_bureaucratic
+				}
+				OR = {
+					has_law = law_type:law_hereditary_bureaucrats
+					has_law = law_type:law_religious_administration
+				}
+				
+			}
+			add = 1000
+		}		
 	}
 }
 
@@ -221,25 +172,6 @@ law_elected_bureaucrats = {
 	
 	modifier = {
 		country_bureaucracy_investment_cost_factor_mult = -0.15
-	}
-	
-	possible_political_movements = {
-		law_appointed_bureaucrats
-	}
-
-	pop_support = {
-		value = 0
-		# Bureuacrats like non-hereditary
-		add = {
-			desc = "POP_BUREAUCRATS"
-			if = {
-				limit = {
-					owner = { has_law = law_type:law_hereditary_bureaucrats }
-					is_pop_type = bureaucrats
-				}
-			}
-			value = 0.25
-		}
 	}
 
 	ai_enact_weight_modifier = { #Petitions

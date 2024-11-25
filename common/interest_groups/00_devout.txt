@@ -9,6 +9,12 @@
 		ideology_moralist
 		ideology_patriarchal
 	}
+
+	character_ideologies = {
+		ideology_moderate
+		ideology_traditionalist
+		ideology_legitimist
+	}
 	
 	enable = {
 		NOT = {
@@ -16,7 +22,7 @@
 				is_state_religion = prev.owner
 			}
 		}
-		#always = yes
+		#Vanilla is: always = yes
 	} 
 	
 	traits = {
@@ -29,7 +35,6 @@
 		owner = {
 			effect_set_devout_ideologies_by_religion = yes
 		}
-		
 		recalculate_pop_ig_support = yes
 	}
 
@@ -218,17 +223,14 @@
 
 		if = {
 			limit = {
-				AND = {
-					OR = {
-						scope:interest_group = {
-							has_ideology = ideology:ideology_corporatist
-						}
-						scope:interest_group.leader ={
-							has_ideology = ideology:ideology_corporatist_leader
-						}
+				OR = {
+					scope:interest_group = {
+						has_ideology = ideology:ideology_corporatist
+					}
+					scope:interest_group.leader ={
+						has_ideology = ideology:ideology_corporatist_leader
 					}
 				}
-				
 				strata != rich
 			}
 			multiply = {
@@ -348,7 +350,7 @@
 				value = 0.25
 			}
 		}
-		# Basically impossible with State Atheism
+		# Impossible with State Atheism
 		if = {
 			limit = {
 				owner = {
