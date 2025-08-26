@@ -1,5 +1,4 @@
-﻿
-corporatism = {
+﻿corporatism = {
 	era = era_3
 	texture = "gfx/interface/icons/invention_icons/corporatism.dds"
 	category = society
@@ -10,23 +9,16 @@ corporatism = {
 				NOT = { has_variable = corporatism_researched }
 			}
 			set_variable = corporatism_researched
-			
-			#Remove vanilla, we'll handle IG ideology changes our own way
-			#
-			#create_character = {
-			#	is_agitator = yes
-			#	interest_group = ig:ig_devout
-			#	ideology = ideology_corporatist_leader
-			#}
-			#ig:ig_devout = {
-			#	remove_ideology = ideology_pious
-			#	add_ideology = ideology_corporatist
-			#}
+# Updated from vanilla: devout doesn't immediately become corporatist, instead leadership ideology chances increased
+#			ig:ig_devout = {
+#				remove_ideology = ideology_pious
+#				add_ideology = ideology_corporatist
+#			}
 		}
 	}
 	
 	modifier = {
-		state_radicals_from_sol_change_accepted_culture_mult = -0.10
+		state_radicals_from_political_movements_mult = -0.1
 	}
 	
 	unlocking_technologies = {
