@@ -187,7 +187,7 @@ ideology_traditionalist = {
 	lawgroup_church_and_state = {
 		law_state_religion = approve
 		law_freedom_of_conscience = neutral
-		law_religious_tolerance = disapprove
+		# law_religious_tolerance = disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -333,7 +333,7 @@ ideology_communist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		law_religious_tolerance = disapprove
+		# law_religious_tolerance = disapprove
 		law_total_separation = neutral
 		law_state_atheism = approve
 	}
@@ -487,7 +487,7 @@ ideology_theocrat = {
 	lawgroup_church_and_state = {
 		law_state_religion = approve
 		law_freedom_of_conscience = disapprove
-		law_religious_tolerance = strongly_disapprove
+		# law_religious_tolerance = strongly_disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -500,6 +500,14 @@ ideology_theocrat = {
 		law_corporate_state = approve
 		law_council_republic = disapprove
 	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_approve
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_approve
+	}
 	
 	interest_group_leader_trigger = {
 		ideology_theocrat_valid_trigger = yes
@@ -508,9 +516,9 @@ ideology_theocrat = {
 			owner = {
 				has_law = law_type:law_state_atheism
 			}
-			interest_group = {
+			#interest_group = {
 				is_in_government = yes
-			}
+			#}
 		}
 	}
 	
@@ -633,9 +641,17 @@ ideology_traditionalist_minoritarian = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		law_religious_tolerance = neutral #added
+		# law_religious_tolerance = neutral #added
 		law_total_separation = approve
 		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
 	}
 
 	lawgroup_caste_hegemony = {
@@ -753,7 +769,7 @@ ideology_positivist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		law_religious_tolerance = disapprove
+		# law_religious_tolerance = disapprove
 		law_total_separation = approve
 		law_state_atheism = strongly_approve
 	}
@@ -922,9 +938,17 @@ ideology_integralist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_approve
 		law_freedom_of_conscience = disapprove
-		law_religious_tolerance = strongly_disapprove
+		# law_religious_tolerance = strongly_disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
+	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_approve
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_approve
 	}
 
 	lawgroup_citizenship = {
@@ -1156,9 +1180,17 @@ ideology_despotic_utopian = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = neutral
-		law_religious_tolerance = neutral
+		# law_religious_tolerance = neutral
 		law_state_atheism = neutral
 		law_total_separation = approve
+	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
 	}
 
 	lawgroup_citizenship = {
@@ -1280,4 +1312,99 @@ ideology_despotic_utopian = {
 			multiply = 0.1
 		}
 	}	
+}
+
+ideology_atheist = {
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_atheist.dds"
+	
+	character_ideology = yes
+	
+	lawgroup_governance_principles = {
+		law_theocracy = strongly_disapprove
+		law_monarchy = disapprove
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
+		law_council_republic = neutral
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_disapprove
+		law_freedom_of_conscience = disapprove
+		law_total_separation = approve
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
+	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+	
+	possible = {
+		owner = {
+			has_technology_researched = egalitarianism
+		}
+		scope:interest_group = {
+			OR = {
+				is_interest_group_type = ig_trade_unions
+				is_interest_group_type = ig_armed_forces
+				is_interest_group_type = ig_petty_bourgeoisie
+				is_interest_group_type = ig_industrialists
+			}
+		}
+		scope:interest_group = {
+			NOR = {
+				has_variable = communist_ig_var
+				has_variable = chose_vanguardism
+				has_variable = chose_fascism
+				has_variable = chose_conservatism
+				has_variable = chose_ethno_nationalism
+			}
+		}
+	}
+	
+	leader_weight = {
+		value = 100
+		# this is not very relevant if you're a republic with religious freedom
+		if = { 
+			limit = {
+				owner = {
+					NOR = {
+						has_law = law_type:law_state_religion
+						has_law = law_type:law_theocracy
+						has_law = law_type:law_monarchy
+					}
+				}
+			}
+			add = -75
+		}
+		# will emerge to counter a powerful Devout IG
+		if = {
+			limit = {
+				owner = {
+					ig:ig_devout ?= {
+						is_powerful = yes
+					}
+				}
+			}
+			add = 75
+		}
+		if = {
+			limit = { 
+				scope:interest_group = { 
+					has_variable = nihilism_var 
+				}
+			}
+			add = 150
+		}
+		if = {
+			limit = { 
+				scope:interest_group = {
+					has_variable = big_nihilism_var
+				}
+			}
+			add = 200
+		}
+	}
 }

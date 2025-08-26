@@ -24,16 +24,6 @@ ideology_traditionalist_valid_trigger = {
 	}
 }
 
-ideology_theocrat_valid_trigger = {
-	OR = {
-		owner = {
-			has_law = law_type:law_theocracy
-		}
-		is_interest_group_type = ig_devout
-		is_interest_group_type = ig_minority_faiths #added
-	}
-}
-
 ideology_traditionalist_minoritarian_valid_trigger = {
 	OR = {
 		is_interest_group_type = ig_rural_folk
@@ -55,6 +45,18 @@ ideology_traditionalist_minoritarian_valid_trigger = {
 	}
 }
 
+#used in law and ideology definitions, assumes country scope
+religion_supports_religious_administration = {
+
+}
+
+religion_supports_religious_jurisprudence = {
+
+}
+
+religion_supports_religious_charity = {
+	
+}
 
 #assumes pop scope
 has_minority_faith = {

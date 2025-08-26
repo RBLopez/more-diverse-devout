@@ -10,7 +10,6 @@
 
 	character_ideologies = {
 		ideology_moderate
-		ideology_traditionalist
 		ideology_traditionalist_minoritarian
 	}
 	

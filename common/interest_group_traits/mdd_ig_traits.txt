@@ -54,8 +54,7 @@ ig_trait_kar_seva_happy = {
 	min_approval = happy
 	
 	modifier = {
-		state_loyalists_from_sol_change_mult = 0.05
-		state_radicals_from_sol_change_mult = -0.05
+		state_radicals_and_loyalists_from_sol_change_mult = 0.05
 	}
 }
 
@@ -74,6 +73,6 @@ ig_trait_mandate_of_heaven = {
 
 	modifier = {
 		country_authority_mult = 0.2
-		state_radicals_from_sol_change_mult = -0.3
+		state_radicals_from_political_movements_mult = -0.2
 	}
 }
