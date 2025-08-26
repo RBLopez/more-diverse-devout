@@ -5,7 +5,7 @@
 
 	lens = infrastructure
 
-	texture = "gfx/interface/icons/building_icons/building_manor_houses.dds"
+	icon = "gfx/interface/icons/building_icons/building_manor_houses.dds"
 
 	production_method_groups = {
 		pmg_ownership_building_manor_house
@@ -30,6 +30,7 @@
 						OR = {
 							has_law = law_type:law_agrarianism
 							has_law = law_type:law_industry_banned
+							has_law = law_type:law_extraction_economy
 						}						
 					}
 					multiply = 2.0
@@ -46,6 +47,7 @@
 						OR = {
 							has_law = law_type:law_agrarianism
 							has_law = law_type:law_industry_banned
+							has_law = law_type:law_extraction_economy
 						}						
 					}
 					multiply = 2.0
@@ -62,6 +64,7 @@
 						OR = {
 							has_law = law_type:law_agrarianism
 							has_law = law_type:law_industry_banned
+							has_law = law_type:law_extraction_economy
 						}						
 					}
 					multiply = 2.0
