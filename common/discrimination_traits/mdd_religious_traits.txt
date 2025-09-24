@@ -1,0 +1,13 @@
+﻿# New Faith Tradition Traits, use TBD
+
+three_teachings = {
+	type = tradition
+}
+
+shugoshin = {
+	type = tradition
+}
+
+atheism = {
+	type = tradition
+}

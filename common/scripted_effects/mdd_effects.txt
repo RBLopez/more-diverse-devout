@@ -173,13 +173,13 @@ effect_set_manor_house_religious_pm = {
 		limit = {
 			OR = {
 				religion = {
-					has_discrimination_trait = christian
+					has_discrimination_trait = heritage_christian
 				}
 				religion = {
-					has_discrimination_trait = muslim
+					has_discrimination_trait = heritage_islamic
 				}
 				religion = { #buddhism, hinduism, sikhism
-					has_discrimination_trait = dharmic
+					has_discrimination_trait = heritage_dharmic
 				}
 			}
 		}

@@ -23,6 +23,7 @@ effect_remove_religious_ideologies_all = {
 	remove_ideology = ideology_dharma_varna
 	remove_ideology = ideology_fiqh_shia
 	remove_ideology = ideology_fiqh_sunni
+	remove_ideology = ideology_ibadi_imamate
 	remove_ideology = ideology_haibutsu_kishaku
 	remove_ideology = ideology_halakha
 	remove_ideology = ideology_imperial_exams
@@ -314,6 +315,28 @@ effect_set_religious_ideology_sunni = {
 			owner = { ig:ig_devout ?= prev }
 		}
 		add_ideology = ideology_fiqh_sunni
+		add_ideology = ideology_maktab
+		add_ideology = ideology_patriarchal
+		set_ig_trait = ig_trait:ig_trait_pious_fiction
+		set_ig_trait = ig_trait:ig_trait_divine_right
+		set_ig_trait = ig_trait:ig_trait_da_wat
+	}
+	else_if = {
+		limit = {
+			owner = { ig:ig_minority_faiths ?= prev }
+		}
+		add_ideology = ideology_fiqh_minority
+		add_ideology = ideology_patriarchal_personal
+	}
+}
+
+effect_set_religious_ideology_ibadi = {
+	set_interest_group_name = ig_ibadi_madrasahs
+	if = {
+		limit = {
+			owner = { ig:ig_devout ?= prev }
+		}
+		add_ideology = ideology_ibadi_imamate
 		add_ideology = ideology_maktab
 		add_ideology = ideology_patriarchal
 		set_ig_trait = ig_trait:ig_trait_pious_fiction

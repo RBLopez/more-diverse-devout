@@ -84,7 +84,7 @@ ideology_corporatist_leader = {
 		if = {
 			limit = {
 				religion = {
-					has_discrimination_trait = christian
+					has_discrimination_trait = heritage_christian
 				}
 				OR = {
 					is_interest_group_type = ig_devout
@@ -144,7 +144,7 @@ ideology_corporatist_leader = {
 		if = {
 			limit = {
 				religion = {
-					has_discrimination_trait = christian
+					has_discrimination_trait = heritage_christian
 				}
 				OR = {
 					is_interest_group_type = ig_devout
@@ -984,9 +984,9 @@ ideology_integralist = {
 		has_technology_researched = corporatism
 		any_primary_culture = { 
 			OR = { 
-				has_discrimination_trait = lusophone 
-				has_discrimination_trait = hispanophone 
-				has_discrimination_trait = francophone 
+				has_discrimination_trait = language_lusophone
+				has_discrimination_trait = language_hispanophone
+				has_discrimination_trait = language_francophone
 			} 
 		}
 	}

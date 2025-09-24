@@ -145,10 +145,10 @@ law_religious_jurisprudence = {
 		state_conversion_mult = 0.05
 		country_authority_add = -50
 
-		country_radicalism_increases_second_rate_citizen_mult = 0.01
-		country_radicalism_increases_open_prejudice_mult = 0.02
-		country_radicalism_increases_cultural_erasure_mult = 0.05
-		country_radicalism_increases_violent_hostility_mult = 0.1
+		country_radicalism_increases_second_rate_citizen_mult = -0.01
+		country_radicalism_increases_open_prejudice_mult = -0.05
+		country_radicalism_increases_cultural_erasure_mult = -0.05
+		country_radicalism_increases_violent_hostility_mult = -0.05
 	}
 
 	can_enact = { #only allow this in countries with appropriate state religions

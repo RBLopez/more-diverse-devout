@@ -86,6 +86,10 @@ has_minority_faith = {
 			religion = rel:shiite
 		}
 		AND = {
+			owner = { var:minority_faith ?= rel:ibadi }
+			religion = rel:ibadi
+		}
+		AND = {
 			owner = { var:minority_faith ?= rel:jewish }
 			religion = rel:jewish
 		}

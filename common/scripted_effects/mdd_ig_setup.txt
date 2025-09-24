@@ -33,6 +33,10 @@ effect_set_devout_ideologies_by_religion = {
 			effect_set_religious_ideology_sunni = yes
 		}
 		else_if = {
+			limit = { owner.religion = rel:ibadi }
+			effect_set_religious_ideology_ibadi = yes
+		}
+		else_if = {
 			limit = { owner.religion = rel:sikh }
 			effect_set_religious_ideology_sikh = yes
 		}
@@ -93,7 +97,7 @@ effect_set_minority_faith_ideologies_by_religion = {
 				else_if = {
 					limit = {
 						owner = { var:minority_faith = {
-							shares_trait_with_state_religion = prev
+							shares_heritage_trait_group_with_state_religion = prev
 							} }
 					}
 					add_ideology = ideology_minority_religion
@@ -151,6 +155,13 @@ effect_set_minority_faith_ideologies_by_religion = {
 				}
 				this.leader = { change_character_religion = rel:sunni }
 				effect_set_religious_ideology_sunni = yes
+			}
+			else_if = {
+				limit = {
+					owner = { var:minority_faith ?= rel:ibadi }
+				}
+				this.leader = { change_character_religion = rel:ibadi }
+				effect_set_religious_ideology_ibadi = yes
 			}
 			else_if = {
 				limit = {
@@ -485,6 +496,25 @@ effect_set_minority_faith_country_var = {
 		set_local_variable = {
 			name = top_minority_faith_percent
 			value = religion_percent_shiite
+		}
+	}
+	#check ibadi
+	if = {
+		limit = {
+			rel:ibadi = {
+				NOT = {
+					is_state_religion = prev
+				}
+			}
+			religion_percent_ibadi > local_var:top_minority_faith_percent
+		}
+		set_variable = {
+			name = minority_faith
+			value = rel:ibadi
+		}
+		set_local_variable = {
+			name = top_minority_faith_percent
+			value = religion_percent_ibadi
 		}
 	}
 	#check shinto

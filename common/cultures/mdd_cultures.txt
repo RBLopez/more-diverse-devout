@@ -1,13 +1,15 @@
-﻿british={ # "English" in localization
+﻿british= { # "English" in localization
 	color= rgb{ 210 156 140 }
 	religion = anglican
-	traits = { anglophone european_heritage }
-	
+	heritage = heritage_british
+	language = language_anglophone
+	traditions = { }
+
 	obsessions = {
 		tea
 	}
-	
-	male_common_first_names={
+
+	male_common_first_names = {
 		Algernon Alexander Adam Andrew Albert Alphonse Arthur Augustus Anthony Archibald Adolphus Abel Alfred Acton Aylmer Ambrose Austen Adrian Alan Arnold Auberon Allen
 		Bruce Benedict Beauchamp Benjamin Byron Bartholomew Barnaby Basil Bertram Bertrand
 		Charles Christopher Cecil Chichester Collingwood Cornelius Caleb Clarence Claude
@@ -19,14 +21,14 @@
 		Isambard Isaac
 		John James Jacob Jeremy Joseph Julian Josslyn Joshua
 		Kenelm
-		Laurence Leonard_2 Lyon Lionel Lewis
+		Laurence Leonard Lyon Lionel Lewis
 		Mark Michael Matthew Massey Montague Myles Murrough Maurice Martin Maxwell
 		Nigel Nicholas Nathaniel Neville
 		Oliver Octavius Oscar Oswald
 		Peter Paul Patrick Poulett Philip Percy
 		Richard Robert Roger Rudyard Redvers Rowland Reginald Roundell Rupert Rufus Ross
 		Stephen Simon Spencer Stanley Samuel Stafford Sewallis Sackville Sutherland
-		Theodore_2 Tristan Theobald Thomas Terence Teignmouth Timothy
+		Theodore Tristan Theobald Thomas Terence Teignmouth Timothy
 		Victor Valentine_2
 		Winston Walter William Wilfred Watkin Wellwood Weston Wentworth Wilbraham Wyndham Weetman
 		Zachary
@@ -47,13 +49,13 @@
 		Nona Nora
 		Olivia
 		Phoebe Pauline
-		Rachel Rhoda Rosina Rosaline Regina Ruth 
+		Rachel Rhoda Rosina Rosaline Regina Ruth
 		Sarah Sophia Selina Sibella Susan
 		Theodora
 		Victoria Violet Virginia
 		Wilhelmine
 	}
-	common_last_names={
+	common_last_names = {
 		Allenby Anstruther Abercromby Annesley Assheton Arkwright Acland Armistead Archdale Anderson Akroyd Adair Aytoun Amcotts Allen Amherst Ashton Aytoun
 		Brown Buller Barrie Bright Benyon Brinckman Bathurst Bagwell Brewer Bruce Backhouse Bass Bateson Bowring Bourne Barrington Blennerhassett Bourke Beach Beaumont Brassey Bailey Biddulph Brand Baring Baines Brocklehurst Bentall Bazley Birley Bingham Bolckow Baxter Bagge Barttelot Beevor Barbauld Balfour Baillie Barnard Bayly Beerbohm Bellairs Bewick Bloomfield Blagden Borthwick Booth Bousfield Brightwell Broderip Broughton Budden Burdon Borradaile Buxton Beauclerk Bosanquet Bromhead Brightwen Brander
 		Cory Chard Courtney Coward Cowell Craufurd Cave Collins Cadogan Chambers Conolly Callan Coleridge Cole Carnegie Cholmeley Clive Croft Cowper Cameron Castlerosse Clay Cogan Colthurst Colebrooke Cross Chaplin Cowen Cartwright Cardwell Corrance Cochrane Conroy Cotton Calthorpe
@@ -78,13 +80,13 @@
 		Woollcombe Wedderburn Whitbread Whitmore Willyams Whitworth Waterlow Williamson Wethered Wyllie Wheelhouse Whatman Waterhouse Walsh Winterbotham Weguelin Wedgwood Whitelaw Wheatley Wingate Willan Waugh Wisden
 		Young Younghusband
 	}
-	
-	male_noble_first_names= {
+
+	male_noble_first_names = {
 		# populate with names here
 	}
 	female_noble_first_names = {
 		# populate with names here
-	}	
+	}
 	noble_last_names = {
 		Agar-Ellis Althorp
 		Baden-Powell Brudenell-Bruce Bolingbroke Bridport Butler-Henderson Bowes-Lyon Bulwer-Lytton Bertie
@@ -98,7 +100,7 @@
 		Keppel
 		Loyd-Lindsay Leveson-Gower Launceston Lane
 		Maynard Manningham-Buller Meynell-Ingram Montgomery-Cuninghame Mure-Campbell
-		Newport Newark 
+		Newport Newark
 		Orr-Ewing Ormsby-Gore
 		Pleydell-Bouverie Pelham-Clinton Prothero
 		Rosebery Ruggles-Brise Ramsay-Gibson-Maitland Rawdon-Hastings
@@ -106,7 +108,7 @@
 		Thoroton-Hildyard Torrington Trevor Tadcaster Trematon Townsend
 		Walpole Williams-Wynn Wingfield-Baker Wilson-Patten Welby-Gregory Windsor-Clive Wentworth-FitzWilliam Waldegrave Withers-Lancashire
 	}
-	
+
 	male_regal_first_names = {
 		Alexander Albert Augustus
 		Edward Edmund
@@ -132,19 +134,21 @@
 		FitzClarence
 		Rawdon-Hastings
 		Seymour
-	}	
-	
+	}
+
 	graphics = european
 	ethnicities = {
 		1 = caucasian
 	}
 }
 
-australian={
+australian= {
 	color= hsv{ 0.61 0.50 0.68 }
 	religion = anglican
-	traits = { anglophone european_heritage }
-	male_common_first_names={
+	heritage = heritage_british
+	language = language_anglophone
+	traditions = { }
+	male_common_first_names = {
 		Adrian
 		Alf
 		Arthur
@@ -179,7 +183,7 @@ australian={
 		Annie
 		Barbara
 		Bertha
-		Bridgetena 
+		Bridgetena
 		Caroline
 		Catherine
 		Charlotte
@@ -206,7 +210,7 @@ australian={
 		Theodosia
 		Zara
 		Zillah
-	}	
+	}
 	noble_last_names = {
 		Angas
 		Armstrong
@@ -225,7 +229,7 @@ australian={
 		Wakefield
 		McCallum
 	}
-	common_last_names={
+	common_last_names = {
 		Anderson
 		Baird
 		Cathcart
@@ -264,206 +268,96 @@ australian={
 	}
 }
 
-anglo_canadian={
+anglo_canadian= {
 	color= hsv{ 0.22 0.22 0.45 }
 	religion = anglican
-	traits = { anglophone european_heritage }
-	male_common_first_names={
-		Albert
-		Alexander
-		Alfred
-		Angus
-		Archibald
-		Arthur
-		Charles
-		Christopher
-		Colin
-		David
-		Edmund
-		Frederick
-		George
-		Gordon
-		Hugh
-		James
-		John
-		Joseph
-		Mackenzie
-		Mark
-		Matthew
-		Michael
-		Nicholas
-		Norman
-		Patrick
-		Paul
-		Peter
-		Robert
-		Samuel
-		Simon
-		Sydney
+	heritage = heritage_north_american_settler
+	language = language_anglophone
+	traditions = { }
+	male_common_first_names = {
+		Albert Alexander Alfred Angus Archibald Arthur Absalom
+		Bartholomew Benjamin
+		Charles Christopher Colin
+		David Donald
+		Edmund Emerson Ely
+		Frederick Francis
+		George Gordon
+		Hugh Herbert Hamilton Hiram
+		James John Joseph Jonas
+		Mackenzie Mark Matthew Michael Marshall Milo
+		Nicholas Norman
+		Oscar Oliver
+		Patrick Paul Peter
+		Robert Randolph Reuben
+		Samuel Simon Sydney Solomon
 		Thomas
 		William
+		Zacheus
 	}
 	female_common_first_names = {
-		Agnes
-		Alice
-		Amelia
-		Anne
+		Agnes Alice Amelia Anne
 		Berengera
-		Caroline
-		Charlotte
-		Clara
-		Clementina
-		Constance
-		Edith
-		Eleanor
-		Eliza
-		Ellen
-		Emily
-		Ethelwyn
-		Florence
-		Frances
-		Georgina
-		Grizelda
-		Harriet
-		Helena
-		Henriette
-		Hortense
-		Jane
-		Josephine
-		Julia
+		Caroline Charlotte Clara Clementina Constance
+		Edith Eleanor Eliza Ellen Emily Ethelwyn
+		Florence Frances
+		Georgina Grizelda
+		Harriet Helena Henriette Hortense
+		Jane Josephine Julia
 		Katie
-		Lily
-		Louisa
-		Lucy
-		Margaret
-		Martha
-		Mary
-		Matilda
-		Pamelia
-		Pauline
-		Pearl
-		Rebecca
-		Rhoda
-		Rosanna
+		Lily Louisa Lucy
+		Margaret Martha Mary Matilda
+		Pamelia Pauline Pearl
+		Rebecca Rhoda Rosanna
 		Sarah
-		Victoria
-		Virna
-	}	
+		Victoria Virna
+	}
+
+	# old V2 names + Family Compact of Upper Canada	and Chateau Clique (anglos!) of Lower Canada
 	noble_last_names = {
-		Abbott
-		Acheson
-		Bishop
-		Byng
-		Colborne
-		Hamilton-Temple-Blackwood
+		Abbott Acheson Allan
+		Bishop Byng Baby Boulton Bowen
+		Colborne Clark Clarkson Crookshanks
+		Dickson Duncan
+		Elmsley
+		FitzGibbon
+		Galt Gates
+		Hamilton-Temple-Blackwood Hagerman Heward
+		Jarvis Jones
 		Kempt
-		Lambton
-		Lansdowne
-		Lennox
-		Lisgar
-		Lorne
-		Macdonald
-		Monck
-		Preston
-		Stanley
+		Lambton Lansdowne Lennox Lisgar Lorne
+		Macdonald Monck Macaulay MacNab McGill McGillivray Mountain Munro
+		Nichol
+		Osgoode
+		Preston Powell
+		Robinson
+		Stanley Shaw Sherwood Smith Strachan Sewell Stewart
 		Thomson
 		Whitworth-Aylmer
 		Young
 	}
-	common_last_names={
-		Affleck
-		Armour
-		Bates
-		Beavan
-		Beckwith
-		Bernard
-		Bethune
-		Bishop
-		Blewett
-		Borden
-		Bowell
-		Bradford
-		Brown
-		Calder
-		Campbell
-		Caron
-		Churchill
-		Clark
-		Coleman
-		Conan
-		Corrigan
-		Crawford
-		Currie
-		Curzon
-		Cushing
-		Deeks
-		Dickey
-		Diggs
-		Dougall
-		Duncan
-		Field
-		Fleming
-		Garner
-		Graham
-		Guthrie
-		Harrison
-		Hayes
-		Herbert
-		Holmes
-		Hughes
-		Jennings
-		Jones
-		Katzmann
-		Kemp
-		Kennedy
-		King
-		Langton
-		Lawson
-		Lefevre
-		Leprohon
-		Mackenzie
-		MacNab
-		Maitland
-		McDonald
-		McIlwraith
-		McIsaac
-		McKellar
-		Merrick
-		Mewburn
-		Mitchell
-		Monthomery
-		Moodie
-		Morin
-		Mountcastle
-		Murray
-		Neil
-		Newhall
-		Panet
-		Parke
-		Patterson
-		Piers
-		Pope
-		Pottinger
-		Rae
-		Robertson
-		Rogers
-		Ross
-		Sedgewick
-		Shaw
-		Sheard
-		Sivell
-		Smith
-		Strong
-		Thompson
-		Tisdale
-		Tonge
-		Traill
-		Trenholme
-		Vail
-		Vining
-		Walker
-		Walshe
-		Wetherald
+	common_last_names = {
+		Atkinson Affleck Armour Alway Armstrong
+		Bates Beavan Beckwith Bernard Bethune Bishop Blewett Bowell Bradford Brown Beattie Bennett Bowes Beard Beaty Boswell Burke Beasley Bidwell Beardsley Burnham Burritt Burwell
+		Calder Campbell Caron Churchill Clark Coleman Conan Corrigan Crawford Currie Curzon Cushing Coulebourn Cameron Coventry Cleary Clay Croll Coatsworth Church Crysler Cumming Cook Caldwell Chisholm Cornwall Cartwright
+		Deeks Dickey Diggs Dougall Duncan Dougall Davis Drake Dunlop Detlor Duncombe
+		Ewing Elliott
+		Field Fleming Foster Fothergill Ferrie
+		Garner Graham Guthrie Gurnett Geary Gordon Gowan
+		Harrison Hayes Herbert Holmes Hughes Horne Hanna Howell Harman Howland Hocken Hiltz Hornor Hagerman Hunter Hotham
+		Ingersoll
+		Jennings Jones Jackson Jarvis
+		Katzmann Kemp Kennedy King Kearns
+		Langton Lawson Lefevre Leprohon Lefferty
+		Mackenzie MacNab Maitland McDonald McIlwraith McIsaac McKellar Merrick Mewburn Mitchell Montgomery Moodie Morin Mountcastle Murray MacDonell McGregor Mason Morrison Medcalf Manning Morris McMurrich Maguire McBride Macdonell Matthews McCall McLean Malloch Marks Mathewson McCarger Merritt Murney Manahan McCrae McMicking Moore
+		Neil Newhall Norton
+		Oliver
+		Panet Parke Patterson Piers Pope Pottinger Perry Peterson Playter Prince Parke
+		Rae Robertson Rogers Ross Richards Robinson Read Randal Rolph Rykert Ruttan
+		Sedgewick Shaw Sheard Sivell Smith Strong Scott Smythe Shepard Sullivan Sheard Simpson Scollick Shaver Shade Salmon
+		Thompson Tisdale Tonge Traill Trenholme Tworney Tuson Thomson Thorburn
+		Urquhart
+		Vail Vining
+		Walker Walshe Wetherald White Wigle Winter Wilson Wemp Wilkinson Walsh Willson Wells Woodruff
 	}
 	graphics = european
 	ethnicities = {
@@ -471,11 +365,13 @@ anglo_canadian={
 	}
 }
 
-afro_caribbean={
+afro_caribbean= {
 	color= hsv{ 0.32 0.27 0.32 }
 	religion = anglican
-	traits = { african_heritage anglophone }
-	male_common_first_names={
+	heritage = heritage_african_diaspora
+	language = language_patois
+	traditions = { }
+	male_common_first_names = {
 		Anderson
 		Anselm
 		Arthur
@@ -526,7 +422,7 @@ afro_caribbean={
 		Vanessa
 		Vera
 		Violet
-	}	
+	}
 	noble_last_names = {
 		Cotton
 		Duperly
@@ -537,7 +433,7 @@ afro_caribbean={
 		Osborn
 		Sharpe
 	}
-	common_last_names={
+	common_last_names = {
 		Abbott
 		Best
 		Blaize
@@ -570,7 +466,7 @@ afro_caribbean={
 		Young
 	}
 	ethnicities = {
-		1 = african
+		1 = african_diaspora
 	}
 	graphics = african
 }
