@@ -116,7 +116,7 @@ GLOBAL = {
 	# per https://dictionaryofsydney.org/entry/religion
 	# at the time of the first census of New South Wales, in November 1828, it was assumed that everyone in the colony could be counted as belonging to one of four religious groups: Protestant, Catholic, Jewish, and Pagan. Jews and 'Pagans' lived mostly in Sydney Town,
 	# the Camden district was rather more Catholic (39 per cent) and the Windsor district was rather more Protestant (79 per cent) than elsewhere, but the colony was not religiously divided, at least geographically, though sectarianism has played a role in the life of the city.
-	# we'll go with 40% protestant to 60% anglican for australians, and assume the irish are catholic
+	# we'll go with 40% protestant to 60% anglican for australians, and assume the irish are catholic which is how they ended up in Australia to begin with
 	every_country = {
 		limit = {
 			OR = {

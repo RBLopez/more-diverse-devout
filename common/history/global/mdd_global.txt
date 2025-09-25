@@ -71,13 +71,13 @@ GLOBAL = {
 			limit = {
 				this = { has_law = law_type:law_local_police }
 			}
-			activate_law = law_type:law_religious_jurisprudence
+			activate_law = law_type:law_sharia
 		}
 		if = {
 			limit = {
 				this = { has_law = law_type:law_hereditary_bureaucrats }
 			}
-			activate_law = law_type:law_religious_administration
+			activate_law = law_type:law_people_of_the_book
 		}
 	}
 
@@ -92,13 +92,34 @@ GLOBAL = {
 			limit = {
 				this = { has_law = law_type:law_local_police }
 			}
-			activate_law = law_type:law_religious_jurisprudence
+			activate_law = law_type:law_sharia
 		}
 		if = {
 			limit = {
 				this = { has_law = law_type:law_hereditary_bureaucrats}
 			}
-			activate_law = law_type:law_religious_administration
+			activate_law = law_type:law_people_of_the_book
+		}
+	}
+
+	every_country = {
+		limit = { this.religion = rel:ibadi }
+		effect_set_minority_faith_country_var = yes
+		ig:ig_devout = {
+			effect_remove_religious_ideologies_all = yes
+			effect_set_religious_ideology_ibadi = yes
+		}
+		if = {
+			limit = {
+				this = { has_law = law_type:law_local_police }
+			}
+			activate_law = law_type:law_sharia
+		}
+		if = {
+			limit = {
+				this = { has_law = law_type:law_hereditary_bureaucrats}
+			}
+			activate_law = law_type:law_people_of_the_book
 		}
 	}
 
@@ -176,7 +197,7 @@ GLOBAL = {
 			limit = {
 				this = { has_law = law_type:law_state_religion }
 			}
-			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_three_teachings
 		}
 	}
 
@@ -242,7 +263,7 @@ GLOBAL = {
 		ig:ig_landowners = {
 			set_interest_group_name = ig_gentlemen_scholars
 		}
-		activate_law = law_type:law_religious_administration
+		activate_law = law_type:law_imperial_exams
 	}
 
 	every_country = {
@@ -250,7 +271,7 @@ GLOBAL = {
 			this = c:JAP
 		}
 		ig:ig_devout = {
-			add_ideology = ideology_terauke
+			add_ideology = ideology_terauke 
 		}
 		activate_law = law_type:law_religious_administration
 	}
@@ -269,7 +290,7 @@ GLOBAL = {
 		limit = {
 			this = c:PER
 		}
-		activate_law = law_type:law_religious_administration
+		activate_law = law_type:law_people_of_the_book
 	}
 
 }

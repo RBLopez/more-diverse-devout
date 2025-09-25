@@ -45,21 +45,8 @@ ideology_traditionalist_minoritarian_valid_trigger = {
 	}
 }
 
-#used in law and ideology definitions, assumes country scope
-religion_supports_religious_administration = {
-
-}
-
-religion_supports_religious_jurisprudence = {
-
-}
-
-religion_supports_religious_charity = {
-	
-}
-
 #assumes pop scope
-has_minority_faith = {
+has_minority_faith_trigger = {
 	OR = {
 		AND = {
 			owner = { var:minority_faith ?= rel:catholic }

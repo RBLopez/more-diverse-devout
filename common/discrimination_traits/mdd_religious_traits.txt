@@ -1,5 +1,10 @@
-﻿# New Faith Tradition Traits, use TBD
+﻿# additional heritage traits
+heritage_indic = {
+	type = heritage
+	trait_group = heritage_group_eastern
+}
 
+# New Faith Tradition Traits, use TBD
 three_teachings = {
 	type = tradition
 }
