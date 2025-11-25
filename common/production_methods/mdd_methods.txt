@@ -1,4 +1,24 @@
-﻿pm_religious_bureaucrats_main = {
+﻿# INJECT:pm_professional_bureaucrats = {
+# 	disallowing_laws = {
+# 		law_religious_administration
+# 		#possibly all variants here as well?
+# 	}
+# 
+# 
+# INJECT:pm_secular_bureaucrats = {
+# 	disallowing_laws = {
+# 		law_freedom_of_conscience
+# 	}
+# 
+# 
+# INJECT:pm_secular_academia = {
+# 	disallowing_laws = {
+# 		law_freedom_of_conscience
+# 	}
+# 
+
+
+pm_religious_bureaucrats_main = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_aristocrats.dds"
 	
 	unlocking_laws = {
@@ -44,6 +64,7 @@ pm_secular_bureaucrats = {
 	}			
 }
 
+# remove modifications to this in 1.13
 pm_religious_bureaucrats = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	
@@ -75,6 +96,7 @@ pm_secular_academia = {
 	}			
 }
 
+# remove modifications to this in 1.13
 pm_religious_academia = {
 	texture = "gfx/interface/icons/production_method_icons/ownership_clergy.dds"
 	

@@ -1,6 +1,59 @@
-﻿# group = this is the law_group a law belongs to
-# icon = graphical icon shown in-game
-# modifier = {} modifier on country for having adopted this law
+﻿# REPLACE:law_millet_system = {
+# 	tax_modifier_very_low = {}
+# 	tax_modifier_low = {}
+# 	tax_modifier_medium = {}
+# 	tax_modifier_high = {}
+# 	tax_modifier_very_high = {}
+# }
+# 
+# REPLACE:law_people_of_the_book = {
+# 	tax_modifier_very_low = {}
+# 	tax_modifier_low = {}
+# 	tax_modifier_medium = {}
+# 	tax_modifier_high = {}
+# 	tax_modifier_very_high = {}
+# }
+# 
+# REPLACE:law_freedom_of_conscience = {
+# 	progressiveness = -25
+# 
+# 	modifier = {
+# 		interest_group_ig_devout_pol_str_mult = 0.2
+# 		country_authority_add = 125
+# 		country_state_religion_wages_mult = 0.05
+# 		country_non_state_religion_wages_mult = -0.05
+# 
+# 		country_acceptance_state_religion_add = 25
+# 		country_acceptance_shared_religious_trait_add = 10
+# 		country_acceptance_shared_religious_trait_group_add = -5
+# 		country_acceptance_no_shared_religious_trait_add = -25
+# 
+# 		country_allow_conversion_violent_hostility_bool = yes
+# 		country_allow_conversion_cultural_erasure_bool = yes
+# 		country_allow_conversion_open_prejudice_bool = yes
+# 		country_allow_conversion_second_rate_citizen_bool = yes
+# 		country_allow_conversion_full_acceptance_bool = no
+# 	}
+# }
+# 
+# INJECT:law_freedom_of_conscience = {
+# 	is_visible = { # Only allow this if there is no flavor alternative
+# 		NOR = {
+# 			c:CHI ?= this
+# 			country_has_state_religion = rel:confucian
+# 		}
+# 	}
+# }
+# 
+# REPLACE:law_state_atheism = {
+# 	modifier = {
+# 		interest_group_ig_devout_pol_str_mult = 0.5 #cancel out vanilla
+# 		country_clergymen_pol_str_mult = -0.9 #instead discriminate directly against the clergy
+# 	}
+# 
+# 	# bring back conditional conversion to humanism based on the country's religion. requires allowing an 'atheist' tradition tag for certain religions so they aren't discriminated against
+# }
+# 
 
 law_state_religion = {
 	group = lawgroup_church_and_state
@@ -129,6 +182,7 @@ law_millet_system = { # Ottoman Empire
 		law_monarchy
 	}
 
+	# remove this modification in 1.13
 	is_visible = {
 		OR = {
 			c:TUR ?= this # For the Ottoman Empire and its subjects

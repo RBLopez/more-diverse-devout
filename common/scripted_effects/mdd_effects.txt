@@ -150,6 +150,7 @@ effect_set_manor_house_religious_pm = {
 				ig:ig_devout = {
 					has_ideology = ideology:ideology_church_lands_russia
 				}
+				# Add special handling for East India Company and british indian colonies?
 			}
 		}
 		every_scope_state = {
@@ -178,8 +179,11 @@ effect_set_manor_house_religious_pm = {
 				religion = {
 					has_discrimination_trait = heritage_islamic
 				}
-				religion = { #buddhism, hinduism, sikhism
+				religion = { #buddhism
 					has_discrimination_trait = heritage_dharmic
+				}
+				religion = { #hinduism, sikhism
+					has_discrimination_trait = heritage_indic
 				}
 			}
 		}

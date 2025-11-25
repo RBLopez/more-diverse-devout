@@ -1,4 +1,13 @@
-﻿ORG = {
+﻿#	TRY_REPLACE:ORG = {
+#		religion = anglican
+#	}
+#
+#	TRY_REPLACE:MKT = {
+#		religion = anglican
+#	}
+
+
+ORG = {
 	color = { 138  80 126 }
 	
 	country_type = colonial

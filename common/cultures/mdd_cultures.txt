@@ -1,4 +1,21 @@
-﻿british= { # "English" in localization
+﻿# TRY_REPLACE:british = {
+# 	religion = anglican
+# }
+# 
+# TRY_REPLACE:australian ={
+# 	religion = anglican
+# }
+# 
+# TRY_REPLACE:anglo_canadian = {
+# 	religion = anglican
+# }
+# 
+# TRY_REPLACE:afro_caribbean = {
+# 	religion = anglican
+# }
+
+
+british= { # "English" in localization
 	color= rgb{ 210 156 140 }
 	religion = anglican
 	heritage = heritage_british

@@ -29,13 +29,13 @@
 
 law_local_police = {
 	group = lawgroup_policing
-	
+
 	icon = "gfx/interface/icons/law_icons/local_police.dds"
-	
+
 	unlocking_technologies = {
 		tech_bureaucracy
 	}
-	
+
 	progressiveness = -50
 
 	institution = institution_police
@@ -60,8 +60,8 @@ law_local_police = {
 	# Don't return to local police if we have something more advanced
 	ai_will_do = {
 		NOR = {
-			has_law = law_type:law_dedicated_police
-			has_law = law_type:law_militarized_police
+			has_law_or_variant = law_type:law_dedicated_police
+			has_law_or_variant = law_type:law_militarized_police
 		}
 	}
 
@@ -70,20 +70,27 @@ law_local_police = {
 
 		if = {
 			limit = {
-				has_law = law_type:law_no_police
+				has_law_or_variant = law_type:law_no_police
 			}
 			add = 500
 		}
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_hawaii
+			}
+			add = 1000
 		}
 	}
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_local_police
@@ -96,18 +103,18 @@ law_local_police = {
 			limit = {
 				has_law = law_type:law_local_police
 				scope:target_country = {
-					has_law = law_type:law_no_police
+					has_law_or_variant = law_type:law_no_police
 				}
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities
@@ -216,6 +223,52 @@ law_sharia = {
 			add = 750
 		}
 	}
+
+	# can impose in religious or policing/security power blocs
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				OR = {
+					AND = {
+						modifier:country_can_impose_same_lawgroup_policing_in_power_bloc_bool = yes
+						has_law = scope:law
+					}
+					AND = {
+						modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+						has_law = scope:law
+					}
+				}
+				
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+
+		if = {
+			limit = {
+				has_law = law_type:law_state_religion
+				power_bloc ?= { has_identity = identity:identity_religious }
+				religion = scope:target_country.religion
+			}
+
+			add = base_impose_law_weight
+		}
+
+		if = {
+			limit = {
+				has_law = law_type:law_sharia
+				religion = scope:target_country.religion
+				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
+			}
+
+			add = base_impose_law_weight
+		}
+
+	}
 }
 
 law_jewish_courts = { #Jewish flavor, naming TBD
@@ -269,9 +322,9 @@ law_jewish_courts = { #Jewish flavor, naming TBD
 
 law_dedicated_police = {
 	group = lawgroup_policing
-	
+
 	icon = "gfx/interface/icons/law_icons/dedicated_police.dds"
-	
+
 	progressiveness = 50
 
 	unlocking_technologies = {
@@ -305,20 +358,27 @@ law_dedicated_police = {
 
 		if = {
 			limit = {
-				has_law = law_type:law_no_police
+				has_law_or_variant = law_type:law_no_police
 			}
 			add = 500
 		}
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_hawaii
+			}
+			add = 1000
 		}
 	}
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_dedicated_police
@@ -331,18 +391,18 @@ law_dedicated_police = {
 			limit = {
 				has_law = law_type:law_dedicated_police
 				scope:target_country = {
-					has_law = law_type:law_no_police
+					has_law_or_variant = law_type:law_no_police
 				}
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities
@@ -356,9 +416,9 @@ law_dedicated_police = {
 
 law_militarized_police = {
 	group = lawgroup_policing
-	
+
 	icon = "gfx/interface/icons/law_icons/militarized_police.dds"
-	
+
 	progressiveness = -100
 
 	unlocking_technologies = {
@@ -397,11 +457,11 @@ law_militarized_police = {
 
 		if = {
 			limit = {
-				has_law = law_type:law_no_police
+				has_law_or_variant = law_type:law_no_police
 			}
 			add = 500
 		}
-		
+
 		if = {
 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
 			add = 750
@@ -410,7 +470,7 @@ law_militarized_police = {
 
 	ai_impose_chance = {
 		value = 0
-		
+
 		if = {
 			limit = {
 				has_law = law_type:law_militarized_police
@@ -423,18 +483,18 @@ law_militarized_police = {
 			limit = {
 				has_law = law_type:law_militarized_police
 				scope:target_country = {
-					has_law = law_type:law_no_police
+					has_law_or_variant = law_type:law_no_police
 				}
 				power_bloc ?= { has_principle_group = principle_group:principle_group_police_coordination }
 			}
 			add = 10
 		}
-			
+
 		if = {
 			limit = {
 				scope:target_country = {
 					c:BIC ?= this
-					OR = {	
+					OR = {
 						has_journal_entry = je_british_dictate_plantations
 						has_journal_entry = je_british_dictate_military
 						has_journal_entry = je_british_dictate_universities
