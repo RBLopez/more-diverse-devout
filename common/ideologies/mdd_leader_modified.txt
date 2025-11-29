@@ -47,11 +47,11 @@ ideology_corporatist_leader = {
 			has_role = agitator
 			owner = {
 				NOT = {
-					has_law = law_type:law_council_republic
+					has_law_or_variant = law_type:law_council_republic
 				}
-				has_law = law_type:law_religious_schools
-				has_law = law_type:law_regulatory_bodies
-				has_law = law_type:law_wage_subsidies
+				has_law_or_variant = law_type:law_religious_schools
+				has_law_or_variant = law_type:law_regulatory_bodies
+				has_law_or_variant = law_type:law_wage_subsidies
 			}
 		}
 	}
@@ -63,11 +63,11 @@ ideology_corporatist_leader = {
 			limit = {
 				owner = {
 					NOT = {
-						has_law = law_type:law_council_republic
+						has_law_or_variant = law_type:law_council_republic
 					}
-					has_law = law_type:law_religious_schools
-					has_law = law_type:law_regulatory_bodies
-					has_law = law_type:law_wage_subsidies
+					has_law_or_variant = law_type:law_religious_schools
+					has_law_or_variant = law_type:law_regulatory_bodies
+					has_law_or_variant = law_type:law_wage_subsidies
 				}
 			}
 			add = -25
@@ -102,8 +102,8 @@ ideology_corporatist_leader = {
 				}
 				ig_approval >= 0
 				owner = {
-					NOT = { has_law = law_type:law_council_republic }
-					NOT = { has_law = law_type:law_state_atheism }
+					NOT = { has_law_or_variant = law_type:law_council_republic }
+					NOT = { has_law_or_variant = law_type:law_state_atheism }
 				}
 			}
 			add = 25
@@ -187,7 +187,7 @@ ideology_traditionalist = {
 	lawgroup_church_and_state = {
 		law_state_religion = approve
 		law_freedom_of_conscience = neutral
-		# law_religious_tolerance = disapprove
+		law_religious_tolerance = disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -214,9 +214,9 @@ ideology_traditionalist = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_no_womens_rights
-				has_law = law_type:law_state_religion
-				has_law = law_type:law_hindu_caste_enforced
+				has_law_or_variant = law_type:law_no_womens_rights
+				has_law_or_variant = law_type:law_state_religion
+				has_law_or_variant = law_type:law_hindu_caste_enforced
 			}
 		}
 		interest_group = {
@@ -333,7 +333,7 @@ ideology_communist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		# law_religious_tolerance = disapprove
+		law_religious_tolerance = disapprove
 		law_total_separation = neutral
 		law_state_atheism = approve
 	}
@@ -367,16 +367,16 @@ ideology_communist = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_collectivized_agriculture
-				has_law = law_type:law_state_atheism
-				has_law = law_type:law_council_republic
-				has_law = law_type:law_worker_protections
+				has_law_or_variant = law_type:law_collectivized_agriculture
+				has_law_or_variant = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_council_republic
+				has_law_or_variant = law_type:law_worker_protections
 			}
 		}
 		# Monarchs cannot be republicans
 		NAND = {
 			owner = {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 			}
 			OR = {
 				is_ruler = yes
@@ -393,7 +393,7 @@ ideology_communist = {
 		if = {
 			limit = {
 				owner = {
-					NOT = { has_law = law_type:law_council_republic }
+					NOT = { has_law_or_variant = law_type:law_council_republic }
 				}
 				NOT = { is_interest_group_type = ig_armed_forces }
 				ig_approval <= -5
@@ -404,7 +404,7 @@ ideology_communist = {
 		if = {
 			limit = {
 				owner = {
-					NOT = { has_law = law_type:law_council_republic }
+					NOT = { has_law_or_variant = law_type:law_council_republic }
 					average_sol <= 10
 				}
 			}
@@ -414,7 +414,7 @@ ideology_communist = {
 			limit = {
 				owner = {
 					NOT = {
-						has_law = law_type:law_council_republic
+						has_law_or_variant = law_type:law_council_republic
 					}
 				}
 				is_interest_group_type = ig_armed_forces
@@ -487,7 +487,7 @@ ideology_theocrat = {
 	lawgroup_church_and_state = {
 		law_state_religion = approve
 		law_freedom_of_conscience = disapprove
-		# law_religious_tolerance = strongly_disapprove
+		law_religious_tolerance = strongly_disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -514,7 +514,7 @@ ideology_theocrat = {
 		#added to vanilla: not possible for in-gov interest groups under state atheism
 		NAND = {
 			owner = {
-				has_law = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_state_atheism
 			}
 			#interest_group = {
 				is_in_government = yes
@@ -527,8 +527,8 @@ ideology_theocrat = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_theocracy
-				has_law = law_type:law_state_religion
+				has_law_or_variant = law_type:law_theocracy
+				has_law_or_variant = law_type:law_state_religion
 			}
 		}
 		interest_group = {
@@ -545,11 +545,11 @@ ideology_theocrat = {
 				is_interest_group_type = ig_devout
 				owner = {
 					NOR = {
-						has_law = law_type:law_theocracy
-						has_law = law_type:law_monarchy
+						has_law_or_variant = law_type:law_theocracy
+						has_law_or_variant = law_type:law_monarchy
 					}
 					NOT = {
-						has_law = law_type:law_state_religion
+						has_law_or_variant = law_type:law_state_religion
 					}
 				}
 			}
@@ -572,11 +572,11 @@ ideology_theocrat = {
 				ig_approval >= 5
 				owner = {
 					NOR = {
-						has_law = law_type:law_theocracy
-						has_law = law_type:law_monarchy
+						has_law_or_variant = law_type:law_theocracy
+						has_law_or_variant = law_type:law_monarchy
 					}
 					NOT = {
-						has_law = law_type:law_state_religion
+						has_law_or_variant = law_type:law_state_religion
 					}
 				}
 			}
@@ -641,7 +641,7 @@ ideology_traditionalist_minoritarian = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		# law_religious_tolerance = neutral #added
+		law_religious_tolerance = neutral #added
 		law_total_separation = approve
 		law_state_atheism = strongly_disapprove
 	}
@@ -670,8 +670,8 @@ ideology_traditionalist_minoritarian = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_no_womens_rights
-				has_law = law_type:law_state_religion
+				has_law_or_variant = law_type:law_no_womens_rights
+				has_law_or_variant = law_type:law_state_religion
 			}
 		}
 		interest_group = {
@@ -769,7 +769,7 @@ ideology_positivist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = disapprove
-		# law_religious_tolerance = disapprove
+		law_religious_tolerance = disapprove
 		law_total_separation = approve
 		law_state_atheism = strongly_approve
 	}
@@ -807,16 +807,16 @@ ideology_positivist = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_appointed_bureaucrats
-				has_law = law_type:law_technocracy
-				has_law = law_type:law_state_atheism
-				has_law = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_appointed_bureaucrats
+				has_law_or_variant = law_type:law_technocracy
+				has_law_or_variant = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_presidential_republic
 			}
 		}
 		# Monarchs cannot be republicans
 		NAND = {
 			owner = {
-				has_law = law_type:law_monarchy
+				has_law_or_variant = law_type:law_monarchy
 			}
 			OR = {
 				is_ruler = yes
@@ -841,12 +841,12 @@ ideology_positivist = {
 		if = {
 			limit = {
 				owner = { 
-					has_law = law_type:law_monarchy
+					has_law_or_variant = law_type:law_monarchy
 					OR = {
-						has_law = law_type:law_wealth_voting
-						has_law = law_type:law_census_voting
-						has_law = law_type:law_universal_suffrage
-						has_law = law_type:law_landed_voting
+						has_law_or_variant = law_type:law_wealth_voting
+						has_law_or_variant = law_type:law_census_voting
+						has_law_or_variant = law_type:law_universal_suffrage
+						has_law_or_variant = law_type:law_landed_voting
 					}
 				}
 			}
@@ -938,7 +938,7 @@ ideology_integralist = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_approve
 		law_freedom_of_conscience = disapprove
-		# law_religious_tolerance = strongly_disapprove
+		law_religious_tolerance = strongly_disapprove
 		law_total_separation = strongly_disapprove
 		law_state_atheism = strongly_disapprove
 	}
@@ -1000,10 +1000,10 @@ ideology_integralist = {
 		NAND = {
 			has_role = agitator
 			owner = {
-				has_law = law_type:law_autocracy
-				has_law = law_type:law_cultural_exclusion
-				has_law = law_type:law_state_religion
-				has_law = law_type:law_militarized_police
+				has_law_or_variant = law_type:law_autocracy
+				has_law_or_variant = law_type:law_cultural_exclusion
+				has_law_or_variant = law_type:law_state_religion
+				has_law_or_variant = law_type:law_militarized_police
 			}
 		}
 		interest_group = {
@@ -1040,7 +1040,7 @@ ideology_integralist = {
 		if = {
 			limit = {
 				owner = {
-					has_law = law_type:law_council_republic
+					has_law_or_variant = law_type:law_council_republic
 				}
 			}
 			add = -75
@@ -1050,8 +1050,8 @@ ideology_integralist = {
 			limit = {
 				owner = {
 					NOT = { 
-						has_law = law_type:law_autocracy
-						has_law = law_type:law_state_religion
+						has_law_or_variant = law_type:law_autocracy
+						has_law_or_variant = law_type:law_state_religion
 					}
 				}
 				ig_approval <= -5
@@ -1064,8 +1064,8 @@ ideology_integralist = {
 			limit = {
 				owner = {
 					NOT = {
-						has_law = law_type:law_autocracy
-						has_law = law_type:law_state_religion
+						has_law_or_variant = law_type:law_autocracy
+						has_law_or_variant = law_type:law_state_religion
 					}
 				}
 				ig_approval >= 5
@@ -1180,7 +1180,7 @@ ideology_despotic_utopian = {
 	lawgroup_church_and_state = {
 		law_state_religion = strongly_disapprove
 		law_freedom_of_conscience = neutral
-		# law_religious_tolerance = neutral
+		law_religious_tolerance = neutral
 		law_state_atheism = neutral
 		law_total_separation = approve
 	}
@@ -1252,13 +1252,13 @@ ideology_despotic_utopian = {
 			limit = {
 				owner = { 
 					OR = {
-						has_law = law_type:law_autocracy
-						has_law = law_type:law_oligarchy
-						has_law = law_type:law_technocracy
-						has_law = law_type:law_single_party_state
+						has_law_or_variant = law_type:law_autocracy
+						has_law_or_variant = law_type:law_oligarchy
+						has_law_or_variant = law_type:law_technocracy
+						has_law_or_variant = law_type:law_single_party_state
 					}
-					has_law = law_type:law_multicultural
-					has_law = law_type:law_isolationism
+					has_law_or_variant = law_type:law_multicultural
+					has_law_or_variant = law_type:law_isolationism
 				}
 			}
 			add = -50
@@ -1371,9 +1371,9 @@ ideology_atheist = {
 			limit = {
 				owner = {
 					NOR = {
-						has_law = law_type:law_state_religion
-						has_law = law_type:law_theocracy
-						has_law = law_type:law_monarchy
+						has_law_or_variant = law_type:law_state_religion
+						has_law_or_variant = law_type:law_theocracy
+						has_law_or_variant = law_type:law_monarchy
 					}
 				}
 			}

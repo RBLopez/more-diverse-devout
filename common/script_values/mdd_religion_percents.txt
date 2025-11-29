@@ -1,4 +1,7 @@
-﻿religion_percent_anglican = {
+﻿# as of 1.11 this is working on the debug log "religion_percent_country(rel:protestant)" > 0.8
+
+
+religion_percent_anglican = {
 	value = 0
 	if = {
 		limit = {

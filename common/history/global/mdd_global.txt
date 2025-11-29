@@ -141,9 +141,12 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_state_religion }
+				OR = {
+					this = { has_law = law_type:law_state_religion }
+					this = { has_law = law_type:law_freedom_of_conscience }
+				}	
 			}
-			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_hindu_syncretism
 		}
 	}
 
@@ -156,9 +159,12 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_state_religion }
+				OR = {
+					this = { has_law = law_type:law_state_religion }
+					this = { has_law = law_type:law_freedom_of_conscience }
+				}	
 			}
-			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_buddhist_syncretism
 		}
 	}
 
@@ -171,9 +177,12 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_state_religion }
+				OR = {
+					this = { has_law = law_type:law_state_religion }
+					this = { has_law = law_type:law_freedom_of_conscience }
+				}
 			}
-			activate_law = law_type:law_freedom_of_conscience
+			activate_law = law_type:law_buddhist_syncretism
 		}
 	}
 
@@ -183,6 +192,15 @@ GLOBAL = {
 		ig:ig_devout = {
 			effect_remove_religious_ideologies_all = yes
 			effect_set_religious_ideology_gelugpa = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					this = { has_law = law_type:law_state_religion }
+					this = { has_law = law_type:law_freedom_of_conscience }
+				}
+			}
+			activate_law = law_type:law_buddhist_syncretism
 		}
 	}
 
@@ -195,7 +213,10 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_state_religion }
+				OR = {
+					this = { has_law = law_type:law_state_religion }
+					this = { has_law = law_type:law_freedom_of_conscience }
+				}
 			}
 			activate_law = law_type:law_three_teachings
 		}
@@ -252,7 +273,7 @@ GLOBAL = {
 		}
 	}
 
-	#country-specific law and IG tinkering
+	# country-specific law and IG tinkering
 	every_country = {
 		limit = {
 			this = c:CHI

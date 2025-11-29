@@ -31,7 +31,7 @@ ideology_traditionalist_minoritarian_valid_trigger = {
 		is_interest_group_type = ig_armed_forces
 		is_interest_group_type = ig_petty_bourgeoisie
 		is_interest_group_type = ig_landowners
-		is_interest_group_type = ig_devout
+		# is_interest_group_type = ig_devout #removed
 		is_interest_group_type = ig_minority_faiths #added
 	}
 	trigger_if = {

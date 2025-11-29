@@ -278,6 +278,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
+			#todo: add an additional check here to not allow this for colonial nations?
 			religion_percent_animist > local_var:top_minority_faith_percent
 		}
 		set_variable = {
