@@ -46,12 +46,24 @@ ideology_traditionalist_minoritarian_valid_trigger = {
 	}
 }
 
+# country scope
 country_is_buddhist = {
     OR = {
         country_has_state_religion = rel:mahayana
 		country_has_state_religion = rel:gelugpa
 		country_has_state_religion = rel:theravada
     }
+}
+
+# country scope
+is_settler_colony = {
+	OR = {
+		is_country_type = colonial
+		is_country_type = company
+	}
+	NOT = {
+		has_law_or_variant = law_type:law_extraction_economy
+	}
 }
 
 #assumes pop scope

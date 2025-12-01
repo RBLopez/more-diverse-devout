@@ -259,7 +259,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_anglican > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:anglican)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -267,7 +267,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_anglican
+			value = "religion_percent_country(rel:anglican)"
 		}
 	}
 	#check animist
@@ -278,8 +278,14 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			#todo: add an additional check here to not allow this for colonial nations?
-			religion_percent_animist > local_var:top_minority_faith_percent
+			NOT = { #settler colonies, unless very liberal, don't give a shit about 'native' religions enough for them to be an organizing force politically
+				is_settler_colony = yes
+				NOR = {
+					has_law_or_variant = law_type:law_total_separation
+					has_law_or_variant = law_type:law_multicultural
+				}
+			}
+			"religion_percent_country(rel:animist)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -287,7 +293,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_animist
+			value = "religion_percent_country(rel:animist)"
 		}
 	}
 	#check atheist
@@ -298,7 +304,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_atheist > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:atheist)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -306,7 +312,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_atheist
+			value = "religion_percent_country(rel:atheist)"
 		}
 	}
 	#check catholic
@@ -317,7 +323,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_catholic > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:catholic)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -325,7 +331,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_catholic
+			value = "religion_percent_country(rel:catholic)"
 		}
 	}
 	#check confucian
@@ -336,7 +342,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_confucian > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:confucian)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -344,7 +350,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_confucian
+			value = "religion_percent_country(rel:confucian)"
 		}
 	}
 	#check gelugpa
@@ -355,7 +361,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_gelugpa > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:gelugpa)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -363,7 +369,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_gelugpa
+			value = "religion_percent_country(rel:gelugpa)"
 		}
 	}
 	#check hindu
@@ -374,7 +380,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_hindu > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:hindu)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -382,7 +388,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_hindu
+			value = "religion_percent_country(rel:hindu)"
 		}
 	}
 	#check jewish
@@ -393,7 +399,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_jewish > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:jewish)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -401,7 +407,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_jewish
+			value = "religion_percent_country(rel:jewish)"
 		}
 	}
 	#check mahayana
@@ -412,7 +418,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_mahayana > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:mahayana)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -420,7 +426,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_mahayana
+			value = "religion_percent_country(rel:mahayana)"
 		}
 	}
 	#check oriental_orthodox
@@ -431,7 +437,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_oriental_orthodox > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:oriental_orthodox)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -439,7 +445,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_oriental_orthodox
+			value = "religion_percent_country(rel:oriental_orthodox)"
 		}
 	}
 	#check orthodox
@@ -450,7 +456,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_orthodox > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:orthodox)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -458,7 +464,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_orthodox
+			value = "religion_percent_country(rel:orthodox)"
 		}
 	}
 	#check protestant
@@ -469,7 +475,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_protestant > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:protestant)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -477,7 +483,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_protestant
+			value = "religion_percent_country(rel:protestant)"
 		}
 	}
 	#check shiite
@@ -488,7 +494,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_shiite > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:shiite)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -496,7 +502,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_shiite
+			value = "religion_percent_country(rel:shiite)"
 		}
 	}
 	#check ibadi
@@ -507,7 +513,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_ibadi > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:ibadi)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -515,7 +521,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_ibadi
+			value = "religion_percent_country(rel:ibadi)"
 		}
 	}
 	#check shinto
@@ -526,7 +532,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_shinto > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:shinto)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -534,7 +540,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_shinto
+			value = "religion_percent_country(rel:shinto)"
 		}
 	}
 	#check sikh
@@ -545,7 +551,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_sikh > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:sikh)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -553,7 +559,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_sikh
+			value = "religion_percent_country(rel:sikh)"
 		}
 	}
 	#check sunni
@@ -564,7 +570,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_sunni > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:sunni)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -572,7 +578,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_sunni
+			value = "religion_percent_country(rel:sunni)"
 		}
 	}
 	#check theravada
@@ -583,7 +589,7 @@ effect_set_minority_faith_country_var = {
 					is_state_religion = prev
 				}
 			}
-			religion_percent_theravada > local_var:top_minority_faith_percent
+			"religion_percent_country(rel:theravada)" > local_var:top_minority_faith_percent
 		}
 		set_variable = {
 			name = minority_faith
@@ -591,7 +597,7 @@ effect_set_minority_faith_country_var = {
 		}
 		set_local_variable = {
 			name = top_minority_faith_percent
-			value = religion_percent_theravada
+			value = "religion_percent_country(rel:theravada)"
 		}
 	}
 	#set up new leader if necessary
