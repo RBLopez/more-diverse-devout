@@ -1,7 +1,15 @@
-﻿country_institution_cost_institution_welfare_mult={
+﻿country_institution_cost_institution_welfare_mult = {
 	decimals=0
 	color=bad
 	percent=yes
+	game_data={
+		ai_value=0
+	}
+}
+
+state_anglican_standard_of_living_add = {
+	decimals=1
+	color=good
 	game_data={
 		ai_value=0
 	}

@@ -1,4 +1,4 @@
-﻿## Modified from Vanilla
+﻿# modified from Vanilla
 ideology_traditionalist_valid_trigger = {
 	OR = {
 		is_interest_group_type = ig_rural_folk
@@ -7,7 +7,7 @@ ideology_traditionalist_valid_trigger = {
 		is_interest_group_type = ig_petty_bourgeoisie
 		is_interest_group_type = ig_landowners
 		is_interest_group_type = ig_devout
-		is_interest_group_type = ig_minority_faiths #added
+		# is_interest_group_type = ig_minority_faiths #NOT added, use minoritarian traditionalist instead
 	}
 	trigger_if = {
 		limit = {
@@ -24,6 +24,7 @@ ideology_traditionalist_valid_trigger = {
 	}
 }
 
+# modified from Vanilla
 ideology_traditionalist_minoritarian_valid_trigger = {
 	OR = {
 		is_interest_group_type = ig_rural_folk
@@ -43,6 +44,14 @@ ideology_traditionalist_minoritarian_valid_trigger = {
 			is_interest_group_type = ig_industrialists
 		}
 	}
+}
+
+country_is_buddhist = {
+    OR = {
+        country_has_state_religion = rel:mahayana
+		country_has_state_religion = rel:gelugpa
+		country_has_state_religion = rel:theravada
+    }
 }
 
 #assumes pop scope

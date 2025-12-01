@@ -223,3 +223,65 @@ effect_set_manor_house_religious_pm = {
 		}
 	}
 }
+
+#country scope. sets correct religious administration law variant based on the state religion
+effect_set_religious_administration_law = {
+	if = {
+		limit = {
+			OR = {
+				religion = rel:sunni
+				religion = rel:shiite
+				religion = rel:ibadi
+			}
+			NOT = { has_law = law_type:law_people_of_the_book }
+		}
+		activate_law = law_type:law_people_of_the_book	
+	}
+	else_if = {
+		limit = {
+			religion = rel:confucian
+			NOT = { has_law = law_type:law_imperial_exams }
+		}
+		activate_law = law_type:law_imperial_exams
+	}
+}
+
+#country scope. sets correct religious jurisprudence law variant based on the state religion
+effect_set_religious_jurisprudence_law = {
+	if = {
+		limit = {
+			OR = {
+				religion = rel:sunni
+				religion = rel:shiite
+				religion = rel:ibadi
+			}
+			NOT = { has_law = law_type:law_sharia }
+		}
+		activate_law = law_type:law_sharia	
+	}
+	else_if = {
+		limit = {
+			religion = rel:jewish
+			NOT = { has_law = law_type:law_jewish_courts }
+		}
+		activate_law = law_type:law_jewish_courts
+	}
+}
+
+#country scope. sets correct religious charity law variant based on the state religion
+effect_set_religious_charity_law = {
+	if = {
+		limit = {
+			religion = rel:sikh
+			NOT = { has_law = law_type:law_langar }
+		}
+		activate_law = law_type:law_langar	
+	}
+	else_if = {
+		limit = {
+			religion = rel:hindu
+			NOT = { has_law = law_type:law_hindu_charity }
+		}
+		activate_law = law_type:law_hindu_charity
+	}
+}
