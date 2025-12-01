@@ -172,7 +172,7 @@ law_religious_jurisprudence = {
 
 }
 
-law_sharia = { 
+law_sharia = { #islamic flavor
 	group = lawgroup_policing
 	parent = law_religious_jurisprudence
 	
@@ -185,16 +185,13 @@ law_sharia = {
 	progressiveness = 50
 
 	is_visible = {
-		OR = {
-			country_has_state_religion = rel:sunni
-			country_has_state_religion = rel:shiite
-			country_has_state_religion = rel:ibadi
-		}
+		country_is_islamic = yes
 	}
 
-	disallowing_laws = {
-		law_total_separation
-		law_state_atheism
+	requires_law_or = {
+		law_theocracy
+		law_subjecthood
+		law_state_religion
 	}
 
 	modifier = {
@@ -287,9 +284,10 @@ law_jewish_courts = { #Jewish flavor, naming TBD
 		country_has_state_religion = rel:jewish
 	}
 
-	disallowing_laws = {
-		law_total_separation
-		law_state_atheism
+	requires_law_or = {
+		law_theocracy
+		law_subjecthood
+		law_state_religion
 	}
 
 	modifier = {

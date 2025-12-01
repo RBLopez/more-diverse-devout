@@ -62,7 +62,7 @@ law_state_religion = {
 
 	progressiveness = -50
 
-	is_visible = { # Only visible if a variant is not chosen
+	is_visible = { # Only visible if a blocking variant is not chosen
 		NOT = {
 			has_law = law_type:law_millet_system
 		}
@@ -188,19 +188,11 @@ law_millet_system = { # Ottoman Empire
 
 	requires_law_or = {
 		law_theocracy
-		law_monarchy
+		law_subjecthood
 	}
 
-	# remove this modification in 1.13
 	is_visible = {
-		OR = {
-			c:TUR ?= this # For the Ottoman Empire and its subjects
-			AND = {
-				exists = c:TUR
-				is_subject_of = c:TUR
-				country_has_state_religion = rel:sunni
-			}
-		}
+		c:TUR ?= this # For the Ottoman Empire and its subjects
 	}
 
 	on_enact = {
@@ -237,7 +229,7 @@ law_millet_system = { # Ottoman Empire
 		country_authority_add = 200
 		state_conversion_mult = -0.50
 
-		state_conscription_rate_mult = -0.4
+		# state_conscription_rate_mult = -0.4
 
 		country_acceptance_state_religion_add = 25
 		country_acceptance_shared_religious_trait_add = 10
@@ -249,6 +241,126 @@ law_millet_system = { # Ottoman Empire
 		country_allow_conversion_open_prejudice_bool = yes
 		country_allow_conversion_second_rate_citizen_bool = yes
 		country_allow_conversion_full_acceptance_bool = yes
+	}
+
+	tax_modifier_very_low = {
+		
+	}
+
+	tax_modifier_low = {
+		
+	}
+
+	tax_modifier_medium = {
+		
+	}
+
+	tax_modifier_high = {
+		
+	}
+
+	tax_modifier_very_high = {
+		
+	}
+
+	can_impose = {
+		always = no
+	}
+
+	ai_will_do = {
+		exists = ruler
+		ruler = {
+			has_ideology = ideology:ideology_theocrat
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0 # Will not happen
+	}
+}
+
+law_people_of_the_book = { # Other Muslim states
+	group = lawgroup_church_and_state
+	parent = law_state_religion # Inherits ideological stances from parent
+
+	icon = "gfx/interface/icons/law_icons/people_of_the_book.dds"
+
+	progressiveness = -50
+
+	requires_law_or = {
+		law_theocracy
+		law_subjecthood
+	}
+
+	is_visible = {
+		country_is_islamic = yes
+		NOT = {
+			c:TUR ?= this # For the Ottoman Empire and its subjects
+		}
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.3
+		country_authority_add = 200
+		state_conversion_mult = -0.50
+
+		# state_conscription_rate_mult = -0.4
+
+		country_acceptance_state_religion_add = 25
+		country_acceptance_shared_religious_trait_add = 5
+		country_acceptance_shared_religious_trait_group_add = 5
+		country_acceptance_no_shared_religious_trait_add = -25
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
+	}
+
+	tax_modifier_very_low = {
+		
+	}
+
+	tax_modifier_low = {
+		
+	}
+
+	tax_modifier_medium = {
+		
+	}
+
+	tax_modifier_high = {
+		
+	}
+
+	tax_modifier_very_high = {
+		
 	}
 
 	can_impose = {
@@ -368,11 +480,7 @@ law_buddhist_syncretism = {
 	progressiveness = -50
 
 	is_visible = {
-		OR = {
-			country_has_state_religion = rel:mahayana
-			country_has_state_religion = rel:gelugpa
-			country_has_state_religion = rel:theravada
-		}
+		country_is_buddhist = yes
 	}
 
 	on_enact = {

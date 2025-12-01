@@ -1,4 +1,4 @@
-﻿# adding weight for reforms off religious bureaucracy as well as heriditary
+﻿# adding weight for reforms off religious bureaucracy as well as hereditary bureaucracy
 # REPLACE:law_appointed_bureaucrats = {
 # 	ai_enact_weight_modifier = {
 # 		value = 0
@@ -160,7 +160,7 @@ law_religious_administration = {
 	}
 }
 
-law_people_of_the_book = { #Islamic administration. Sunni only?
+law_dhimmi = { #Islamic administration.
 	group = lawgroup_bureaucracy
 	parent = law_religious_administration
 	
@@ -169,21 +169,19 @@ law_people_of_the_book = { #Islamic administration. Sunni only?
 	progressiveness = -50
 
 	is_visible = {
-		OR = {
-			country_has_state_religion = rel:sunni
-			country_has_state_religion = rel:shiite
-			country_has_state_religion = rel:ibadi
-		}
+		country_is_islamic = yes
 	}
 
-	disallowing_laws = {
-		law_council_republic
-		law_total_separation
+	requires_law_or = {
+		law_people_of_the_book
+		law_millet_system
 	}
 
 	modifier = {
 		state_bureaucracy_population_base_cost_factor_mult = -0.25
 		interest_group_ig_devout_pol_str_mult = 0.25
+
+		state_conscription_rate_mult = -0.4
 	}
 
 	tax_modifier_very_low = {
@@ -207,18 +205,9 @@ law_people_of_the_book = { #Islamic administration. Sunni only?
 	}
 
 	ai_will_do = {
-		owner.ig:ig_devout = {
-			law_stance = {
-				law = law_type:law_religious_administration
-				value > neutral
-			}
-		}
 		exists = ruler
 		ruler = {
-			OR = {
-				has_ideology = ideology:ideology_theocrat
-				interest_group = owner.ig:ig_devout
-			}
+			has_ideology = ideology:ideology_theocrat
 		}
 	}
 
@@ -257,9 +246,11 @@ law_imperial_exams = { # Confucian flavor
 		country_authority_add = -75
 	}
 
-	disallowing_laws = {
-		law_council_republic
-		law_total_separation
+	requires_law_or = {
+		law_theocracy
+		law_monarchy
+		law_chiefdom
+		law_state_religion
 	}
 
 	ai_enact_weight_modifier = { #Petitions
