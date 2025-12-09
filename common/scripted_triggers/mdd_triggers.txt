@@ -7,7 +7,6 @@ ideology_traditionalist_valid_trigger = {
 		is_interest_group_type = ig_petty_bourgeoisie
 		is_interest_group_type = ig_landowners
 		is_interest_group_type = ig_devout
-		# is_interest_group_type = ig_minority_faiths #NOT added, use minoritarian traditionalist instead
 	}
 	trigger_if = {
 		limit = {
@@ -18,7 +17,8 @@ ideology_traditionalist_valid_trigger = {
 			is_interest_group_type = ig_rural_folk
 			is_interest_group_type = ig_petty_bourgeoisie
 			is_interest_group_type = ig_landowners
-			is_interest_group_type = ig_devout
+			# is_interest_group_type = ig_devout #removed
+			is_interest_group_type = ig_minority_faiths #added
 			is_interest_group_type = ig_intelligentsia
 		}
 	}

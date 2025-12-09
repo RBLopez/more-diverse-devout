@@ -661,6 +661,14 @@ ideology_traditionalist_minoritarian = {
 		law_affirmative_action = strongly_disapprove
 	}
 
+	lawgroup_labour_associations = {
+		law_combination_acts = neutral
+		law_guild_system = approve
+		law_anti_strike_laws = neutral
+		law_corporatized_unions = neutral
+		law_right_to_associate = disapprove
+	}
+
 	interest_group_leader_trigger = {
 		ideology_traditionalist_minoritarian_valid_trigger = yes
 	}
