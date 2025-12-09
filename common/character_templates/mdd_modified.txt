@@ -1,0 +1,155 @@
+﻿BIC_radhakanta_deb = {
+	# Radhakanta Deb Bahadur
+	first_name = Radhakanta
+	last_name = Deb
+	historical = yes
+	ig_leader = yes
+    dna = dna_radhakanta_deb
+    culture = cu:bengali
+    religion = rel:hindu
+	birth_date = 1784.3.10
+	interest_group = ig_minority_faiths
+	ideology = ideology_traditionalist_minoritarian
+	traits = {
+        basic_political_operator
+        literary
+	}
+	trait_generation = { }
+}
+
+
+
+# Generated IG Leaders
+
+BIC_debendranath_tagore = { #Debendranath Tagore
+    first_name = Debendranath
+    last_name = Tagore
+    historical = yes
+    culture = cu:bengali
+    female = no
+    dna = dna_debendranath_tagore
+    religion = rel:hindu
+    ig_leader = yes
+    ideology = ideology_moderate
+    interest_group = ig_minority_faiths
+    birth_date = 1817.5.15
+    traits = {
+        persistent
+        honorable
+        direct
+    }
+    interest_group_leader_usage = {
+        country_trigger = {
+            exists = c:BIC
+            this = c:BIC
+			has_dlc_feature = ip2_content
+        }
+        interest_group_trigger = {
+            is_marginal = no
+            is_interest_group_type = ig_minority_faiths
+        }
+        earliest_usage_date = 1839.1.1
+        latest_usage_date = 1870.1.1
+        chance = 50
+    }
+}
+
+BIC_dayananda_saraswati = { #Dayananda Saraswati
+    first_name = Dayananda
+    last_name = Saraswati
+    historical = yes
+    culture = cu:gujarati
+    female = no
+    religion = rel:hindu
+    ig_leader = yes
+    ideology = ideology_feminist # Favoured equal rights for women
+    interest_group = ig_minority_faiths
+    birth_date = 1824.2.12
+    traits = {
+        pious
+        honorable
+        erudite
+    }
+    interest_group_leader_usage = {
+        country_trigger = {
+            exists = c:BIC
+            this = c:BIC
+			has_dlc_feature = ip2_content
+        }
+        interest_group_trigger = {
+            is_marginal = no
+            is_interest_group_type = ig_minority_faiths
+        }
+        earliest_usage_date = 1865.1.1
+        latest_usage_date = 1882.1.1
+        chance = 50
+    }
+}
+
+BIC_swami_vivkananda = { #Swami Vivekananda
+    first_name = Swami
+    last_name = Vivekananda
+    historical = yes
+    culture = cu:bengali
+    female = no
+    dna = dna_swami_vivekananda
+    religion = rel:hindu
+    ig_leader = yes
+    ideology = ideology_reformer
+    interest_group = ig_minority_faiths
+    birth_date = 1863.1.12
+    traits = {
+        pious
+        erudite
+        sickly
+    }
+    interest_group_leader_usage = {
+        country_trigger = {
+            exists = c:BIC
+            this = c:BIC
+			has_dlc_feature = ip2_content
+        }
+        interest_group_trigger = {
+            is_marginal = no
+            is_interest_group_type = ig_minority_faiths
+        }
+        earliest_usage_date = 1885.1.1
+        latest_usage_date = 1900.1.1
+        chance = 50
+    }
+}
+
+
+BIC_bal_gangadhar_tilak = { # Bal Gangadhar Tilak
+	first_name = Bal_Gangadhar
+	last_name = Tilak
+	historical = yes
+	female = no
+	is_agitator = yes
+	culture = cu:marathi
+	religion = rel:hindu
+	interest_group = ig_minority_faiths
+    dna = dna_bal_gangadhar_tilak
+	ideology = ideology_traditionalist_minoritarian
+	birth_date = 1856.6.23
+	traits = {
+		firebrand
+        pious
+		bigoted
+	}
+    agitator_usage = {
+        country_trigger = {
+			c:BIC ?= this
+			any_scope_state = {
+				state_region = s:STATE_BOMBAY
+			}
+			has_dlc_feature = ip2_content
+		}
+        interest_group_trigger = {
+			is_interest_group_type = ig_minority_faiths
+        }
+        earliest_usage_date = 1890.1.1
+        latest_usage_date = 1920.1.1
+        chance = 50
+    }
+}

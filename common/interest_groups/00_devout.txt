@@ -44,6 +44,30 @@
 	on_character_ig_membership = {
 		change_character_religion = scope:interest_group.owner.religion
 	}
+
+	priority_cultures = { #Country scope
+		#remove special handling for BIC, that's handled in minority devout now
+		rule = {
+			trigger = {
+				c:ZAN ?= this
+				any_primary_culture = {
+					cu:bedouin = this
+				}
+			}
+			cultures = {
+				swahili
+			}
+		}
+		rule = {
+			trigger = {
+				c:HAW ?= this
+				NOT = { has_variable = deported_americans }
+			}
+			cultures = {
+				yankee dixie british hawaiian
+			}
+		}
+	}
 		
 	
 	pop_potential = {
