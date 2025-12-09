@@ -1,0 +1,49 @@
+last_date = "1836.2.15"
+
+tests = {
+	RUS_devout_check = {
+		acceptable_fail_rate = 0.0
+		success = {
+			exists = c:RUS
+			c:RUS = {
+				ig:ig_devout = {
+					has_ideology = ideology:ideology_church_lands_russia
+				}
+			}
+		}
+		fail = {
+			game_date > "1836.2.10"
+		}
+	}
+
+	RUS_manor_house_check = {
+		acceptable_fail_rate = 0.0
+		success = {
+			exists = c:RUS
+			c:RUS = {
+				capital = {
+					any_scope_building = {
+						is_building_type = building_manor_house
+						has_active_production_method = pm_manor_house_church_lands
+					}
+				}
+			}
+		}
+		fail = {
+			game_date > "1836.2.10"
+		}
+	}
+
+	RUS_minority_faiths_check = {
+		acceptable_fail_rate = 0.0
+		success = {
+			exists = c:RUS
+			c:RUS = {
+				NOT = { exists = ig:ig_minority_faiths }
+			}
+		}
+		fail = {
+			game_date > "1836.2.10"
+		}
+	}
+}
