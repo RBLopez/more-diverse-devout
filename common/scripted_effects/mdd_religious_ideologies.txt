@@ -130,6 +130,17 @@ effect_set_religious_ideology_protestant = {
 		}
 		else_if = {
 			limit = {
+#				owner = {
+#					capital = {
+#						OR = {
+#							sr:region_north_germany
+#							sr:region_south_germany
+#							sr:region_poland
+#							sr:region_rhine
+#							sr:region_baltic
+#						}
+#					}
+#				}
 				OR = {
 					owner.capital.region ?= sr:region_north_germany
 					owner.capital.region ?= sr:region_south_germany
@@ -137,6 +148,7 @@ effect_set_religious_ideology_protestant = {
 					owner.capital.region ?= sr:region_rhine
 					owner.capital.region ?= sr:region_baltic
 				}
+
 			}
 			set_interest_group_name = ig_lutheran_church
 		}

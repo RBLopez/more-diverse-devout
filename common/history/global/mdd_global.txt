@@ -76,8 +76,12 @@ GLOBAL = {
 		if = {
 			limit = {
 				this = { has_law = law_type:law_hereditary_bureaucrats }
+				OR = {
+					this = { has_law = law_type:law_millet_system }
+					this = { has_law = law_type:law_people_of_the_book }
+				}
 			}
-			activate_law = law_type:law_people_of_the_book
+			activate_law = law_type:law_dhimmi
 		}
 	}
 
@@ -96,9 +100,13 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_hereditary_bureaucrats}
+				this = { has_law = law_type:law_hereditary_bureaucrats }
+				OR = {
+					this = { has_law = law_type:law_millet_system }
+					this = { has_law = law_type:law_people_of_the_book }
+				}
 			}
-			activate_law = law_type:law_people_of_the_book
+			activate_law = law_type:law_dhimmi
 		}
 	}
 
@@ -117,9 +125,13 @@ GLOBAL = {
 		}
 		if = {
 			limit = {
-				this = { has_law = law_type:law_hereditary_bureaucrats}
+				this = { has_law = law_type:law_hereditary_bureaucrats }
+				OR = {
+					this = { has_law = law_type:law_millet_system }
+					this = { has_law = law_type:law_people_of_the_book }
+				}
 			}
-			activate_law = law_type:law_people_of_the_book
+			activate_law = law_type:law_dhimmi
 		}
 	}
 
