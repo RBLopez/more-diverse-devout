@@ -141,20 +141,29 @@ effect_set_religious_ideology_protestant = {
 #						}
 #					}
 #				}
-				OR = {
-					owner.capital.region ?= sr:region_north_germany
-					owner.capital.region ?= sr:region_south_germany
-					owner.capital.region ?= sr:region_poland
-					owner.capital.region ?= sr:region_rhine
-					owner.capital.region ?= sr:region_baltic
+				# use new 'is_in_geographic_region' ?
+				owner = {
+					OR = {
+						is_in_geographic_region = geographic_region_greater_germany
+						is_in_geographic_region = geographic_region_scandinavia
+					}
 				}
+#				OR = {
+#					owner.capital.region ?= sr:region_north_germany
+#					owner.capital.region ?= sr:region_south_germany
+#					owner.capital.region ?= sr:region_poland
+#					owner.capital.region ?= sr:region_rhine
+#					owner.capital.region ?= sr:region_baltic
+#				}
 
 			}
 			set_interest_group_name = ig_lutheran_church
 		}
 		else_if = {
 			limit = {
-				owner = { country_is_in_europe = yes }
+				owner = {
+					is_in_geographic_region = geographic_region_europe
+				}
 			}
 			set_interest_group_name = ig_reformed_church
 		}
@@ -257,7 +266,7 @@ effect_set_religious_ideology_oriental_orthodox = {
 	if = {
 		limit = {
 			OR = {
-				owner = { country_is_in_middle_east = yes }
+				owner = { is_in_geographic_region = geographic_region_middle_east }
 				owner.capital.region = sr:region_nile_basin
 				owner.capital.region = sr:region_north_africa
 				owner.capital.region = sr:region_niger
@@ -268,7 +277,7 @@ effect_set_religious_ideology_oriental_orthodox = {
 	}
 	else_if = {
 		limit = {
-			owner = { country_is_in_africa = yes }
+			owner = { is_in_geographic_region = geographic_region_africa }
 		}
 		set_interest_group_name = ig_ethiopian_orthodox_church
 	}

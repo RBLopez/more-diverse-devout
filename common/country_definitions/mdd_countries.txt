@@ -1,13 +1,4 @@
-﻿#	TRY_REPLACE:ORG = {
-#		religion = anglican
-#	}
-#
-#	TRY_REPLACE:MKT = {
-#		religion = anglican
-#	}
-
-
-ORG = {
+﻿TRY_REPLACE:ORG = {
 	color = { 138  80 126 }
 	
 	country_type = colonial
@@ -19,7 +10,7 @@ ORG = {
 	capital = STATE_OREGON
 }
 
-MKT = {
+TRY_REPLACE:MKT = {
 	color = hsv{ 0.5  0.6  0.6 }
 	
 	country_type = unrecognized
@@ -31,7 +22,7 @@ MKT = {
 	capital = STATE_NICARAGUA
 }
 
-CHI = {
+TRY_REPLACE:CHI = {
 	color = { 252 185 61 }
 	
 	country_type = unrecognized

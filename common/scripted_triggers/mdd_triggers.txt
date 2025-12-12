@@ -1,5 +1,5 @@
 ﻿# modified from Vanilla
-ideology_traditionalist_valid_trigger = {
+REPLACE:ideology_traditionalist_valid_trigger = {
 	OR = {
 		is_interest_group_type = ig_rural_folk
 		is_interest_group_type = ig_trade_unions
@@ -25,7 +25,7 @@ ideology_traditionalist_valid_trigger = {
 }
 
 # modified from Vanilla
-ideology_traditionalist_minoritarian_valid_trigger = {
+REPLACE:ideology_traditionalist_minoritarian_valid_trigger = {
 	OR = {
 		is_interest_group_type = ig_rural_folk
 		is_interest_group_type = ig_trade_unions

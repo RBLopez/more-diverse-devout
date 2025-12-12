@@ -1,4 +1,4 @@
-﻿BIC_radhakanta_deb = {
+﻿REPLACE:BIC_radhakanta_deb = {
 	# Radhakanta Deb Bahadur
 	first_name = Radhakanta
 	last_name = Deb
@@ -21,7 +21,7 @@
 
 # Generated IG Leaders
 
-BIC_debendranath_tagore = { #Debendranath Tagore
+REPLACE:BIC_debendranath_tagore = { #Debendranath Tagore
     first_name = Debendranath
     last_name = Tagore
     historical = yes
@@ -54,7 +54,7 @@ BIC_debendranath_tagore = { #Debendranath Tagore
     }
 }
 
-BIC_dayananda_saraswati = { #Dayananda Saraswati
+REPLACE:BIC_dayananda_saraswati = { #Dayananda Saraswati
     first_name = Dayananda
     last_name = Saraswati
     historical = yes
@@ -86,7 +86,7 @@ BIC_dayananda_saraswati = { #Dayananda Saraswati
     }
 }
 
-BIC_swami_vivkananda = { #Swami Vivekananda
+REPLACE:BIC_swami_vivkananda = { #Swami Vivekananda
     first_name = Swami
     last_name = Vivekananda
     historical = yes
@@ -120,7 +120,7 @@ BIC_swami_vivkananda = { #Swami Vivekananda
 }
 
 
-BIC_bal_gangadhar_tilak = { # Bal Gangadhar Tilak
+REPLACE:BIC_bal_gangadhar_tilak = { # Bal Gangadhar Tilak
 	first_name = Bal_Gangadhar
 	last_name = Tilak
 	historical = yes

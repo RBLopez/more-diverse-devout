@@ -6,17 +6,19 @@
 # 	}
 # 
 
-pmg_government_administration_bureaucrat_professionalism = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
-	ai_selection = most_productive
-
+INJECT:pmg_government_administration_bureaucrat_professionalism = {
 	production_methods = {
-		pm_hereditary_bureaucrats
 		pm_religious_bureaucrats_main
-		pm_professional_bureaucrats
 	}
 }
 
+#replace/use pmg_additional_ownership_building_manor_house instead
+# production_methods = {
+#		pm_manor_house_clergy_ownership
+#		pm_manor_house_bureaucrat_ownership
+#	}
+
+#Deprecated
 pmg_administration_manor_house = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive
@@ -27,6 +29,7 @@ pmg_administration_manor_house = {
 	}
 }
 
+#NET NEW
 pmg_religious_relationship_manor_house = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
 	ai_selection = most_productive

@@ -1,4 +1,4 @@
-﻿ig_devout = {
+﻿REPLACE:ig_devout = {
 	color = hsv{ 0.50 0.30 0.67 }
 	texture = "gfx/interface/icons/ig_icons/devout.dds"
 	layer = "revolution_dynamic_devout"
@@ -65,6 +65,47 @@
 			}
 			cultures = {
 				yankee dixie british hawaiian
+			}
+		}
+		rule = {
+			trigger = {
+				country_has_state_religion = rel:protestant
+				OR = {
+					c:WBL ?= this
+					c:PHL ?= this
+				}
+				c:GBR ?= {
+					country_rank >= rank_value:major_power
+				}
+			}
+			cultures = {
+				british scottish
+			}
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				NOT = { has_variable = je_philippines_main_reliance_happened }
+				NOT = { any_primary_culture = { cu:filipino = this } }
+				NOT = { any_primary_culture = { cu:filipino_hispanophone = this } }
+				any_primary_culture = { cu:spanish = this }
+			}
+			cultures = {
+				spanish filipino_mestizo
+			}
+		}
+		rule = {
+			trigger = {
+				c:PHI ?= this
+				any_primary_culture = {
+					AND = {
+						cu:spanish = this
+						cu:filipino_hispanophone = this
+					}
+				}
+			}
+			cultures = {
+				spanish filipino_hispanophone
 			}
 		}
 	}

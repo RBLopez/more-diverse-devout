@@ -15,7 +15,7 @@
 # }
 
 
-british= { # "English" in localization
+TRY_REPLACE:british= { # "English" in localization
 	color= rgb{ 210 156 140 }
 	religion = anglican
 	heritage = heritage_british
@@ -159,11 +159,16 @@ british= { # "English" in localization
 	}
 }
 
-australian= {
+TRY_REPLACE:australian= {
 	color= hsv{ 0.61 0.50 0.68 }
 	religion = anglican
 	heritage = heritage_british
 	language = language_anglophone
+
+	obsessions = {
+		tea
+	}
+
 	traditions = { }
 	male_common_first_names = {
 		Adrian
@@ -285,11 +290,16 @@ australian= {
 	}
 }
 
-anglo_canadian= {
+TRY_REPLACE:anglo_canadian= {
 	color= hsv{ 0.22 0.22 0.45 }
 	religion = anglican
 	heritage = heritage_north_american_settler
 	language = language_anglophone
+
+	obsessions = {
+		tea
+	}
+
 	traditions = { }
 	male_common_first_names = {
 		Albert Alexander Alfred Angus Archibald Arthur Absalom
@@ -382,11 +392,16 @@ anglo_canadian= {
 	}
 }
 
-afro_caribbean= {
+TRY_REPLACE:afro_caribbean= {
 	color= hsv{ 0.32 0.27 0.32 }
 	religion = anglican
 	heritage = heritage_african_diaspora
 	language = language_patois
+
+	obsessions = {
+		liquor
+	}
+
 	traditions = { }
 	male_common_first_names = {
 		Anderson
