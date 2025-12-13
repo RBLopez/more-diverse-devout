@@ -1,0 +1,53 @@
+﻿INJECT_OR_CREATE:ideology_communist_movement = {
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
+	}
+}
+
+INJECT_OR_CREATE:ideology_nihilist_movement = {
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
+	}
+}
+
+INJECT_OR_CREATE:ideology_positivist_movement = {
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
+	}
+}
+
+INJECT_OR_CREATE:ideology_traditionalist_movement = {
+	lawgroup_church_and_state = {
+		law_religious_tolerance = disapprove
+	}
+
+	lawgroup_bureaucracy = {
+		law_religious_administration = approve
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = approve
+	}
+}
+
+INJECT_OR_CREATE:ideology_traditionalist_minoritarian_movement = {
+	lawgroup_bureaucracy = {
+		law_religious_administration = strongly_disapprove
+	}
+
+	lawgroup_policing = {
+		law_religious_jurisprudence = strongly_disapprove
+	}
+}

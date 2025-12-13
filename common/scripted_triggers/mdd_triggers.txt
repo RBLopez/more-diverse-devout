@@ -46,6 +46,16 @@ REPLACE:ideology_traditionalist_minoritarian_valid_trigger = {
 	}
 }
 
+#scope is interest group
+# REPLACE:ideology_theocrat_valid_trigger = {
+# 	OR = {
+# 		owner = {
+# 			has_law_or_variant = law_type:law_theocracy
+# 		}
+# 		is_interest_group_type = ig_devout
+# 	}
+# }
+
 # country scope
 country_is_buddhist = {
     OR = {
