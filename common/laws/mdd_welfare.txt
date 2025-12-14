@@ -22,7 +22,7 @@ law_religious_charity = {
 	}
 
 	modifier = {
-		country_institution_cost_institution_welfare_mult = -0.2
+		country_institution_cost_institution_social_security_mult = -0.5
 	}
 
 	institution = institution_social_security
@@ -55,7 +55,8 @@ law_langar = { #Sikh flavor
 	}
 
 	modifier = {
-		country_institution_cost_institution_welfare_mult = -0.2
+		country_institution_cost_institution_social_security_mult = -0.5
+		country_institution_social_security_max_investment_add = 4
 	}
 
 	institution = institution_social_security
@@ -92,7 +93,8 @@ law_hindu_charity = { #Hindu flavor, sure about this? naming TBD
 	}
 
 	modifier = {
-		country_institution_cost_institution_welfare_mult = -0.2
+		country_institution_cost_institution_social_security_mult = -0.5
+		country_institution_social_security_max_investment_add = 3
 	}
 
 	institution = institution_social_security

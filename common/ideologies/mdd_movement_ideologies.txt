@@ -28,11 +28,13 @@ INJECT_OR_CREATE:ideology_positivist_movement = {
 	}
 }
 
-INJECT_OR_CREATE:ideology_traditionalist_movement = {
+INJECT:ideology_traditionalist_movement = {
 	lawgroup_church_and_state = {
 		law_religious_tolerance = disapprove
 	}
+}
 
+INJECT_OR_CREATE:ideology_traditionalist_movement = {
 	lawgroup_bureaucracy = {
 		law_religious_administration = approve
 	}

@@ -1,32 +1,4 @@
-﻿# adding weight for reforms off religious bureaucracy as well as hereditary bureaucracy
-# REPLACE:law_appointed_bureaucrats = {
-# 	ai_enact_weight_modifier = {
-# 		value = 0
-# 
-# 		if = {
-# 			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
-# 			add = 750
-# 		}
-# 
-# 		if = {
-# 			limit = { 
-# 				OR = {
-# 					has_journal_entry = je_sick_man_bureaucracy
-# 					has_journal_entry = je_great_reforms_bureaucratic
-# 				}
-# 				OR = {
-# 					has_law_or_variant = law_type:law_hereditary_bureaucrats
-# 					has_law_or_variant = law_type:law_religious_administration
-# 				}
-# 				
-# 			}
-# 			add = 1000
-# 		}		
-# 	}
-# }
-# 
-
-
+﻿
 law_religious_administration = {
 	group = lawgroup_bureaucracy
 	
@@ -36,9 +8,7 @@ law_religious_administration = {
 
 	is_visible = { # only show for reference in places where the flavored variant is not available
 		NOR = {
-			country_has_state_religion = rel:sunni
-			country_has_state_religion = rel:shiite
-			country_has_state_religion = rel:ibadi
+			country_is_islamic = yes
 			c:CHI ?= this
 			AND = {
 				exists = c:CHI

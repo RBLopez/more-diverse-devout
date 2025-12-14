@@ -247,10 +247,16 @@ effect_set_religious_ideology_oriental_orthodox = {
 		limit = {
 			OR = {
 				owner = { is_in_geographic_region = geographic_region_middle_east }
-				owner.capital.region = sr:region_nile_basin
-				owner.capital.region = sr:region_north_africa
-				owner.capital.region = sr:region_niger
-				owner.capital.region = sr:region_senegal
+				AND = {
+					owner.capital = { exists = yes }
+					owner.capital.region = { exists = yes }
+					OR = {
+						owner.capital.region = sr:region_nile_basin
+						owner.capital.region = sr:region_north_africa
+						owner.capital.region = sr:region_niger
+						owner.capital.region = sr:region_senegal
+					}
+				}
 			}
 		}
 		set_interest_group_name = ig_coptic_church
@@ -459,6 +465,8 @@ effect_set_religious_ideology_gelugpa = {
 	##Naming localization
 	if = {
 		limit = {
+			owner.capital = { exists = yes }
+			owner.capital.region = { exists = yes }
 			owner.capital.region = sr:region_himalayas
 		}
 		set_interest_group_name = ig_yellow_hat
